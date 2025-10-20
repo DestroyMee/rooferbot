@@ -1,0 +1,31 @@
+{
+  "business": "Dachbau Müller",
+  "calendar_url": "https://calendly.com/dachbau-mueller/beratung",
+  "defaults": {
+    "area_m2": 120,
+    "material": "ziegel",
+    "lang": "de"
+  },
+  "snippets": {
+    "de": {
+      "pv": "PV auf Ziegeldächern ist meist möglich. Wichtig: Statik, Ausrichtung und Dachdurchdringungen. Grobe Faustzahl: 6–8 kWp bei 40–50 m² nutzbarer Fläche."
+    },
+    "en": {
+      "pv": "PV on tiled roofs is usually feasible. Key: structure, roof orientation and penetrations. Rough rule: 6–8 kWp for ~40–50 m² usable area."
+    }
+  },
+  "faq": {
+    "de": {
+      "wie lange dauert eine dachsanierung": "Üblich 1–2 Wochen je nach Fläche, Wetter und Materialverfügbarkeit.",
+      "bieten sie wartungsverträge an": "Ja, jährliche Dachinspektion inkl. Rinnenreinigung und Kontrolle der Anschlüsse.",
+      "arbeiten sie mit schiefer": "Ja, Schiefer ist möglich. Längere Vorlaufzeit einplanen.",
+      "gibt es förderungen dämmung": "Je nach Bundesland/BEG. Wir unterstützen bei Unterlagen – keine Rechtsberatung."
+    },
+    "en": {
+      "how long does a reroof take": "Typically 1–2 weeks depending on area, weather and material availability.",
+      "do you offer maintenance contracts": "Yes — annual roof inspection incl. gutter cleaning and checking junctions.",
+      "do you work with slate": "Yes, slate is possible; expect longer lead times.",
+      "are there insulation grants": "Depends on region/programs. We can help with paperwork (no legal advice)."
+    }
+  }
+}

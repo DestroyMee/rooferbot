@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2EC4B6"/><stop offset="1" stop-color="#1A8F86"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <!-- bubbles -->
+  <circle cx="330" cy="250" r="34" fill="#fff" opacity=".35"/>
+  <circle cx="770" cy="215" r="22" fill="#fff" opacity=".35"/>
+  <circle cx="800" cy="330" r="14" fill="#fff" opacity=".35"/>
+  <!-- sponge -->
+  <g transform="translate(540 450) rotate(-8)">
+    <rect x="-230" y="-120" width="460" height="110" rx="34" fill="#4CAF50"/>
+    <rect x="-230" y="-40" width="460" height="170" rx="40" fill="#FFD23F"/>
+    <circle cx="-140" cy="40" r="18" fill="#E8B92F"/><circle cx="-40" cy="80" r="13" fill="#E8B92F"/>
+    <circle cx="70" cy="30" r="16" fill="#E8B92F"/><circle cx="160" cy="85" r="12" fill="#E8B92F"/>
+  </g>
+  <!-- check badge -->
+  <circle cx="745" cy="555" r="95" fill="#fff"/>
+  <path d="M697 557 l33 34 l66 -72" fill="none" stroke="#1A8F86" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- text -->
+  <text x="540" y="790" text-anchor="middle" font-family="Arial Rounded MT Bold, Arial, Helvetica, sans-serif" font-weight="800" font-size="104" fill="#fff">haushalt</text>
+  <text x="540" y="890" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="74" fill="#FFD23F" letter-spacing="4">.GETESTET</text>
+</svg>

@@ -5,6 +5,7 @@ das **Creator Rewards Program** und **TikTok Shop (Affiliate)**.
 
 | Datei | Inhalt |
 |---|---|
+| [00-start-anleitung.md](00-start-anleitung.md) | Schritt für Schritt: Account anlegen bis erstes Video |
 | [01-nischen-analyse.md](01-nischen-analyse.md) | 3 Nischen im Vergleich + Empfehlung |
 | [02-hooks.md](02-hooks.md) | 30 Hooks, sortiert nach Typ |
 | [03-video-skripte.md](03-video-skripte.md) | 10 fertige Skripte (Voiceover + Shotlist) |

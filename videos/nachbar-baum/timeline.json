@@ -1,0 +1,15 @@
+{
+  "duration": 36.5,
+  "fps": 30,
+  "keywords": ["Nachbarn", "dein", "Dach?", "Dachrinne.", "Sturm", "Ziegel", "Aber:", "nicht", "sofort", "Frist", "wirklich,", "selbst", "Grenze", "Dachwissen!"],
+  "sentences": [
+    { "start": 0.3,  "end": 3.0,  "text": "Der Baum von deinem Nachbarn wächst über dein Dach?" },
+    { "start": 3.2,  "end": 6.4,  "text": "Laub verstopft deine Dachrinne." },
+    { "start": 6.7,  "end": 10.0, "text": "Äste können bei Sturm deine Ziegel zerschlagen." },
+    { "start": 10.3, "end": 15.3, "text": "Aber: Du darfst die Äste nicht einfach sofort absägen." },
+    { "start": 15.6, "end": 21.5, "text": "Erst musst du deinem Nachbarn eine Frist setzen." },
+    { "start": 22.0, "end": 27.6, "text": "Passiert nichts und stört der Ast wirklich," },
+    { "start": 27.8, "end": 32.5, "text": "darfst du ihn selbst an der Grenze kürzen." },
+    { "start": 33.0, "end": 36.3, "text": "Folg mir für mehr Dachwissen!" }
+  ]
+}

@@ -1,2 +1,3 @@
 videos/*/out/*
 !videos/*/out/nachbar-baum.mp4
+!videos/*/out/kuh-dach.mp4

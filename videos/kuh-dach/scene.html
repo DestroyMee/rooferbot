@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Kuh-Dach – Szene</title>
+<style>
+  @font-face { font-family: "Lucky"; src: url("vendor/luckiest-guy.woff2") format("woff2"); }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #8fd0f5; }
+  #sky { position: absolute; inset: 0; background: linear-gradient(#4fa9ec 0%, #a9dcf7 55%, #e3f4fc 100%); }
+  #winter { position: absolute; inset: 0; background: linear-gradient(#8aa6c2 0%, #cfdeea 60%, #f1f6fa 100%); opacity: 0; }
+  canvas { position: absolute; inset: 0; }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
+  #vhs { position: absolute; inset: 0; opacity: 0;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 3px, transparent 3px 7px), rgba(40,80,255,.18); }
+  #vhs div { position: absolute; left: 70px; top: 120px; font-family: "Lucky"; font-size: 120px; color: #fff;
+    -webkit-text-stroke: 16px #111; paint-order: stroke fill; }
+  #cap {
+    position: absolute; left: 0; right: 0; top: 1200px; text-align: center;
+    font-family: "Lucky", sans-serif; font-size: 150px; line-height: 1; color: #fff;
+    -webkit-text-stroke: 22px #111; paint-order: stroke fill;
+    text-shadow: 0 12px 0 rgba(0,0,0,.55); transform-origin: 50% 60%; white-space: nowrap;
+  }
+  #cap.key { color: #ffd400; }
+  #cap.boom { color: #ff3b2f; }
+  #meter { position: absolute; left: 50%; top: 110px; width: 760px; transform: translateX(-50%); opacity: 0;
+    background: #fff; border: 10px solid #111; border-radius: 40px; padding: 18px 26px 22px; box-shadow: 0 12px 0 rgba(0,0,0,.4); }
+  #meter .row { display: flex; align-items: center; gap: 22px; font-family: "Lucky"; font-size: 96px; color: #111; line-height: 1; }
+  #count { flex: 1; }
+  #kg { font-size: 60px; color: #555; }
+  #bar { position: relative; height: 46px; border: 8px solid #111; border-radius: 30px; margin-top: 14px; overflow: hidden; background: #e8e8e8; }
+  #fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #39c24a; }
+  #limit { position: absolute; top: -6px; bottom: -6px; width: 10px; background: #111; left: 92.3%; }
+  .card { position: absolute; left: 50%; top: 520px; transform: translateX(-50%); opacity: 0; white-space: nowrap;
+    font-family: "Lucky"; font-size: 104px; color: #111; background: #ffd400; border: 10px solid #111;
+    border-radius: 34px; padding: 26px 40px 14px; box-shadow: 0 12px 0 rgba(0,0,0,.4); text-align: center; line-height: 1.05; }
+  .card small { display: block; font-size: 60px; color: #333; }
+  #handle { position: absolute; left: 0; right: 0; top: 1440px; text-align: center; opacity: 0;
+    font-family: "Lucky"; font-size: 70px; color: #fff; -webkit-text-stroke: 12px #111; paint-order: stroke fill; }
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<div id="winter"></div>
+<div id="flash"></div>
+<div id="vhs"><div>◀◀ ZURÜCK</div></div>
+
+<div id="meter">
+  <div class="row">
+    <svg width="110" height="100" viewBox="0 0 110 100">
+      <path d="M8 22 L28 30 M102 22 L82 30" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+      <path d="M8 22 L28 30 M102 22 L82 30" stroke="#f3e7c9" stroke-width="5" stroke-linecap="round"/>
+      <rect x="22" y="14" width="66" height="76" rx="26" fill="#fff" stroke="#111" stroke-width="6"/>
+      <path d="M30 22 q12 -4 16 10 q-6 10 -16 4z" fill="#111"/>
+      <path d="M70 40 q12 2 12 14 q-10 4 -14 -6z" fill="#111"/>
+      <rect x="28" y="58" width="54" height="30" rx="14" fill="#f6a5b5" stroke="#111" stroke-width="5"/>
+      <circle cx="44" cy="73" r="4" fill="#111"/><circle cx="66" cy="73" r="4" fill="#111"/>
+      <circle cx="40" cy="44" r="5" fill="#111"/><circle cx="70" cy="30" r="5" fill="#111"/>
+    </svg>
+    <div id="count">× 0</div>
+    <div id="kg">0 KG</div>
+  </div>
+  <div id="bar"><div id="fill"></div><div id="limit"></div></div>
+</div>
+
+<div id="c1" class="card">≈ 100 KG<small>PRO M² DACH</small></div>
+<div id="c2" class="card">80 M² = 8 TONNEN</div>
+<div id="c3" class="card">1 KUH ≈ 650 KG</div>
+<div id="c4" class="card">8000 ÷ 650 ≈ 12</div>
+<div id="c5" class="card" style="background:#ff3b2f;color:#fff;-webkit-text-stroke:0;font-size:150px">13?!</div>
+<div id="c6" class="card" style="background:#fff">30 CM SCHNEE<small>= 12 KÜHE</small></div>
+
+<div id="cap"></div>
+<div id="handle">@DEIN.DACH.ACCOUNT</div>
+
+<script src="vendor/three.min.js"></script>
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const smooth = (a, b, t) => { const k = clamp((t - a) / (b - a)); return k * k * (3 - 2 * k); };
+const backOut = k => { const s = 1.9; k = clamp(k) - 1; return k * k * ((s + 1) * k + s) + 1; };
+const pop = (a, d, t) => (t < a ? 0 : backOut((t - a) / d));
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const R = rng(1313);
+const V = (x, y, z) => new THREE.Vector3(x, y, z);
+
+const W = 1080, H = 1920;
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setSize(W, H); renderer.setPixelRatio(1);
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+document.body.insertBefore(renderer.domElement, document.getElementById('flash'));
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 300);
+const hemi = new THREE.HemisphereLight(0xdff3ff, 0x5b7a3a, 1.25); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff3dd, 2.1);
+sun.position.set(14, 30, 12); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -22, right: 22, top: 22, bottom: -22, near: 1, far: 80 });
+sun.shadow.bias = -0.0008; sun.shadow.normalBias = 0.03; scene.add(sun);
+
+const mat = c => new THREE.MeshStandardMaterial({ color: c, flatShading: true, roughness: 0.9 });
+function box(w, h, d, c, x = 0, y = 0, z = 0, parent = scene) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), typeof c === 'number' ? mat(c) : c);
+  m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; parent.add(m); return m;
+}
+function blob(r, c, x, y, z, parent = scene, detail = 0) {
+  const m = new THREE.Mesh(new THREE.IcosahedronGeometry(r, detail), typeof c === 'number' ? mat(c) : c);
+  m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; parent.add(m); return m;
+}
+
+// ---------- Insel ----------
+const IX = 30, IZ = 22, CX = 1;
+const grass = box(IX, 0.3, IZ, 0x6cc04a, CX, -0.15, 0);
+const stripes = [];
+for (let i = 0; i < 15; i++) if (i % 2) { const s = box(IX / 15, 0.02, IZ, 0x63b543, CX - IX / 2 + (i + 0.5) * IX / 15, 0.01, 0); s.castShadow = false; stripes.push(s); }
+box(IX + 0.02, 0.35, IZ + 0.02, 0x9c9a94, CX, -0.45, 0);
+box(IX, 1.6, IZ, 0x8b5a33, CX, -1.4, 0);
+box(IX, 1.8, IZ, 0x6e4426, CX, -3.1, 0);
+for (let i = 0; i < 80; i++) {
+  const front = R() < 0.6;
+  blob(0.08 + R() * 0.12, R() < 0.5 ? 0x4a3020 : 0xb9b2a5, front ? CX - IX / 2 + R() * IX : CX + IX / 2 + 0.02, -0.9 - R() * 2.8, front ? IZ / 2 + 0.02 : -IZ / 2 + R() * IZ);
+}
+box(IX, 0.06, 1.6, 0xc9c6bf, CX, 0.03, 9.4);
+box(1.6, 0.06, 5.8, 0xd8d4cc, -1, 0.03, 6.1);
+for (let i = 0; i < 6; i++) blob(0.6, 0x3f9a3a, -11 + i * 1.3, 0.45, 8.0);
+for (let i = 0; i < 8; i++) blob(0.6, 0x3f9a3a, 2.5 + i * 1.3, 0.45, 8.0);
+// Zaun hinten
+for (let x = -13.5; x <= 15.5; x += 0.7) box(0.12, 0.9, 0.12, 0xffffff, x, 0.45, -10.3);
+box(29.5, 0.1, 0.08, 0xffffff, CX, 0.72, -10.3);
+// Bäume
+for (const [x, z, s] of [[-10, -6, 1], [12.5, -6.5, 1.2], [13, 4, 0.9]]) {
+  box(0.5 * s, 3 * s, 0.5 * s, 0x7a4b28, x, 1.5 * s, z);
+  blob(1.7 * s, 0x4aa043, x, 3.6 * s, z); blob(1.2 * s, 0x3d8b37, x + 0.8 * s, 4.4 * s, z - 0.4 * s);
+}
+
+// ---------- Haus ----------
+const HX = -1, HW = 4, WALL = 4, PITCH = THREE.MathUtils.degToRad(35), DEP = 3;
+const houseRoot = new THREE.Group(); scene.add(houseRoot);
+const walls = new THREE.Group(); houseRoot.add(walls);
+box(HW * 2, WALL, DEP * 2, 0xf3f1ec, HX, WALL / 2, 0, walls);
+const dark = 0x3a4652;
+box(1.2, 2.2, 0.08, 0x5a3a22, HX, 1.1, DEP + 0.04, walls);
+for (const x of [HX - 2.6, HX + 2.6]) { box(1.2, 1.2, 0.08, dark, x, 2.6, DEP + 0.04, walls); box(1.4, 0.12, 0.2, 0xffffff, x, 1.95, DEP + 0.08, walls); }
+for (const z of [-1.6, 1.6]) box(0.08, 1.2, 1.2, dark, HX + HW + 0.04, 2.6, z, walls);
+const rise = HW * Math.tan(PITCH);
+const tri = new THREE.Shape(); tri.moveTo(-HW, 0); tri.lineTo(HW, 0); tri.lineTo(0, rise); tri.lineTo(-HW, 0);
+const gables = [];
+for (const z of [DEP - 0.15, -DEP - 0.15]) {
+  const g = new THREE.Mesh(new THREE.ExtrudeGeometry(tri, { depth: 0.3, bevelEnabled: false }), mat(0xf3f1ec));
+  g.position.set(HX, WALL, z); g.castShadow = g.receiveShadow = true; houseRoot.add(g); gables.push(g);
+}
+const RIDGE_Y = WALL + rise + 0.55, OVER = 0.7, L = (HW + OVER) / Math.cos(PITCH), RD = DEP + 0.45;
+function slope(side) {
+  const g = new THREE.Group(); houseRoot.add(g);
+  box(L, 0.36, RD * 2, 0xf2c94c, side * L / 2, -0.33, 0, g);
+  box(L, 0.05, RD * 2, 0x2f80ed, side * L / 2, -0.125, 0, g);
+  for (let i = 0; i < 9; i++) box(0.12, 0.1, RD * 2, 0x9b6a3c, side * (0.3 + i * (L - 0.4) / 8), -0.05, 0, g);
+  for (let i = 0; i < 10; i++) { const t = box(L / 10 * 1.15, 0.16, RD * 2, i % 2 ? 0xc0442c : 0xb33d27, side * (i + 0.55) * L / 10, 0.08, 0, g); t.rotation.z = side * 0.06; }
+  for (let i = 0; i < 5; i++) box(0.5, 0.6, 0.12, 0x6d4a2c, side * (0.6 + i * (L - 1) / 4), -0.75, RD - 0.3, g);
+  const snow = box(L + 0.1, 1, RD * 2 + 0.1, 0xf7fbff, side * L / 2, 0.2, 0, g); snow.scale.y = 0.001; g.userData.snow = snow;
+  return g;
+}
+const slopes = { 1: slope(1), [-1]: slope(-1) };
+const ridgeCap = box(0.5, 0.3, RD * 2, 0x8f2f1f, HX, 0, 0, houseRoot);
+
+// Roof state as a pure function of t
+const LANDS = [5.7, 6.55, 7.15, 7.75, 11.2, 13.0, 14.8, 16.6, 18.4, 20.2, 22.0, 25.8];
+const CRASH = 31.2, REW_A = 32.8, REW_B = 33.5;
+const countAt = t => LANDS.filter(x => t >= x).length;
+function roofState(t) {
+  const rew = smooth(REW_A, REW_B, t);
+  const crash = smooth(CRASH, CRASH + 0.35, t) * (1 - rew);
+  const n = t < REW_B ? countAt(t) : 0;
+  const shake = (t > 27.8 && t < CRASH) ? Math.sin(t * 38) * 0.018 * smooth(27.8, 30.8, t) : 0;
+  const sag = (0.0045 * n + shake) * (1 - crash);
+  const wallS = 1 - 0.62 * crash + (crash > 0 && crash < 1 ? 0 : 0);
+  const flat = 0.82 * crash;
+  const drop = WALL * (1 - wallS) + sag * 4 + rise * flat * 0.9;
+  const sink = 1.1 * smooth(CRASH + 0.25, CRASH + 0.9, t) * (1 - rew);
+  return { crash, rew, sag, wallS, flat, drop, sink, n };
+}
+function slopeAngle(side, S) { return side * -(PITCH * (1 - S.flat) - S.sag); }
+function slopePos(side, S) { return V(HX + side * 0.7 * S.flat, RIDGE_Y - S.drop, 0); }
+function applyRoof(S) {
+  houseRoot.position.y = -S.sink;
+  walls.scale.y = S.wallS;
+  gables.forEach(g => { g.position.y = WALL * S.wallS; g.scale.y = Math.max(0.02, 1 - S.flat * 1.15); });
+  for (const side of [1, -1]) { const g = slopes[side]; g.position.copy(slopePos(side, S)); g.rotation.z = slopeAngle(side, S); }
+  ridgeCap.position.y = RIDGE_Y - S.drop + 0.14; ridgeCap.scale.x = 1 + S.flat * 2;
+}
+// world pose of a point on a slope (local s along slope, z, up)
+const _q = new THREE.Quaternion(), _qy = new THREE.Quaternion().setFromAxisAngle(V(0, 1, 0), Math.PI / 2);
+function roofPose(side, s, z, S, up = 0.17) {
+  const a = slopeAngle(side, S); const p = slopePos(side, S);
+  const c = Math.cos(a), sn = Math.sin(a), lx = side * s, ly = up;
+  const pos = V(p.x + lx * c - ly * sn, p.y + lx * sn + ly * c - S.sink, z);
+  const q = new THREE.Quaternion().setFromAxisAngle(V(0, 0, 1), a).multiply(_qy);
+  return { pos, q };
+}
+
+// ---------- Kühe ----------
+function makeCow() {
+  const g = new THREE.Group(); const inner = new THREE.Group(); g.add(inner);
+  const W_ = 0xffffff, B_ = 0x1c1c1c, P_ = 0xf6a5b5;
+  box(1.9, 0.95, 1.0, W_, 0, 1.15, 0, inner);
+  box(0.6, 0.5, 0.06, B_, -0.3, 1.25, 0.51, inner); box(0.5, 0.4, 0.06, B_, 0.5, 1.0, -0.51, inner);
+  box(0.4, 0.06, 0.5, B_, 0.1, 1.63, 0.1, inner); box(0.35, 0.3, 0.06, B_, 0.6, 1.35, 0.51, inner);
+  const head = new THREE.Group(); head.position.set(1.05, 1.55, 0); inner.add(head);
+  box(0.6, 0.62, 0.72, W_, 0.15, 0, 0, head);
+  box(0.25, 0.36, 0.7, P_, 0.5, -0.12, 0, head);
+  box(0.06, 0.12, 0.12, B_, 0.64, -0.08, 0.16, head); box(0.06, 0.12, 0.12, B_, 0.64, -0.08, -0.16, head);
+  box(0.08, 0.12, 0.12, B_, 0.46, 0.14, 0.2, head); box(0.08, 0.12, 0.12, B_, 0.46, 0.14, -0.2, head);
+  for (const s of [-1, 1]) {
+    const h = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.32, 5), mat(0xf3e7c9)); h.position.set(0.05, 0.42, s * 0.25); h.rotation.x = s * -0.5; head.add(h);
+    box(0.12, 0.12, 0.3, 0xf2d0d6, -0.05, 0.22, s * 0.48, head);
+  }
+  for (const [x, z] of [[-0.7, 0.32], [-0.7, -0.32], [0.7, 0.32], [0.7, -0.32]]) box(0.26, 0.72, 0.26, W_, x, 0.36, z, inner), box(0.27, 0.14, 0.27, B_, x, 0.07, z, inner);
+  box(0.4, 0.18, 0.4, P_, -0.3, 0.62, 0, inner);
+  const tail = new THREE.Group(); tail.position.set(-0.95, 1.5, 0); inner.add(tail);
+  box(0.07, 0.8, 0.07, W_, 0, -0.4, 0, tail); box(0.14, 0.18, 0.14, B_, 0, -0.82, 0, tail);
+  scene.add(g); return { g, inner, head, tail };
+}
+// Platz auf dem Dach: Seite, s (entlang der Dachfläche), z
+const SLOTS = [[1, 1.7, -2.2], [1, 1.7, 0.1], [1, 1.7, 2.4], [1, 3.9, -1.1], [1, 3.9, 1.3], [-1, 1.7, 0.1],
+               [1, 3.9, 3.3], [-1, 1.7, -2.2], [-1, 1.7, 2.4], [1, 3.9, -3.2], [-1, 3.9, -1.1], [-1, 3.9, 1.3]];
+const cows = LANDS.map((land, i) => {
+  const c = makeCow();
+  const [side, s, z] = SLOTS[i];
+  const S0 = roofState(CRASH - 0.001);
+  const start = roofPose(side, s, z, S0).pos;
+  // Flugbahn beim Einsturz
+  const ang = Math.atan2(start.z, start.x - HX) + (R() - 0.5) * 0.8;
+  const dist = 6 + R() * 4;
+  let lx = clamp(HX + Math.cos(ang) * (HW + dist), -12.5, 14.5), lz = clamp(Math.sin(ang) * (DEP + dist), -9, 7);
+  if (lz > 3.5 && lx > -3 && lx < 1) lx += 4;
+  const vy = 11 + R() * 4, grav = 26;
+  const T = (vy + Math.sqrt(vy * vy + 2 * grav * start.y)) / grav;
+  return { ...c, i, land, side, s, z, start, vy, grav, T, end: V(lx, 0, lz), yaw: R() * 6.28, spin: V(R() * 8 - 4, R() * 8 - 4, R() * 8 - 4), ph: R() * 6 };
+});
+const giant = makeCow(); giant.g.scale.setScalar(2.3);
+// Sonnenbrille für die Riesenkuh
+box(0.08, 0.16, 0.74, 0x111111, 0.5, 0.16, 0, giant.head);
+const finale = makeCow();
+
+// Staub
+const dust = [];
+for (let i = 0; i < 22; i++) {
+  const a = i / 22 * Math.PI * 2;
+  const m = blob(0.9 + R() * 0.6, new THREE.MeshStandardMaterial({ color: 0xe8e2d6, flatShading: true, transparent: true, opacity: 0.9 }), HX + Math.cos(a) * 5.5, 0.8 + R() * 2.5, Math.sin(a) * 4);
+  m.castShadow = false; dust.push({ m, a, r: R() });
+}
+// Schatten der Riesenkuh
+const shadow = new THREE.Mesh(new THREE.CircleGeometry(3, 24), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0, depthWrite: false }));
+shadow.rotation.x = -Math.PI / 2; scene.add(shadow);
+
+// Schneeflocken
+const NF = 700; const fpos = new Float32Array(NF * 3); const fseed = [];
+for (let i = 0; i < NF; i++) fseed.push([CX - 18 + R() * 36, R() * 26, -14 + R() * 30, R() * 6]);
+const fgeo = new THREE.BufferGeometry(); fgeo.setAttribute('position', new THREE.BufferAttribute(fpos, 3));
+const flakes = new THREE.Points(fgeo, new THREE.PointsMaterial({ color: 0xffffff, size: 0.22, transparent: true, opacity: 0 }));
+scene.add(flakes);
+const lawnSnow = box(IX, 0.06, IZ, 0xf4f8fb, CX, 0.05, 0); lawnSnow.scale.y = 0.001; lawnSnow.castShadow = false;
+
+// Wolken
+const clouds = [[-9, 19, -12], [6, 21, -14], [17, 18, -8]].map(([x, y, z]) => {
+  const g = new THREE.Group(); g.position.set(x, y, z); scene.add(g);
+  [[0, 0, 0, 1.7], [1.6, -0.2, 0.3, 1.2], [-1.5, -0.3, 0.2, 1.2], [0.5, 0.9, -0.2, 1.1]].forEach(([a, b, c, r]) => { blob(r, 0xffffff, a, b, c, g).castShadow = false; });
+  return g;
+});
+
+// ---------- Kamera ----------
+const KEYS = [
+  [0.0, [22, 16, 30], [0, 4, 0]],
+  [3.4, [14, 12, 19], [0, 7, 0]],
+  [6.5, [12, 11, 15], [0, 6.5, 0]],
+  [10.8, [16, 14, 21], [0, 5, 0]],
+  [15.3, [3, 24, 17], [-1, 4, 0]],
+  [19.3, [13, 9, 17], [0, 5.5, 1]],
+  [23.8, [18, 15, 23], [0, 5, 0]],
+  [27.8, [13, 4, 19], [-1, 10, 0]],
+  [30.9, [14, 5, 21], [-1, 11, 0]],
+  [31.3, [17, 11, 24], [-1, 2.5, 0]],
+  [33.6, [15, 11, 21], [-1, 4.5, 0]],
+  [37.3, [22, 16, 30], [0, 4, 0]],
+  [40.0, [24, 17, 32], [0, 4, 0]],
+];
+function camAt(t) {
+  let i = 0; while (i < KEYS.length - 2 && t > KEYS[i + 1][0]) i++;
+  const [t0, p0, q0] = KEYS[i], [t1, p1, q1] = KEYS[i + 1];
+  const k = smooth(t0, t1, t);
+  const p = p0.map((v, j) => lerp(v, p1[j], k)), q = q0.map((v, j) => lerp(v, q1[j], k));
+  p[0] += Math.sin(t * 0.7) * 0.25; p[1] += Math.sin(t * 0.5) * 0.15;
+  const sh = t > CRASH && t < CRASH + 1.2 ? (1 - (t - CRASH) / 1.2) * 0.9 : 0;
+  const sh2 = t > 27.8 && t < CRASH ? 0.06 * smooth(27.8, 30.8, t) : 0;
+  const a = sh + sh2;
+  p[0] += Math.sin(t * 71) * a; p[1] += Math.sin(t * 53 + 1) * a; q[1] += Math.sin(t * 61 + 2) * a * 0.6;
+  camera.position.set(...p); camera.lookAt(...q);
+}
+
+// ---------- Untertitel ----------
+let WORDS = [], KW = new Set();
+const cap = document.getElementById('cap');
+const mctx = document.createElement('canvas').getContext('2d');
+function buildWords(tl) {
+  KW = new Set(tl.keywords);
+  for (const s of tl.sentences) {
+    const ws = s.text.split(' '), wt = ws.map(w => w.length + 3), tot = wt.reduce((a, b) => a + b, 0);
+    let acc = s.start;
+    ws.forEach((w, i) => { const d = (s.end - s.start) * wt[i] / tot; WORDS.push({ w, a: acc, end: s.end }); acc += d; });
+  }
+}
+function captions(t) {
+  let cur = null;
+  for (let i = 0; i < WORDS.length; i++) {
+    const w = WORDS[i], nx = WORDS[i + 1];
+    const until = nx && nx.a - w.end < 0.05 ? nx.a : w.end + 0.25;
+    if (t >= w.a && t < until) cur = w;
+  }
+  if (!cur) { cap.textContent = ''; return; }
+  const txt = cur.w.toUpperCase();
+  mctx.font = '150px Lucky'; const wpx = mctx.measureText(txt).width + 50;
+  const fs = Math.min(150, 150 * 1000 / wpx);
+  cap.style.fontSize = fs + 'px'; cap.style.webkitTextStroke = (22 * fs / 150) + 'px #111';
+  cap.textContent = txt;
+  const boom = cur.w === 'Krawumm!';
+  cap.className = boom ? 'boom' : KW.has(cur.w) ? 'key' : '';
+  const s = (boom ? 1.25 : 1) * (0.55 + 0.45 * backOut((t - cur.a) / 0.13));
+  const wob = boom ? Math.sin(t * 40) * 4 : (KW.has(cur.w) ? -3 : 0);
+  cap.style.transform = `scale(${s}) rotate(${wob}deg)`;
+}
+function card(id, a, b, t, rot = -3) {
+  const el = document.getElementById(id);
+  const vis = t >= a && t <= b;
+  const k = pop(a, 0.3, t), o = smooth(b - 0.2, b, t);
+  el.style.opacity = vis ? 1 - o : 0;
+  el.style.transform = `translateX(-50%) scale(${vis ? k * (1 - 0.4 * o) : 0}) rotate(${rot}deg)`;
+}
+
+// ---------- Kuh-Pose ----------
+function idle(c, t, ph) {
+  c.head.rotation.z = Math.sin(t * 2 + ph) * 0.12; c.head.rotation.y = Math.sin(t * 1.3 + ph) * 0.25;
+  c.tail.rotation.x = Math.sin(t * 5 + ph) * 0.5;
+}
+function placeCow(c, t, S) {
+  const fallD = 0.75;
+  if (t < c.land - fallD) { c.g.visible = false; return; }
+  c.g.visible = true; c.inner.position.set(0, 0, 0); c.inner.rotation.set(0, 0, 0);
+  idle(c, t, c.ph);
+  if (t < CRASH) {
+    const pose = roofPose(c.side, c.s, c.z, S);
+    c.g.position.copy(pose.pos); c.g.quaternion.copy(pose.q);
+    if (t < c.land) { // fällt
+      const k = (t - (c.land - fallD)) / fallD;
+      c.g.position.y += 26 * (1 - k * k);
+      c.inner.rotation.set(Math.sin(t * 9 + c.ph) * 0.5, 0, Math.sin(t * 7 + c.ph) * 0.4);
+      c.g.scale.set(1, 1, 1);
+    } else { // Landung: quetschen
+      const d = t - c.land; const sq = Math.exp(-d * 9) * Math.cos(d * 30) * 0.35;
+      c.g.scale.set(1 + sq * 0.5, 1 - sq, 1 + sq * 0.5);
+    }
+  } else {
+    // Einsturz: Kühe fliegen in den Garten
+    const tau = t - CRASH;
+    c.g.scale.set(1, 1, 1);
+    if (tau < c.T) {
+      const k = tau / c.T;
+      c.g.position.set(lerp(c.start.x, c.end.x, k), c.start.y + c.vy * tau - 0.5 * c.grav * tau * tau, lerp(c.start.z, c.end.z, k));
+      c.g.rotation.set(c.spin.x * tau, c.spin.y * tau + c.yaw, c.spin.z * tau);
+    } else {
+      const d = tau - c.T; const sq = Math.exp(-d * 8) * Math.cos(d * 28) * 0.3;
+      c.g.position.copy(c.end); c.g.rotation.set(0, c.yaw, 0); c.g.scale.set(1 + sq * 0.5, 1 - sq, 1 + sq * 0.5);
+    }
+    // Zurückspulen: alle Kühe fliegen zurück in den Himmel
+    const rw = smooth(REW_A, REW_B, t);
+    c.g.position.y += rw * rw * 40;
+    if (t > REW_B) c.g.visible = false;
+  }
+}
+
+// ---------- Render ----------
+const meter = document.getElementById('meter'), cnt = document.getElementById('count'), kg = document.getElementById('kg'), fill = document.getElementById('fill');
+window.render = function (t) {
+  camAt(t);
+  const S = roofState(t); applyRoof(S);
+  cows.forEach(c => placeCow(c, t, S));
+
+  // Riesenkuh 13
+  const GF = 29.9;
+  giant.g.visible = t > 28.0 && t < REW_B;
+  if (giant.g.visible) {
+    idle(giant, t, 1);
+    const top = V(HX, RIDGE_Y - S.drop - S.sink + 0.2, 0);
+    let y = top.y;
+    if (t < CRASH) { const k = clamp((t - GF) / (CRASH - GF)); y = t < GF ? top.y + 80 : top.y + 24 * (1 - k * k); }
+    const rw = smooth(REW_A, REW_B, t);
+    giant.g.position.set(top.x, y + rw * rw * 60, top.z);
+    giant.g.rotation.set(0, Math.PI / 2 + 0.3, t < CRASH ? Math.sin(t * 8) * 0.2 : 0);
+    const d = t - CRASH; const sq = d > 0 ? Math.exp(-d * 6) * Math.cos(d * 22) * 0.3 : 0;
+    giant.g.scale.set(2.3 * (1 + sq * 0.5), 2.3 * (1 - sq), 2.3 * (1 + sq * 0.5));
+  }
+  shadow.position.set(HX, RIDGE_Y + 0.4 - S.drop, 0);
+  shadow.material.opacity = t < CRASH ? 0.45 * smooth(28.0, CRASH, t) : 0;
+  shadow.scale.setScalar(0.3 + 1.2 * smooth(28.0, CRASH, t));
+
+  // Staub
+  const dk = clamp((t - CRASH) / 1.6);
+  dust.forEach(D => {
+    D.m.visible = t > CRASH && t < CRASH + 1.6;
+    const r = 4 + dk * (3 + D.r * 3);
+    D.m.position.set(HX + Math.cos(D.a) * r, 0.6 + D.r * 2 + dk * 2, Math.sin(D.a) * r * 0.8);
+    D.m.scale.setScalar(0.4 + dk * 1.8); D.m.material.opacity = 0.9 * (1 - dk);
+  });
+  document.getElementById('flash').style.opacity = t > CRASH && t < CRASH + 0.25 ? 0.7 * (1 - (t - CRASH) / 0.25) : (t > REW_B && t < REW_B + 0.2 ? 0.8 * (1 - (t - REW_B) / 0.2) : 0);
+  document.getElementById('vhs').style.opacity = t > REW_A - 0.05 && t < REW_B ? 1 : 0;
+
+  // Winter
+  const wk = smooth(33.5, 34.3, t);
+  document.getElementById('winter').style.opacity = wk;
+  sun.intensity = 2.1 * (1 - 0.3 * wk);
+  flakes.material.opacity = wk * 0.95;
+  for (let i = 0; i < NF; i++) { const [x, y0, z, ph] = fseed[i]; const y = 26 - ((26 - y0 + t * 3.2) % 26); fpos.set([x + Math.sin(t * 1.5 + ph) * 0.6, y, z], i * 3); }
+  fgeo.attributes.position.needsUpdate = true;
+  const sk = smooth(33.8, 36.6, t);
+  for (const side of [1, -1]) { const sn = slopes[side].userData.snow; sn.scale.y = Math.max(0.001, 0.6 * sk); sn.visible = sk > 0; sn.position.y = 0.17 + 0.3 * sk; }
+  lawnSnow.scale.y = Math.max(0.001, sk); lawnSnow.visible = sk > 0;
+
+  // Finale-Kuh landet im Schnee
+  finale.g.visible = t > 36.7;
+  if (finale.g.visible) {
+    idle(finale, t, 2);
+    const k = clamp((t - 36.7) / 0.6), land = V(5.2, 0.06, 5.2);
+    finale.g.position.set(land.x, land.y + (k < 1 ? 26 * (1 - k * k) : 0), land.z);
+    finale.g.rotation.set(0, 0.7, k < 1 ? Math.sin(t * 9) * 0.4 : 0);
+    const d = t - 37.3; const sq = d > 0 ? Math.exp(-d * 8) * Math.cos(d * 28) * 0.35 : 0;
+    finale.g.scale.set(1.3 * (1 + sq * 0.5), 1.3 * (1 - sq), 1.3 * (1 + sq * 0.5));
+    finale.head.rotation.z = d > 0.2 ? 0.35 + Math.sin(t * 3) * 0.1 : 0;
+  }
+
+  clouds.forEach((c, i) => { c.position.x = [-9, 6, 17][i] + t * 0.08; });
+
+  // Zähler
+  const n = S.n, mvis = t > 4.8 && t < CRASH + 0.05;
+  meter.style.opacity = mvis ? 1 : 0;
+  const lastLand = LANDS.filter(x => t >= x).pop() || -9;
+  const bump = 1 + 0.18 * Math.exp(-(t - lastLand) * 10);
+  const danger = t > 27.8;
+  meter.style.transform = `translateX(-50%) scale(${mvis ? pop(4.8, 0.3, t) * (danger ? 1 + 0.03 * Math.sin(t * 30) : 1) : 0}) rotate(${danger ? Math.sin(t * 25) * 2 : 0}deg)`;
+  cnt.textContent = danger ? '× 13?!' : '× ' + n;
+  cnt.style.transform = `scale(${bump})`; cnt.style.color = danger ? '#e5262b' : '#111';
+  kg.textContent = danger ? '??? KG' : (n * 650).toLocaleString('de-DE') + ' KG';
+  const frac = danger ? 1.1 : n * 650 / 8450;
+  fill.style.width = Math.min(100, frac * 100) + '%';
+  fill.style.background = danger ? (Math.sin(t * 20) > 0 ? '#e5262b' : '#ff8a00') : frac > 0.8 ? '#ff8a00' : frac > 0.5 ? '#f2c94c' : '#39c24a';
+
+  card('c1', 11.0, 15.0, t); card('c2', 15.4, 19.0, t, 2); card('c3', 19.4, 23.5, t); card('c4', 23.9, 27.5, t, 2);
+  card('c5', 28.0, 30.9, t, Math.sin(t * 20) * 4); card('c6', 34.6, 37.1, t, -2);
+  const hk = pop(37.6, 0.3, t); const hd = document.getElementById('handle'); hd.style.opacity = t > 37.6 ? 1 : 0; hd.style.transform = `scale(${0.7 + 0.3 * hk})`;
+
+  captions(t);
+  renderer.render(scene, camera);
+};
+window.ready = (async () => {
+  const tl = await (await fetch('timeline.json')).json();
+  buildWords(tl);
+  await document.fonts.load('150px Lucky', 'ÄÖÜ'); await document.fonts.ready;
+  window.render(0); return tl;
+})();
+</script>
+</body>
+</html>

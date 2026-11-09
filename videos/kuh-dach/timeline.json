@@ -1,0 +1,18 @@
+{
+  "duration": 40.0,
+  "fps": 30,
+  "keywords": ["Kühe", "Dach", "eins.", "Zwei.", "Drei.", "Vier.", "hundert", "Kilo", "acht", "Tonnen.", "sechshundertfünfzig", "zwölf", "dreizehn?", "Krawumm!", "Dreißig", "Schnee", "genauso", "Folg"],
+  "sentences": [
+    { "start": 0.3,  "end": 3.2,  "text": "Wie viele Kühe hält dein Dach aus?" },
+    { "start": 3.4,  "end": 6.2,  "text": "Wir testen es. Kuh Nummer eins." },
+    { "start": 6.5,  "end": 10.4, "text": "Zwei. Drei. Vier. Das Dach hält noch." },
+    { "start": 10.8, "end": 15.0, "text": "Ein normales Dach muss je nach Region rund hundert Kilo pro Quadratmeter tragen." },
+    { "start": 15.3, "end": 19.0, "text": "Bei achtzig Quadratmetern sind das acht Tonnen." },
+    { "start": 19.3, "end": 23.5, "text": "Eine Kuh wiegt etwa sechshundertfünfzig Kilo." },
+    { "start": 23.8, "end": 27.5, "text": "Also passen ungefähr zwölf Kühe drauf." },
+    { "start": 27.8, "end": 30.6, "text": "Und Kuh Nummer dreizehn?" },
+    { "start": 31.2, "end": 32.6, "text": "Krawumm!" },
+    { "start": 33.7, "end": 37.0, "text": "Dreißig Zentimeter nasser Schnee wiegen genauso viel." },
+    { "start": 37.3, "end": 39.6, "text": "Folg mir für mehr!" }
+  ]
+}

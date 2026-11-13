@@ -1,0 +1,19 @@
+{
+  "fps": 30,
+  "intro": 3.5,
+  "per": 4.0,
+  "outro": 3.5,
+  "duration": 47.0,
+  "words": [
+    { "fr": "Bonjour",        "say": "bohn-ZHOOR",    "en": "Hello",      "pic": "sun",    "bg": "#ffe08a" },
+    { "fr": "Merci",          "say": "mair-SEE",      "en": "Thank you",  "pic": "gift",   "bg": "#ffc2d1" },
+    { "fr": "Oui",            "say": "WEE",           "en": "Yes",        "pic": "yes",    "bg": "#b9f0c4" },
+    { "fr": "Non",            "say": "NOHN",          "en": "No",         "pic": "no",     "bg": "#ffb4a8" },
+    { "fr": "S'il vous plaît", "say": "seel voo PLEH", "en": "Please",     "pic": "please", "bg": "#d9c8ff" },
+    { "fr": "Au revoir",      "say": "oh ruh-VWAHR",  "en": "Goodbye",    "pic": "bye",    "bg": "#a8dcff" },
+    { "fr": "le chat",        "say": "luh SHAH",      "en": "the cat",    "pic": "cat",    "bg": "#ffd6a5" },
+    { "fr": "le chien",       "say": "luh shee-AN",   "en": "the dog",    "pic": "dog",    "bg": "#cdeac0" },
+    { "fr": "la pomme",       "say": "lah POM",       "en": "the apple",  "pic": "apple",  "bg": "#fff3b0" },
+    { "fr": "l'eau",          "say": "LOH",           "en": "water",      "pic": "water",  "bg": "#bde0fe" }
+  ]
+}

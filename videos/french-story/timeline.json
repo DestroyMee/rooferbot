@@ -1,0 +1,18 @@
+{
+  "fps": 30,
+  "duration": 42.0,
+  "intro": 3.2,
+  "per": 4.6,
+  "quiz": { "start": 30.8, "end": 37.8,
+    "q": ["What does ", ["Merci beaucoup", 3], " mean?"],
+    "options": ["Good morning", "Thank you very much", "Two euros"], "correct": 1 },
+  "outro": 37.8,
+  "lines": [
+    { "who": "coco",  "fr": [["Bonjour", 1], ", madame !"],                       "en": [["Hello", 1], ", madam!"] },
+    { "who": "minou", "fr": [["Bonjour", 1], " ! Vous désirez ?"],                "en": [["Hello", 1], "! What would you like?"] },
+    { "who": "coco",  "fr": ["Un ", ["croissant", 2], ", ", ["s'il vous plaît", 4], "."], "en": ["A ", ["croissant", 2], ", ", ["please", 4], "."] },
+    { "who": "minou", "fr": ["Voilà ! ", ["Deux euros", 5], "."],                   "en": ["Here you go! ", ["Two euros", 5], "."] },
+    { "who": "coco",  "fr": [["Merci beaucoup", 3], " !"],                          "en": [["Thank you very much", 3], "!"] },
+    { "who": "minou", "fr": [["Bonne journée", 6], " !"],                           "en": [["Have a nice day", 6], "!"] }
+  ]
+}

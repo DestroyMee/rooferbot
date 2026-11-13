@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>French Story – Scene</title>
+<style>
+  @font-face { font-family: "Lucky"; src: url("vendor/luckiest-guy.woff2") format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 700; src: url("vendor/fredoka-700.woff2") format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 600; src: url("vendor/fredoka-600.woff2") format("woff2"); }
+  :root { --ink: #2b2d42; --paper: #fdf6e3; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); font-family: "Fredoka"; }
+  #scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1080px; }
+  #frameLine { position: absolute; left: 0; right: 0; top: 1074px; height: 12px; background: var(--ink); }
+  #bubble { position: absolute; left: 60px; right: 60px; top: 70px; text-align: center; opacity: 0; }
+  #bubble .b { display: inline-block; word-spacing: 8px; max-width: 900px; background: #fff; border: 10px solid var(--ink); border-radius: 56px;
+    padding: 30px 46px 22px; font-weight: 700; font-size: 84px; line-height: 1.12; color: var(--ink); position: relative;
+    box-shadow: 0 14px 0 rgba(43,45,66,.25); }
+  #bubble .tail { position: absolute; bottom: -54px; width: 70px; height: 60px; }
+  #bubble .say { display: block; font-weight: 600; font-size: 40px; color: #8d99ae; margin-top: 8px; }
+  #who { position: absolute; left: 0; right: 0; top: 1120px; text-align: center; }
+  .chip { display: inline-block; font-family: "Lucky"; font-size: 50px; padding: 12px 34px 4px; border: 7px solid var(--ink);
+    border-radius: 40px; color: var(--ink); }
+  #en { position: absolute; left: 60px; right: 60px; top: 1215px; background: #fff; border: 10px solid var(--ink); border-radius: 50px;
+    padding: 28px 40px 30px; text-align: center; box-shadow: 0 14px 0 rgba(43,45,66,.2); }
+  #en .lab { display: flex; justify-content: center; align-items: center; gap: 14px; font-family: "Lucky"; font-size: 40px; color: #8d99ae; letter-spacing: 3px; }
+  #en .t { font-weight: 700; font-size: 78px; line-height: 1.12; color: var(--ink); margin-top: 6px; }
+  .hl { border-radius: 16px; padding: 0 10px; }
+  #tag { position: absolute; left: 0; right: 0; top: 1560px; text-align: center; }
+  #tag .chip { background: var(--ink); color: #fff; font-size: 46px; border-color: var(--ink); }
+  #title { position: absolute; left: 0; right: 0; top: 1150px; text-align: center; }
+  #title .k { font-family: "Lucky"; font-size: 64px; color: #8d99ae; margin-bottom: 24px; }
+  #title .big { font-family: "Lucky"; font-size: 150px; line-height: 1; color: #e63946; -webkit-text-stroke: 18px #fff; paint-order: stroke fill;
+    text-shadow: 0 12px 0 rgba(43,45,66,.3); }
+  #title .en { font-weight: 700; font-size: 64px; color: var(--ink); margin-top: 10px; }
+  #quiz { position: absolute; inset: 0; opacity: 0; }
+  #quiz .dim { position: absolute; inset: 0; background: rgba(43,45,66,.55); }
+  #quiz .card { position: absolute; left: 60px; right: 60px; top: 380px; background: var(--paper); border: 12px solid var(--ink);
+    border-radius: 60px; padding: 40px 40px 50px; text-align: center; box-shadow: 0 16px 0 rgba(0,0,0,.3); }
+  #quiz h1 { margin: 0; font-family: "Lucky"; font-size: 120px; color: #e63946; font-weight: 400; -webkit-text-stroke: 14px #fff; paint-order: stroke fill; }
+  #quiz .q { font-weight: 700; font-size: 72px; color: var(--ink); line-height: 1.15; margin: 10px 0 30px; }
+  .opt { display: flex; align-items: center; gap: 26px; margin: 22px 10px; padding: 20px 30px; background: #fff; border: 8px solid var(--ink);
+    border-radius: 40px; font-weight: 700; font-size: 62px; color: var(--ink); text-align: left; }
+  .opt .l { font-family: "Lucky"; width: 76px; height: 76px; border-radius: 50%; background: var(--ink); color: #fff; display: flex;
+    align-items: center; justify-content: center; font-size: 50px; flex: none; padding-top: 6px; box-sizing: border-box; }
+  #timer { position: absolute; left: 50%; top: 1380px; transform: translateX(-50%); }
+  #outro { position: absolute; left: 0; right: 0; top: 1130px; text-align: center; opacity: 0; }
+  #outro .big { font-family: "Lucky"; font-size: 100px; color: var(--ink); line-height: 1.05; }
+  #outro .big span { color: #e63946; }
+  #outro .chip { margin-top: 30px; background: #ffd166; font-size: 56px; }
+  #outro .h { font-family: "Lucky"; font-size: 56px; color: var(--ink); margin-top: 24px; }
+</style>
+</head>
+<body>
+<svg id="scene" width="1080" height="1080"></svg>
+<div id="frameLine"></div>
+<div id="bubble"><div class="b"><span id="frTxt"></span><svg class="tail" id="tail" viewBox="0 0 70 60"><path d="M0 0 L70 0 L18 58 Z" fill="#fff"/><path d="M0 4 L18 58 L70 4" fill="none" stroke="#2b2d42" stroke-width="10" stroke-linejoin="round"/></svg></div></div>
+<div id="who"><span class="chip" id="whoChip"></span></div>
+<div id="en"><div class="lab"><svg width="64" height="40" viewBox="0 0 60 36"><rect width="60" height="36" rx="6" fill="#012169"/><path d="M0 0 L60 36 M60 0 L0 36" stroke="#fff" stroke-width="8"/><path d="M0 0 L60 36 M60 0 L0 36" stroke="#c8102e" stroke-width="3"/><path d="M30 0 V36 M0 18 H60" stroke="#fff" stroke-width="12"/><path d="M30 0 V36 M0 18 H60" stroke="#c8102e" stroke-width="7"/></svg>ENGLISH</div><div class="t" id="enTxt"></div></div>
+<div id="tag"><span class="chip">LEARN FRENCH WITH STORIES · EP. 1</span></div>
+<div id="title"><div class="k">LEARN FRENCH WITH A STORY</div><div class="big">À LA BOULANGERIE</div><div class="en">= At the bakery</div></div>
+<div id="quiz"><div class="dim"></div><div class="card"><h1>QUIZ!</h1><div class="q" id="qTxt"></div><div id="opts"></div></div>
+  <svg id="timer" width="230" height="230" viewBox="0 0 230 230"></svg></div>
+<div id="outro"><div class="big">COMMENT <span>„BONJOUR“</span><br>IF YOU LEARNED SOMETHING!</div><div class="chip">NEXT: AU CAFÉ ☕</div><div class="h">@YOUR.ACCOUNT</div></div>
+
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const smooth = (a, b, t) => { const k = clamp((t - a) / (b - a)); return k * k * (3 - 2 * k); };
+const backOut = k => { const s = 1.9; k = clamp(k) - 1; return k * k * ((s + 1) * k + s) + 1; };
+const pop = (a, d, t) => (t < a ? 0 : backOut((t - a) / d));
+const $ = id => document.getElementById(id);
+const INK = '#2b2d42';
+const HL = { 1: '#ffd166', 2: '#f4a261', 3: '#ff8fab', 4: '#a0c4ff', 5: '#95d5b2', 6: '#cdb4db' };
+const blinkAt = (u, ph = 0) => ((u + ph) % 2.7) > 2.55;
+
+// ---------- Figuren ----------
+function coco({ x, y, s = 1, wingR = 0, wingL = 0, tilt = 0, blink = false, talk = false, hop = 0, flip = 1, hold = '' }) {
+  const eye = ex => blink ? `<path d="M${ex - 10} -12 q10 8 20 0" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round"/>`
+    : `<ellipse cx="${ex}" cy="-14" rx="9" ry="12" fill="${INK}"/><circle cx="${ex + 3}" cy="-18" r="3.5" fill="#fff"/>`;
+  const m = talk ? `<path d="M-12 8 L12 8 L0 30 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-12 8 L12 8 L0 15Z" fill="#e85d04"/>`
+    : `<path d="M-13 4 L13 4 L0 20 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`;
+  return `<g transform="translate(${x} ${y - hop}) scale(${s * flip} ${s}) rotate(${tilt})">
+    <ellipse cx="0" cy="${88 + hop / s}" rx="62" ry="10" fill="rgba(43,45,66,.18)"/>
+    <path d="M-26 70 l-8 16 h20z M26 70 l8 16 h-20z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+    <g transform="translate(-66 18) rotate(${-wingL})"><ellipse cx="-10" cy="0" rx="26" ry="16" fill="#ffc300" stroke="${INK}" stroke-width="5" transform="rotate(-20)"/></g>
+    <circle cx="0" cy="0" r="78" fill="#ffd60a" stroke="${INK}" stroke-width="6"/>
+    <ellipse cx="0" cy="34" rx="44" ry="34" fill="#fff3b0"/>
+    ${eye(-26)}${eye(26)}
+    <ellipse cx="-46" cy="10" rx="12" ry="7" fill="#ff8fab" opacity=".8"/><ellipse cx="46" cy="10" rx="12" ry="7" fill="#ff8fab" opacity=".8"/>
+    ${m}
+    <g transform="translate(6 -66) rotate(-12)"><ellipse rx="62" ry="22" fill="#ef3340" stroke="${INK}" stroke-width="6"/><path d="M0 -22 q4 -16 12 -14" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+    <g transform="translate(66 18) rotate(${wingR})">${hold}<ellipse cx="10" cy="0" rx="26" ry="16" fill="#ffc300" stroke="${INK}" stroke-width="5" transform="rotate(20)"/></g>
+  </g>`;
+}
+function minou({ x, y, s = 1, talk = false, blink = false, paw = 0, tilt = 0 }) {
+  const eyes = blink ? `<path d="M-38 -8 q12 10 24 0 M14 -8 q12 10 24 0" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round"/>`
+    : `<ellipse cx="-26" cy="-8" rx="10" ry="13" fill="${INK}"/><ellipse cx="26" cy="-8" rx="10" ry="13" fill="${INK}"/><circle cx="-22" cy="-13" r="4" fill="#fff"/><circle cx="30" cy="-13" r="4" fill="#fff"/>`;
+  const mouth = talk ? `<path d="M-14 22 q14 26 28 0z" fill="#e5383b" stroke="${INK}" stroke-width="4"/>` : `<path d="M-14 22 q7 8 14 0 q7 8 14 0" stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s}) rotate(${tilt})">
+    <path d="M-95 80 Q-100 200 -90 260 L90 260 Q100 200 95 80 Q0 40 -95 80Z" fill="#f4a261" stroke="${INK}" stroke-width="7"/>
+    <path d="M-60 95 L60 95 L70 260 L-70 260Z" fill="#fff" stroke="${INK}" stroke-width="6"/>
+    <g transform="translate(88 110) rotate(${-paw})"><rect x="-22" y="-10" width="44" height="110" rx="22" fill="#f4a261" stroke="${INK}" stroke-width="6" transform="rotate(-20)"/></g>
+    <path d="M-76 -40 L-66 -120 L-18 -78Z M76 -40 L66 -120 L18 -78Z" fill="#f4a261" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M-62 -58 L-58 -100 L-34 -76Z M62 -58 L58 -100 L34 -76Z" fill="#ff8fab"/>
+    <circle r="88" fill="#f4a261" stroke="${INK}" stroke-width="7"/>
+    <path d="M-24 -84 l6 20 M0 -88 v22 M24 -84 l-6 20" stroke="#e76f51" stroke-width="7" stroke-linecap="round"/>
+    ${eyes}
+    <ellipse cx="-50" cy="18" rx="14" ry="8" fill="#ff8fab" opacity=".8"/><ellipse cx="50" cy="18" rx="14" ry="8" fill="#ff8fab" opacity=".8"/>
+    <path d="M-6 8 h12 l-6 8z" fill="#ff8fab" stroke="${INK}" stroke-width="3"/>${mouth}
+    <path d="M-44 12 h-44 M-44 22 l-40 10 M44 12 h44 M44 22 l40 10" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>
+    <g transform="translate(0 -120)"><rect x="-56" y="0" width="112" height="44" rx="6" fill="#fff" stroke="${INK}" stroke-width="6"/>
+      <circle cx="-40" cy="-14" r="30" fill="#fff" stroke="${INK}" stroke-width="6"/><circle cx="0" cy="-30" r="36" fill="#fff" stroke="${INK}" stroke-width="6"/><circle cx="40" cy="-14" r="30" fill="#fff" stroke="${INK}" stroke-width="6"/>
+      <rect x="-50" y="2" width="100" height="20" fill="#fff"/></g>
+  </g>`;
+}
+const croissant = (x, y, s = 1, r = 0) => `<g transform="translate(${x} ${y}) scale(${s}) rotate(${r})">
+  <path d="M-60 10 Q-70 -30 -30 -36 Q0 -50 30 -36 Q70 -30 60 10 Q40 -6 30 4 Q0 -14 -30 4 Q-40 -6 -60 10Z" fill="#e9a23b" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M-30 -34 q6 18 0 36 M0 -44 v40 M30 -34 q-6 18 0 36" stroke="#b5651d" stroke-width="5" fill="none" stroke-linecap="round"/></g>`;
+const coin = (x, y, s = 1) => `<g transform="translate(${x} ${y}) scale(${s})"><circle r="22" fill="#ffd166" stroke="${INK}" stroke-width="5"/><text y="11" text-anchor="middle" font-family="Lucky" font-size="30" fill="${INK}">€</text></g>`;
+const heart = (x, y, s) => `<path transform="translate(${x} ${y}) scale(${s})" d="M0 8 C-14 -6 -26 4 -16 16 L0 30 L16 16 C26 4 14 -6 0 8Z" fill="#ff5a5f" stroke="${INK}" stroke-width="3"/>`;
+
+// ---------- Welt (Bäckerei-Straße) ----------
+function world(t, st) {
+  let s = `<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ecae6"/><stop offset="1" stop-color="#d7f0fa"/></linearGradient></defs>
+  <rect x="-600" y="-900" width="2800" height="1800" fill="url(#sky)"/>`;
+  for (let i = 0; i < 4; i++) { const cx = ((i * 520 + t * 18) % 2400) - 500; s += `<g transform="translate(${cx} ${-420 + i * 90})"><ellipse rx="110" ry="40" fill="#fff"/><ellipse cx="60" cy="-26" rx="60" ry="40" fill="#fff"/><ellipse cx="-50" cy="-16" rx="50" ry="32" fill="#fff"/></g>`; }
+  // Nachbarhäuser
+  s += `<rect x="-600" y="-100" width="560" height="1000" fill="#a8dadc" stroke="${INK}" stroke-width="8"/><rect x="1640" y="-60" width="600" height="960" fill="#ffc8dd" stroke="${INK}" stroke-width="8"/>`;
+  for (const [x, y] of [[-480, 40], [-260, 40], [-480, 340], [-260, 340], [1720, 80], [1960, 80], [1720, 380], [1960, 380]])
+    s += `<rect x="${x}" y="${y}" width="140" height="180" rx="10" fill="#e9f5ff" stroke="${INK}" stroke-width="7"/><path d="M${x + 70} ${y} V${y + 180} M${x} ${y + 90} H${x + 140}" stroke="${INK}" stroke-width="5"/>`;
+  // Bäckerei-Fassade
+  s += `<rect x="-40" y="-140" width="1680" height="1040" fill="#fdf0d5" stroke="${INK}" stroke-width="8"/>
+    <rect x="250" y="70" width="1100" height="120" rx="24" fill="#3d405b" stroke="${INK}" stroke-width="8"/>
+    <text x="800" y="160" text-anchor="middle" font-family="Lucky" font-size="96" fill="#ffd166" letter-spacing="6">BOULANGERIE</text>`;
+  // Markise mit Streifen
+  let aw = ''; for (let i = 0; i < 11; i++) aw += `<path d="M${200 + i * 109} 220 h109 v120 q-27 30 -54.5 0 q-27 30 -54.5 0z" fill="${i % 2 ? '#fff' : '#e63946'}" stroke="${INK}" stroke-width="6"/>`;
+  s += aw;
+  // Schaufenster mit Brot
+  s += `<rect x="250" y="390" width="1100" height="420" rx="16" fill="#fff8e7" stroke="${INK}" stroke-width="8"/>
+    <rect x="250" y="390" width="1100" height="420" rx="16" fill="rgba(255,209,102,.18)"/>
+    <path d="M270 520 H1330 M270 650 H1330" stroke="#c9a66b" stroke-width="10"/>`;
+  for (let i = 0; i < 7; i++) s += `<g transform="translate(${330 + i * 70} 490) rotate(-20)"><ellipse rx="16" ry="70" fill="#e9a23b" stroke="${INK}" stroke-width="5"/><path d="M-8 -30 l14 -8 M-8 0 l14 -8 M-8 30 l14 -8" stroke="#b5651d" stroke-width="4"/></g>`;
+  for (let i = 0; i < 4; i++) s += `<g transform="translate(${360 + i * 110} 615)"><ellipse rx="46" ry="32" fill="#d4a373" stroke="${INK}" stroke-width="5"/><path d="M-20 -14 l40 0 M-24 0 l48 0" stroke="#9c6644" stroke-width="5" stroke-linecap="round"/></g>`;
+  for (let i = 0; i < 3; i++) s += croissant(940 + i * 130, 610, 0.8);
+  for (let i = 0; i < 5; i++) s += `<g transform="translate(${360 + i * 90} 735)"><circle r="28" fill="${['#ff8fab', '#cdb4db', '#95d5b2', '#ffd166', '#a0c4ff'][i]}" stroke="${INK}" stroke-width="5"/><ellipse cy="10" rx="30" ry="12" fill="#fff" stroke="${INK}" stroke-width="5"/></g>`;
+  // Tür links
+  s += `<rect x="20" y="420" width="190" height="480" rx="14" fill="#6d597a" stroke="${INK}" stroke-width="8"/><rect x="50" y="460" width="130" height="180" rx="10" fill="#e9f5ff" stroke="${INK}" stroke-width="6"/><circle cx="180" cy="690" r="10" fill="#ffd166" stroke="${INK}" stroke-width="4"/>`;
+  // Madame Minou hinter der Theke
+  s += minou({ x: 1100, y: 560, s: 1, talk: st.minouTalk, blink: blinkAt(t, 0.8), paw: st.paw, tilt: Math.sin(t * 1.4) * 2 });
+  // Theke
+  s += `<rect x="800" y="760" width="560" height="150" rx="10" fill="#9c6644" stroke="${INK}" stroke-width="8"/><rect x="780" y="740" width="600" height="34" rx="10" fill="#b08968" stroke="${INK}" stroke-width="8"/>
+    <path d="M860 790 v100 M960 790 v100 M1060 790 v100 M1160 790 v100 M1260 790 v100" stroke="#7f5539" stroke-width="6"/>`;
+  // Kasse
+  s += `<g transform="translate(1270 690)"><rect x="-60" y="-40" width="120" height="70" rx="12" fill="#adb5bd" stroke="${INK}" stroke-width="6"/><rect x="-40" y="-90" width="80" height="50" rx="8" fill="#6c757d" stroke="${INK}" stroke-width="6"/><text y="-55" text-anchor="middle" font-family="Lucky" font-size="34" fill="#95d5b2">${st.till}</text></g>`;
+  // Gehweg
+  s += `<rect x="-600" y="900" width="2800" height="900" fill="#ced4da"/><path d="M-600 900 H2200" stroke="${INK}" stroke-width="8"/>`;
+  for (let i = 0; i < 16; i++) s += `<path d="M${-560 + i * 180} 960 v60 M${-470 + i * 180} 1060 v60" stroke="#adb5bd" stroke-width="6"/>`;
+  s += `<rect x="-600" y="1180" width="2800" height="40" fill="#adb5bd"/>`;
+  s += st.extra || '';
+  // Coco
+  s += coco(st.coco);
+  s += st.front || '';
+  return s;
+}
+
+// ---------- Kamera ----------
+const CAM = { wide: [800, 560, 1650], coco: [560, 600, 1060], minou: [1080, 520, 1060], both: [820, 600, 1350] };
+
+let TL, LINES;
+function lineAt(t) { const k = Math.floor((t - TL.intro) / TL.per); return t >= TL.intro && k < TL.lines.length ? k : -1; }
+function camFor(t) {
+  const shots = [[0, 'wide'], [TL.intro - 0.6, 'wide']];
+  TL.lines.forEach((l, i) => shots.push([TL.intro + i * TL.per, l.who === 'coco' ? 'coco' : 'minou']));
+  shots.push([TL.quiz.start, 'both'], [TL.outro, 'wide']);
+  let i = 0; while (i < shots.length - 1 && t >= shots[i + 1][0]) i++;
+  const prev = CAM[shots[Math.max(0, i - 1)][1]], cur = CAM[shots[i][1]];
+  const k = i === 0 ? 1 : smooth(shots[i][0], shots[i][0] + 0.6, t);
+  const c = prev.map((v, j) => lerp(v, cur[j], k));
+  c[0] += Math.sin(t * 0.6) * 8; c[1] += Math.sin(t * 0.45) * 6;
+  return c;
+}
+
+function rich(parts, upto = Infinity, key = 'fr') {
+  let out = '', n = 0;
+  for (const p of parts) {
+    const [txt, c] = Array.isArray(p) ? p : [p, 0];
+    const vis = txt.slice(0, Math.max(0, upto - n)); n += txt.length;
+    const hid = txt.slice(vis.length);
+    const body = vis + (hid ? `<span style="opacity:0">${hid}</span>` : '');
+    out += c ? `<span class="hl" style="background:${HL[c]}">${body}</span>` : body;
+  }
+  return out;
+}
+const plain = parts => parts.map(p => Array.isArray(p) ? p[0] : p).join('');
+
+window.render = function (t) {
+  const k = lineAt(t);
+  const L0 = TL.intro, P = TL.per;
+  const u = k >= 0 ? t - L0 - k * P : 0;
+  const line = k >= 0 ? TL.lines[k] : null;
+  const talking = line && u > 0.25 && u < 1.7 && Math.sin(u * 22) > -0.2;
+  const ls = i => L0 + i * P; // Startzeit von Zeile i
+
+  // Zustand der Geschichte
+  const walkIn = smooth(0.2, 2.6, t);
+  let cx = lerp(-200, 560, walkIn), cy = 830, hop = walkIn < 1 ? Math.abs(Math.sin(t * 9)) * 18 : 0;
+  const walkOut = smooth(ls(5) + 1.6, TL.quiz.start + 0.2, t);
+  const st = { minouTalk: line && line.who === 'minou' && talking, paw: 0, till: '0,00', extra: '', front: '' };
+  // Croissant wandert von der Theke zu Coco (Zeile 4)
+  const ck = smooth(ls(3) + 0.6, ls(3) + 1.6, t);
+  const hasCroissant = t > ls(3) + 1.6;
+  if (t > ls(3) && !hasCroissant) {
+    const x = lerp(1010, cx + 100, ck), y = lerp(700, 820, ck) - Math.sin(ck * Math.PI) * 140;
+    st.front += croissant(x, y, 0.9, ck * 360);
+    st.paw = 60 * Math.sin(ck * Math.PI);
+  }
+  // Münze fliegt zur Kasse (Zeile 5)
+  const mk = smooth(ls(4) + 0.1, ls(4) + 0.8, t);
+  if (t > ls(4) && t < ls(4) + 0.85) st.front += coin(lerp(cx + 80, 1270, mk), lerp(800, 650, mk) - Math.sin(mk * Math.PI) * 160, 1.2);
+  if (t > ls(3) + 1.0) st.till = '2,00 €';
+  // Herzen bei "Merci beaucoup"
+  if (t > ls(4) + 0.3 && t < ls(5) + 0.4) for (let i = 0; i < 5; i++) { const q = ((t - ls(4)) * 0.5 + i / 5) % 1; st.front += `<g opacity="${1 - q}">${heart(cx - 80 + i * 45, 640 - q * 260, 1.4)}</g>`; }
+  // Winken bei "Bonne journée"
+  if (t > ls(5)) st.paw = 70 + Math.sin(t * 10) * 25;
+  cx = lerp(cx, -260, walkOut); if (walkOut > 0 && walkOut < 1) hop = Math.abs(Math.sin(t * 9)) * 18;
+  const wave = (k === 0) ? -60 + Math.sin(t * 10) * 25 : (k === 5 ? -40 + Math.sin(t * 10) * 25 : -10);
+  const hold = hasCroissant ? croissant(20, -30, 0.55, -30) : '';
+  st.coco = { x: cx, y: cy, s: 1.15, talk: line && line.who === 'coco' && talking, blink: blinkAt(t), hop, wingR: hasCroissant ? -35 : wave,
+    wingL: k === 4 ? -40 + Math.sin(t * 8) * 10 : 0, tilt: k === 4 ? Math.sin(t * 6) * 6 : 0, flip: walkOut > 0.02 ? -1 : 1, hold };
+
+  // Quiz: Coco kommt zurück und isst
+  if (t > TL.quiz.start) {
+    const back = smooth(TL.quiz.start, TL.quiz.start + 1.2, t);
+    st.coco.x = lerp(-260, 420, back); st.coco.flip = 1; st.coco.hop = back < 1 ? Math.abs(Math.sin(t * 9)) * 18 : Math.abs(Math.sin(t * 4)) * 6;
+    st.coco.wingR = -50 + Math.sin(t * 5) * 10; st.coco.talk = Math.sin(t * 7) > 0.3;
+  }
+
+  const [vx, vy, vw] = camFor(t);
+  $('scene').setAttribute('viewBox', `${vx - vw / 2} ${vy - vw / 2} ${vw} ${vw}`);
+  $('scene').innerHTML = world(t, st);
+
+  // Intro-Titel
+  const inIntro = t < L0;
+  $('title').style.display = inIntro ? '' : 'none';
+  if (inIntro) $('title').style.transform = `scale(${pop(0.2, 0.5, t) * (1 - smooth(L0 - 0.3, L0, t))}) rotate(-2deg)`;
+
+  // Dialog
+  ['bubble', 'who', 'en', 'tag'].forEach(id => $(id).style.display = line ? '' : 'none');
+  if (line) {
+    const fr = plain(line.fr), n = Math.floor(clamp((u - 0.25) / 0.9) * fr.length + (u > 0.25 ? 1 : 0));
+    $('frTxt').innerHTML = rich(line.fr, n);
+    $('tail').style.left = line.who === 'coco' ? '40%' : '55%';
+    $('tail').style.transform = line.who === 'coco' ? 'scaleX(1)' : 'scaleX(-1)';
+    const out = smooth(P - 0.25, P, u);
+    $('bubble').style.opacity = u > 0.1 ? 1 - out : 0;
+    $('bubble').style.transform = `scale(${pop(0.1, 0.35, u) * (1 - 0.3 * out)})`;
+    const coco_ = line.who === 'coco';
+    $('whoChip').textContent = coco_ ? 'COCO' : 'MADAME MINOU';
+    $('whoChip').style.background = coco_ ? '#ffd60a' : '#f4a261';
+    $('who').style.transform = `scale(${pop(0.1, 0.3, u)})`;
+    $('enTxt').innerHTML = rich(line.en);
+    const ek = pop(1.4, 0.35, u);
+    $('en').style.opacity = u > 1.4 ? 1 - out : 0;
+    $('en').style.transform = `translateY(${(1 - ek) * 60}px) scale(${0.85 + 0.15 * ek})`;
+  }
+
+  // Quiz
+  const Q = TL.quiz, qu = t - Q.start, inQ = t >= Q.start && t < Q.end;
+  $('quiz').style.opacity = inQ ? 1 - smooth(Q.end - 0.3, Q.end, t) : 0;
+  if (inQ) {
+    $('quiz').querySelector('.card').style.transform = `scale(${pop(0, 0.4, qu)})`;
+    $('qTxt').innerHTML = Q.q.map(p => Array.isArray(p) ? `<span class="hl" style="background:${HL[p[1]]}">„${p[0]}“</span>` : p).join('');
+    const reveal = qu > 4.9;
+    $('opts').innerHTML = Q.options.map((o, i) => {
+      const k_ = pop(0.8 + i * 0.2, 0.35, qu), ok = i === Q.correct;
+      const bg = reveal ? (ok ? '#95d5b2' : '#e9ecef') : '#fff', op = reveal && !ok ? 0.45 : 1;
+      const sc = k_ * (reveal && ok ? 1 + 0.06 * Math.sin((qu - 4.9) * 10) * Math.exp(-(qu - 4.9) * 1.5) + 0.04 : 1);
+      return `<div class="opt" style="background:${bg};opacity:${op};transform:scale(${sc})"><span class="l" style="background:${reveal && ok ? '#2f9e44' : INK}">${'ABC'[i]}</span>${o}</div>`;
+    }).join('');
+    // Countdown 3-2-1
+    const tk = clamp((qu - 1.8) / 3.0), num = qu < 1.8 ? '' : qu < 4.8 ? String(3 - Math.floor((qu - 1.8))) : '';
+    const a = tk * Math.PI * 2, large = a > Math.PI ? 1 : 0;
+    const vis = qu > 1.6 && qu < 4.95;
+    $('timer').style.opacity = vis ? 1 : 0;
+    $('timer').innerHTML = `<circle cx="115" cy="115" r="100" fill="#fff" stroke="${INK}" stroke-width="12"/>
+      ${tk > 0 && tk < 1 ? `<path d="M115 115 L115 15 A100 100 0 ${large} 1 ${115 + 100 * Math.sin(a)} ${115 - 100 * Math.cos(a)} Z" fill="#ffd166"/>` : ''}
+      <circle cx="115" cy="115" r="100" fill="none" stroke="${INK}" stroke-width="12"/>
+      <text x="115" y="150" text-anchor="middle" font-family="Lucky" font-size="110" fill="${INK}">${num}</text>`;
+    const fr = qu > 1.8 ? (qu - 1.8) % 1 : 1;
+    $('timer').style.transform = `translateX(-50%) scale(${1 + 0.12 * Math.max(0, 1 - fr * 5)})`;
+  }
+
+  // Outro
+  const ou = t - TL.outro;
+  $('outro').style.opacity = ou > 0 ? 1 : 0;
+  $('outro').style.transform = `scale(${pop(0, 0.45, ou)})`;
+};
+
+window.ready = (async () => {
+  TL = await (await fetch('timeline.json')).json();
+  const nb = x => x.replace(/ ([!?])/g, '\u202f$1');
+  TL.lines.forEach(l => { l.fr = l.fr.map(p => Array.isArray(p) ? [nb(p[0]), p[1]] : nb(p)); });
+  await Promise.all([document.fonts.load('100px Lucky', 'ÀÉ€'), document.fonts.load('700 80px Fredoka', 'àéî'), document.fonts.load('600 40px Fredoka')]);
+  await document.fonts.ready;
+  window.render(0); return TL;
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+1
+00:00:00,300 --> 00:00:03,000
+[ERZÄHLER, Englisch] Learn French with a story! At the bakery.
+
+2
+00:00:03,450 --> 00:00:04,900
+[COCO, Französisch] Bonjour, madame !
+
+3
+00:00:05,100 --> 00:00:06,800
+[ERZÄHLER, Englisch] Hello, madam!
+
+4
+00:00:08,050 --> 00:00:09,500
+[MADAME MINOU, Französisch] Bonjour ! Vous désirez ?
+
+5
+00:00:09,700 --> 00:00:11,400
+[ERZÄHLER, Englisch] Hello! What would you like?
+
+6
+00:00:12,650 --> 00:00:14,100
+[COCO, Französisch] Un croissant, s'il vous plaît.
+
+7
+00:00:14,300 --> 00:00:15,1000
+[ERZÄHLER, Englisch] A croissant, please.
+
+8
+00:00:17,250 --> 00:00:18,700
+[MADAME MINOU, Französisch] Voilà ! Deux euros.
+
+9
+00:00:18,900 --> 00:00:20,600
+[ERZÄHLER, Englisch] Here you go! Two euros.
+
+10
+00:00:21,850 --> 00:00:23,300
+[COCO, Französisch] Merci beaucoup !
+
+11
+00:00:23,500 --> 00:00:25,200
+[ERZÄHLER, Englisch] Thank you very much!
+
+12
+00:00:26,450 --> 00:00:27,900
+[MADAME MINOU, Französisch] Bonne journée !
+
+13
+00:00:28,100 --> 00:00:29,800
+[ERZÄHLER, Englisch] Have a nice day!
+
+14
+00:00:31,000 --> 00:00:32,400
+[ERZÄHLER] Quiz! What does „Merci beaucoup“ mean?
+
+15
+00:00:32,600 --> 00:00:35,400
+[ERZÄHLER] Three… two… one…
+
+16
+00:00:35,700 --> 00:00:37,300
+[ERZÄHLER] B! Thank you very much!
+
+17
+00:00:37,900 --> 00:00:41,700
+[ERZÄHLER] Comment „Bonjour“ if you learned something! Next time: at the café.

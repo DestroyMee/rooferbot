@@ -82,7 +82,7 @@ t_ = ts(0.9); add(sfx, ls(3) + 0.65, np.sin(2 * np.pi * np.cumsum(500 + 700 * t_
 add(sfx, ls(3) + 1.0, tone(1320, 0.25, 0.08, (1, .6, .3)), 0.15)
 add(sfx, ls(3) + 1.08, bell(hz(96), 0.9) + bell(hz(100), 0.9), 0.12)
 # Münze
-add(sfx, ls(4) + 0.8, tone(2600, 0.5, 0.12, (1, .3)) + tone(3900, 0.4, 0.08, (1,)), 0.1)
+add(sfx, ls(4) + 0.8, tone(2600, 0.5, 0.12, (1, .3)) + tone(3900, 0.5, 0.08, (1,)), 0.1)
 # Herzen
 for k in range(5): add(sfx, ls(4) + 0.35 + k * 0.18, bell(hz(84 + 3 * k), 0.4), 0.06)
 # Quiz

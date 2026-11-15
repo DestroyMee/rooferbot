@@ -60,7 +60,7 @@
 <div id="title"><div class="k">LEARN FRENCH WITH A STORY</div><div class="big">À LA BOULANGERIE</div><div class="en">= At the bakery</div></div>
 <div id="quiz"><div class="dim"></div><div class="card"><h1>QUIZ!</h1><div class="q" id="qTxt"></div><div id="opts"></div></div>
   <svg id="timer" width="230" height="230" viewBox="0 0 230 230"></svg></div>
-<div id="outro"><div class="big">COMMENT <span>“BONJOUR”</span><br>IF YOU LEARNED SOMETHING!</div><div class="chip">NEXT: AU CAFÉ ☕</div><div class="h">@LEARNWITHCOCO</div></div>
+<div id="outro"><div class="big">COMMENT <span>„BONJOUR“</span><br>IF YOU LEARNED SOMETHING!</div><div class="chip">NEXT: AU CAFÉ ☕</div><div class="h">@LEARNWITHCOCO</div></div>
 
 <script>
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
@@ -269,7 +269,7 @@ window.render = function (t) {
   $('quiz').style.opacity = inQ ? 1 - smooth(Q.end - 0.3, Q.end, t) : 0;
   if (inQ) {
     $('quiz').querySelector('.card').style.transform = `scale(${pop(0, 0.4, qu)})`;
-    $('qTxt').innerHTML = Q.q.map(p => Array.isArray(p) ? `<span class="hl" style="background:${HL[p[1]]}">“${p[0]}”</span>` : p).join('');
+    $('qTxt').innerHTML = Q.q.map(p => Array.isArray(p) ? `<span class="hl" style="background:${HL[p[1]]}">„${p[0]}“</span>` : p).join('');
     const reveal = qu > 4.9;
     $('opts').innerHTML = Q.options.map((o, i) => {
       const k_ = pop(0.8 + i * 0.2, 0.35, qu), ok = i === Q.correct;

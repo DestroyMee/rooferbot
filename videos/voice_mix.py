@@ -23,6 +23,8 @@ ROLES = {
     "coco":     dict(voice="ff_siwis", lang="fr-fr", speed=0.85, pitch=1.22),
     "minou":    dict(voice="ff_siwis", lang="fr-fr", speed=1.0,  pitch=0.93),
     "narrator": dict(voice="af_heart", lang="en-us", speed=1.05, pitch=1.0),
+    "es":       dict(voice="em_alex",  lang="es",    speed=0.95, pitch=1.0),
+    "sit":      dict(voice="af_heart", lang="en-us", speed=1.25, pitch=1.0),
 }
 
 _k = None
@@ -35,6 +37,9 @@ def kokoro():
 
 
 def synth(text, role, cache):
+    if role == "bleep":  # Zensur-Piep, text = Länge in Sekunden
+        t = np.arange(int(float(text) * SR)) / SR
+        return 0.35 * np.sin(2 * np.pi * 1000 * t) * np.clip(t / 0.01, 0, 1) * np.clip((t[-1] - t) / 0.01, 0, 1)
     r = ROLES[role]
     key = hashlib.md5(json.dumps([text, r]).encode()).hexdigest()[:16]
     f = os.path.join(cache, key + ".wav")
@@ -86,7 +91,21 @@ def cues_french_story(tl):
     return c
 
 
-BUILDERS = {"french-basics": cues_french_basics, "french-story": cues_french_story}
+def cues_spanish_spicy(tl):
+    c = [dict(t=0.3, limit=3.4, role="en", text="Spanish curse words they don't teach you in school!")]
+    for k, w in enumerate(tl["words"]):
+        s = tl["intro"] + k * tl["per"]
+        c += [dict(t=s + 0.05, limit=s + 1.25, role="sit", text=w["sit"]),
+              dict(t=s + 1.3, limit=s + 2.5, role="es", text=w["es"])]
+        if w["spoken"]: c.append(dict(t=s + 2.65, limit=s + tl["per"] - 0.1, role="en", text=w["spoken"]))
+        if w["bleep"]: c.append(dict(t=s + 2.7, limit=s + tl["per"] - 0.1, role="bleep", text="0.45"))
+    o = tl["intro"] + len(tl["words"]) * tl["per"]
+    c += [dict(t=o + 0.2, limit=o + 1.8, role="es", text="¿Cuál es tu favorita?"),
+          dict(t=o + 1.9, limit=tl["duration"] - 0.1, role="en", text="Comment below!")]
+    return c
+
+
+BUILDERS = {"french-basics": cues_french_basics, "french-story": cues_french_story, "spanish-spicy": cues_spanish_spicy}
 
 
 def main(name):

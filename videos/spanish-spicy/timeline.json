@@ -1,0 +1,17 @@
+{
+  "fps": 30,
+  "intro": 3.5,
+  "per": 4.5,
+  "outro": 4.0,
+  "duration": 43.5,
+  "words": [
+    { "es": "¡Mierda!",      "say": "MYEHR-dah",            "en": "Sh*t!",          "spoken": "",          "bleep": true,  "sit": "You stub your toe…",           "pic": "toe",    "region": "everywhere", "spice": 2, "bg": "#ffd6a5" },
+    { "es": "¡Joder!",       "say": "hoh-DEHR",             "en": "F*ck!",          "spoken": "",          "bleep": true,  "sit": "Your phone hits the floor…",   "pic": "phone",  "region": "spain",      "spice": 3, "bg": "#ffadad" },
+    { "es": "¡Hostia!",      "say": "OHS-tyah",             "en": "Holy sh*t!",     "spoken": "Holy",      "bleep": true,  "sit": "You see the bill…",           "pic": "bill",   "region": "spain",      "spice": 2, "bg": "#fdffb6" },
+    { "es": "¡Carajo!",      "say": "kah-RAH-hoh",          "en": "Damn!",          "spoken": "Damn!",     "bleep": false, "sit": "You miss the bus…",           "pic": "bus",    "region": "latam",      "spice": 1, "bg": "#caffbf" },
+    { "es": "¡Maldita sea!", "say": "mahl-DEE-tah SEH-ah",  "en": "Damn it!",       "spoken": "Damn it!",  "bleep": false, "sit": "You burn your toast…",        "pic": "toast",  "region": "everywhere", "spice": 1, "bg": "#9bf6ff" },
+    { "es": "Gilipollas",    "say": "hee-lee-POH-yahs",     "en": "Dumb*ss",        "spoken": "Dumb",      "bleep": true,  "sit": "Someone cuts the line…",      "pic": "line",   "region": "spain",      "spice": 2, "bg": "#a0c4ff" },
+    { "es": "Pendejo",       "say": "pehn-DEH-hoh",         "en": "Idiot",          "spoken": "Idiot!",    "bleep": false, "sit": "A car splashes you…",         "pic": "splash", "region": "latam",      "spice": 2, "bg": "#bdb2ff" },
+    { "es": "Cabrón",        "say": "kah-BROHN",            "en": "B*stard",        "spoken": "",          "bleep": true,  "sit": "Your friend eats your fries…", "pic": "fries",  "region": "everywhere", "spice": 2, "bg": "#ffc6ff", "note": "(in Mexico also: “dude” 😅)" }
+  ]
+}

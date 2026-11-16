@@ -1,0 +1,169 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.5,
+ "outro": 4.0,
+ "duration": 61.5,
+ "meta": {
+  "header": "SPICY PORTUGUESE 🌶️",
+  "flag": [
+   "br"
+  ],
+  "title": [
+   [
+    "BRAZILIAN",
+    "#009c3b"
+   ],
+   [
+    "CURSE WORDS",
+    "#f59f00"
+   ]
+  ],
+  "sub": "they don't teach you in school",
+  "outro": [
+   "QUAL É A SUA<br>FAVORITA?",
+   "= Which one is your favorite?"
+  ],
+  "voice": {
+   "role": "pt",
+   "intro": "Brazilian curse words they don't teach you in school!",
+   "outro_native": "Qual é a sua favorita?",
+   "outro_en": "Comment below!"
+  }
+ },
+ "words": [
+  {
+   "es": "Merda!",
+   "say": "MEHR-dah",
+   "en": "Sh*t!",
+   "spoken": "",
+   "bleep": true,
+   "sit": "You stub your toe…",
+   "pic": "toe",
+   "spice": 2,
+   "bg": "#ffd6a5"
+  },
+  {
+   "es": "Porra!",
+   "say": "POH-hah",
+   "en": "F*ck!",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Your phone hits the floor…",
+   "pic": "phone",
+   "spice": 3,
+   "bg": "#ffadad"
+  },
+  {
+   "es": "Caramba!",
+   "say": "kah-RAHM-bah",
+   "en": "Holy cow!",
+   "spoken": "Holy cow!",
+   "bleep": false,
+   "sit": "You see the bill…",
+   "pic": "bill",
+   "spice": 1,
+   "bg": "#fdffb6"
+  },
+  {
+   "es": "Droga!",
+   "say": "DRAW-gah",
+   "en": "Dammit!",
+   "spoken": "Dammit!",
+   "bleep": false,
+   "sit": "You miss the bus…",
+   "pic": "bus",
+   "spice": 1,
+   "bg": "#caffbf"
+  },
+  {
+   "es": "Que saco!",
+   "say": "kee SAH-koo",
+   "en": "What a drag!",
+   "spoken": "What a drag!",
+   "bleep": false,
+   "sit": "You burn your toast…",
+   "pic": "toast",
+   "spice": 1,
+   "bg": "#9bf6ff"
+  },
+  {
+   "es": "Babaca",
+   "say": "bah-BAH-kah",
+   "en": "Jerk",
+   "spoken": "Jerk!",
+   "bleep": false,
+   "sit": "Someone cuts the line…",
+   "pic": "line",
+   "spice": 2,
+   "bg": "#a0c4ff"
+  },
+  {
+   "es": "Idiota!",
+   "say": "ee-jee-OH-tah",
+   "en": "Idiot!",
+   "spoken": "Idiot!",
+   "bleep": false,
+   "sit": "A car splashes you…",
+   "pic": "splash",
+   "spice": 1,
+   "bg": "#bdb2ff"
+  },
+  {
+   "es": "Filho da mãe",
+   "say": "FEEL-yoo dah MAYN",
+   "en": "Son of a gun",
+   "spoken": "Son of a gun!",
+   "bleep": false,
+   "sit": "Your friend eats your fries…",
+   "pic": "fries",
+   "spice": 2,
+   "bg": "#ffc6ff",
+   "note": "(the polite version 😇)"
+  },
+  {
+   "es": "Puta merda!",
+   "say": "POO-tah MEHR-dah",
+   "en": "Holy sh*t!",
+   "spoken": "Holy",
+   "bleep": true,
+   "sit": "The Wi-Fi dies…",
+   "pic": "wifi",
+   "spice": 3,
+   "bg": "#c5cae9"
+  },
+  {
+   "es": "Nossa!",
+   "say": "NAW-sah",
+   "en": "Oh my gosh!",
+   "spoken": "Oh my gosh!",
+   "bleep": false,
+   "sit": "Your ice cream falls…",
+   "pic": "icecream",
+   "spice": 1,
+   "bg": "#fcc2d7"
+  },
+  {
+   "es": "Que preguiça!",
+   "say": "kee preh-GHEE-sah",
+   "en": "So lazy!",
+   "spoken": "So lazy!",
+   "bleep": false,
+   "sit": "Your alarm goes off…",
+   "pic": "alarm",
+   "spice": 1,
+   "bg": "#91a7ff"
+  },
+  {
+   "es": "Puxa!",
+   "say": "POO-shah",
+   "en": "Dang!",
+   "spoken": "Dang!",
+   "bleep": false,
+   "sit": "It starts to rain…",
+   "pic": "rain",
+   "spice": 1,
+   "bg": "#d0ebff"
+  }
+ ]
+}

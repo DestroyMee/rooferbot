@@ -28,6 +28,7 @@ ROLES = {
     "es_f":     dict(voice="ef_dora",  lang="es",    speed=0.95, pitch=1.0),
     "it":       dict(voice="if_sara",  lang="it",    speed=0.95, pitch=1.0),
     "it_m":     dict(voice="im_nicola", lang="it",   speed=0.95, pitch=1.0),
+    "pt":       dict(voice="pm_alex",  lang="pt-br", speed=0.95, pitch=1.0),
 }
 
 _k = None

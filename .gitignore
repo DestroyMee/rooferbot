@@ -11,3 +11,4 @@ videos/*/out/*
 !videos/*/out/spicy-*.mp4
 !videos/*/out/french-basics-long.mp4
 !videos/*/out/false-friends-*.mp4
+videos/clips/**/_*.png

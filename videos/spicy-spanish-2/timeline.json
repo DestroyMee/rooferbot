@@ -1,0 +1,190 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.5,
+ "outro": 4.0,
+ "duration": 61.5,
+ "meta": {
+  "header": "SPICY SPANISH 2 🌶️",
+  "flag": [
+   "v",
+   "#006847",
+   "#ffffff",
+   "#ce1126"
+  ],
+  "title": [
+   [
+    "MEXICAN",
+    "#006847"
+   ],
+   [
+    "SLANG",
+    "#ce1126"
+   ]
+  ],
+  "sub": "Spanish they don't teach you in school · Part 2",
+  "outro": [
+   "¿CUÁL ES TU<br>FAVORITA?",
+   "= Which one is your favorite?"
+  ],
+  "regions": {
+   "mexico": [
+    "<svg width=\"54\" height=\"36\" viewBox=\"0 0 60 40\"><rect width=\"20\" height=\"40\" fill=\"#006847\"/><rect x=\"20\" width=\"20\" height=\"40\" fill=\"#fff\"/><rect x=\"40\" width=\"20\" height=\"40\" fill=\"#ce1126\"/><circle cx=\"30\" cy=\"20\" r=\"5\" fill=\"#8c5a2b\"/><rect width=\"60\" height=\"40\" rx=\"6\" fill=\"none\" stroke=\"#1d2b53\" stroke-width=\"4\"/></svg>",
+    "MEXICO"
+   ]
+  },
+  "voice": {
+   "role": "es",
+   "intro": "Mexican slang they don't teach you in school! Part two!",
+   "outro_native": "¿Cuál es tu favorita?",
+   "outro_en": "Comment below!"
+  }
+ },
+ "words": [
+  {
+   "es": "¡Chale!",
+   "say": "CHAH-leh",
+   "en": "Ugh, dang!",
+   "spoken": "Ugh, dang!",
+   "bleep": false,
+   "sit": "You stub your toe…",
+   "pic": "toe",
+   "spice": 1,
+   "bg": "#ffd6a5",
+   "region": "mexico"
+  },
+  {
+   "es": "¡No mames!",
+   "say": "noh MAH-mehs",
+   "en": "No f*cking way!",
+   "spoken": "No",
+   "bleep": true,
+   "sit": "Your phone hits the floor…",
+   "pic": "phone",
+   "spice": 3,
+   "bg": "#ffadad",
+   "region": "mexico"
+  },
+  {
+   "es": "¡Ay, caramba!",
+   "say": "eye kah-RAHM-bah",
+   "en": "Oh my gosh!",
+   "spoken": "Oh my gosh!",
+   "bleep": false,
+   "sit": "You see the bill…",
+   "pic": "bill",
+   "spice": 1,
+   "bg": "#fdffb6",
+   "region": "everywhere"
+  },
+  {
+   "es": "¡Chin!",
+   "say": "cheen",
+   "en": "Darn!",
+   "spoken": "Darn!",
+   "bleep": false,
+   "sit": "You miss the bus…",
+   "pic": "bus",
+   "spice": 1,
+   "bg": "#caffbf",
+   "region": "mexico"
+  },
+  {
+   "es": "¡Me lleva!",
+   "say": "meh YEH-vah",
+   "en": "Dammit!",
+   "spoken": "Dammit!",
+   "bleep": false,
+   "sit": "You burn your toast…",
+   "pic": "toast",
+   "spice": 2,
+   "bg": "#9bf6ff",
+   "region": "mexico"
+  },
+  {
+   "es": "Culero",
+   "say": "koo-LEH-roh",
+   "en": "*sshole",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Someone cuts the line…",
+   "pic": "line",
+   "spice": 3,
+   "bg": "#a0c4ff",
+   "region": "mexico"
+  },
+  {
+   "es": "Tarado",
+   "say": "tah-RAH-doh",
+   "en": "Dummy",
+   "spoken": "Dummy!",
+   "bleep": false,
+   "sit": "A car splashes you…",
+   "pic": "splash",
+   "spice": 1,
+   "bg": "#bdb2ff",
+   "region": "latam"
+  },
+  {
+   "es": "Huevón",
+   "say": "weh-VOHN",
+   "en": "Jerk",
+   "spoken": "Jerk!",
+   "bleep": false,
+   "sit": "Your friend eats your fries…",
+   "pic": "fries",
+   "spice": 2,
+   "bg": "#ffc6ff",
+   "region": "latam",
+   "note": "(in Chile also: “dude” 😅)"
+  },
+  {
+   "es": "¡Qué mierda!",
+   "say": "keh MYEHR-dah",
+   "en": "This is sh*t!",
+   "spoken": "This is",
+   "bleep": true,
+   "sit": "The Wi-Fi dies…",
+   "pic": "wifi",
+   "spice": 2,
+   "bg": "#c5cae9",
+   "region": "everywhere"
+  },
+  {
+   "es": "¡Híjole!",
+   "say": "EE-hoh-leh",
+   "en": "Oh man!",
+   "spoken": "Oh man!",
+   "bleep": false,
+   "sit": "Your ice cream falls…",
+   "pic": "icecream",
+   "spice": 1,
+   "bg": "#fcc2d7",
+   "region": "mexico"
+  },
+  {
+   "es": "¡Qué flojera!",
+   "say": "keh floh-HEH-rah",
+   "en": "Ugh, so lazy!",
+   "spoken": "Ugh, so lazy!",
+   "bleep": false,
+   "sit": "Your alarm goes off…",
+   "pic": "alarm",
+   "spice": 1,
+   "bg": "#91a7ff",
+   "region": "mexico"
+  },
+  {
+   "es": "¡Qué mala onda!",
+   "say": "keh MAH-lah OHN-dah",
+   "en": "What a bummer!",
+   "spoken": "What a bummer!",
+   "bleep": false,
+   "sit": "It starts to rain…",
+   "pic": "rain",
+   "spice": 1,
+   "bg": "#d0ebff",
+   "region": "latam"
+  }
+ ]
+}

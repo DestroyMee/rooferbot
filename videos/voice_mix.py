@@ -27,6 +27,7 @@ ROLES = {
     "sit":      dict(voice="af_heart", lang="en-us", speed=1.25, pitch=1.0),
     "es_f":     dict(voice="ef_dora",  lang="es",    speed=0.95, pitch=1.0),
     "it":       dict(voice="if_sara",  lang="it",    speed=0.95, pitch=1.0),
+    "it_m":     dict(voice="im_nicola", lang="it",   speed=0.95, pitch=1.0),
 }
 
 _k = None
@@ -94,16 +95,18 @@ def cues_french_story(tl):
 
 
 def cues_spanish_spicy(tl):
-    c = [dict(t=0.3, limit=3.4, role="en", text="Spanish curse words they don't teach you in school!")]
+    V = (tl.get("meta") or {}).get("voice") or dict(role="es", intro="Spanish curse words they don't teach you in school!",
+                                                   outro_native="¿Cuál es tu favorita?", outro_en="Comment below!")
+    c = [dict(t=0.3, limit=3.4, role="en", text=V["intro"])]
     for k, w in enumerate(tl["words"]):
         s = tl["intro"] + k * tl["per"]
         c += [dict(t=s + 0.05, limit=s + 1.25, role="sit", text=w["sit"]),
-              dict(t=s + 1.3, limit=s + 2.5, role="es", text=w["es"])]
+              dict(t=s + 1.3, limit=s + 2.5, role=V["role"], text=w["es"])]
         if w["spoken"]: c.append(dict(t=s + 2.65, limit=s + tl["per"] - 0.1, role="en", text=w["spoken"]))
         if w["bleep"]: c.append(dict(t=s + 2.7, limit=s + tl["per"] - 0.1, role="bleep", text="0.45"))
     o = tl["intro"] + len(tl["words"]) * tl["per"]
-    c += [dict(t=o + 0.2, limit=o + 1.8, role="es", text="¿Cuál es tu favorita?"),
-          dict(t=o + 1.9, limit=tl["duration"] - 0.1, role="en", text="Comment below!")]
+    c += [dict(t=o + 0.2, limit=o + 1.8, role=V["role"], text=V["outro_native"]),
+          dict(t=o + 1.9, limit=tl["duration"] - 0.1, role="en", text=V["outro_en"])]
     return c
 
 
@@ -132,7 +135,7 @@ def main(name):
     N = int(tl["duration"] * SR)
     voice = np.zeros(N)
     prev_end = 0.0; warn = 0
-    builder = BUILDERS.get(name) or (cues_basics if "meta" in tl else None)
+    builder = BUILDERS.get(name) or (cues_spanish_spicy if name.startswith("spicy") else cues_basics if "meta" in tl else None)
     for cue in builder(tl):
         a = synth(cue["text"], cue["role"], cache)
         start = max(cue["t"], prev_end + 0.1)

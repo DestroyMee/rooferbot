@@ -1,0 +1,171 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.5,
+ "outro": 4.0,
+ "duration": 61.5,
+ "meta": {
+  "header": "SPICY FRENCH 🌶️",
+  "flag": [
+   "v",
+   "#2b59c3",
+   "#ffffff",
+   "#ef3340"
+  ],
+  "title": [
+   [
+    "FRENCH",
+    "#2b59c3"
+   ],
+   [
+    "CURSE WORDS",
+    "#ef3340"
+   ]
+  ],
+  "sub": "they don't teach you in school",
+  "outro": [
+   "C'EST LEQUEL<br>TON PRÉFÉRÉ ?",
+   "= Which one is your favorite?"
+  ],
+  "voice": {
+   "role": "fr",
+   "intro": "French curse words they don't teach you in school!",
+   "outro_native": "C'est lequel ton préféré ?",
+   "outro_en": "Comment below!"
+  }
+ },
+ "words": [
+  {
+   "es": "Merde !",
+   "say": "mehrd",
+   "en": "Sh*t!",
+   "spoken": "",
+   "bleep": true,
+   "sit": "You stub your toe…",
+   "pic": "toe",
+   "spice": 2,
+   "bg": "#ffd6a5"
+  },
+  {
+   "es": "Putain !",
+   "say": "pew-TAN",
+   "en": "F*ck!",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Your phone hits the floor…",
+   "pic": "phone",
+   "spice": 3,
+   "bg": "#ffadad"
+  },
+  {
+   "es": "Oh là là !",
+   "say": "oh lah LAH",
+   "en": "Oh my god!",
+   "spoken": "Oh my god!",
+   "bleep": false,
+   "sit": "You see the bill…",
+   "pic": "bill",
+   "spice": 1,
+   "bg": "#fdffb6"
+  },
+  {
+   "es": "Zut !",
+   "say": "zoot",
+   "en": "Darn!",
+   "spoken": "Darn!",
+   "bleep": false,
+   "sit": "You miss the bus…",
+   "pic": "bus",
+   "spice": 1,
+   "bg": "#caffbf"
+  },
+  {
+   "es": "Mince !",
+   "say": "manss",
+   "en": "Shoot!",
+   "spoken": "Shoot!",
+   "bleep": false,
+   "sit": "You burn your toast…",
+   "pic": "toast",
+   "spice": 1,
+   "bg": "#9bf6ff"
+  },
+  {
+   "es": "Connard",
+   "say": "koh-NAR",
+   "en": "*sshole",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Someone cuts the line…",
+   "pic": "line",
+   "spice": 3,
+   "bg": "#a0c4ff"
+  },
+  {
+   "es": "Abruti",
+   "say": "ah-broo-TEE",
+   "en": "Idiot",
+   "spoken": "Idiot!",
+   "bleep": false,
+   "sit": "A car splashes you…",
+   "pic": "splash",
+   "spice": 2,
+   "bg": "#bdb2ff"
+  },
+  {
+   "es": "Enfoiré",
+   "say": "ahn-fwah-RAY",
+   "en": "B*stard",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Your friend eats your fries…",
+   "pic": "fries",
+   "spice": 3,
+   "bg": "#ffc6ff"
+  },
+  {
+   "es": "Fait chier !",
+   "say": "feh shee-AY",
+   "en": "This sucks!",
+   "spoken": "This sucks!",
+   "bleep": false,
+   "sit": "The Wi-Fi dies…",
+   "pic": "wifi",
+   "spice": 2,
+   "bg": "#c5cae9"
+  },
+  {
+   "es": "Et merde !",
+   "say": "ay MEHRD",
+   "en": "Oh sh*t!",
+   "spoken": "Oh",
+   "bleep": true,
+   "sit": "Your ice cream falls…",
+   "pic": "icecream",
+   "spice": 2,
+   "bg": "#fcc2d7"
+  },
+  {
+   "es": "J'en ai marre !",
+   "say": "zhahn ay MAR",
+   "en": "I'm fed up!",
+   "spoken": "I'm fed up!",
+   "bleep": false,
+   "sit": "Your alarm goes off…",
+   "pic": "alarm",
+   "spice": 1,
+   "bg": "#91a7ff"
+  },
+  {
+   "es": "Quelle galère !",
+   "say": "kel gah-LEHR",
+   "en": "What a pain!",
+   "spoken": "What a pain!",
+   "bleep": false,
+   "sit": "It starts to rain…",
+   "pic": "rain",
+   "spice": 1,
+   "bg": "#d0ebff"
+  }
+ ]
+}

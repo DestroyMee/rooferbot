@@ -1,0 +1,173 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.5,
+ "outro": 4.0,
+ "duration": 61.5,
+ "meta": {
+  "header": "SPICY ITALIAN 🌶️",
+  "flag": [
+   "v",
+   "#009246",
+   "#ffffff",
+   "#ce2b37"
+  ],
+  "title": [
+   [
+    "ITALIAN",
+    "#009246"
+   ],
+   [
+    "CURSE WORDS",
+    "#ce2b37"
+   ]
+  ],
+  "sub": "they don't teach you in school",
+  "outro": [
+   "QUAL È IL TUO<br>PREFERITO?",
+   "= Which one is your favorite?"
+  ],
+  "voice": {
+   "role": "it_m",
+   "intro": "Italian curse words they don't teach you in school!",
+   "outro_native": "Qual è il tuo preferito?",
+   "outro_en": "Comment below!"
+  }
+ },
+ "words": [
+  {
+   "es": "Merda!",
+   "say": "MEHR-dah",
+   "en": "Sh*t!",
+   "spoken": "",
+   "bleep": true,
+   "sit": "You stub your toe…",
+   "pic": "toe",
+   "spice": 2,
+   "bg": "#ffd6a5"
+  },
+  {
+   "es": "Cazzo!",
+   "say": "KAHT-tsoh",
+   "en": "F*ck!",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Your phone hits the floor…",
+   "pic": "phone",
+   "spice": 3,
+   "bg": "#ffadad"
+  },
+  {
+   "es": "Mamma mia!",
+   "say": "MAHM-mah MEE-ah",
+   "en": "Oh my god!",
+   "spoken": "Oh my god!",
+   "bleep": false,
+   "sit": "You see the bill…",
+   "pic": "bill",
+   "spice": 1,
+   "bg": "#fdffb6"
+  },
+  {
+   "es": "Porca miseria!",
+   "say": "POR-kah mee-ZEH-ryah",
+   "en": "Damn it!",
+   "spoken": "Damn it!",
+   "bleep": false,
+   "sit": "You miss the bus…",
+   "pic": "bus",
+   "spice": 1,
+   "bg": "#caffbf"
+  },
+  {
+   "es": "Accidenti!",
+   "say": "aht-chee-DEN-tee",
+   "en": "Darn!",
+   "spoken": "Darn!",
+   "bleep": false,
+   "sit": "You burn your toast…",
+   "pic": "toast",
+   "spice": 1,
+   "bg": "#9bf6ff"
+  },
+  {
+   "es": "Stronzo",
+   "say": "STRON-tsoh",
+   "en": "*sshole",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Someone cuts the line…",
+   "pic": "line",
+   "spice": 3,
+   "bg": "#a0c4ff"
+  },
+  {
+   "es": "Cretino",
+   "say": "kreh-TEE-noh",
+   "en": "Moron",
+   "spoken": "Moron!",
+   "bleep": false,
+   "sit": "A car splashes you…",
+   "pic": "splash",
+   "spice": 2,
+   "bg": "#bdb2ff"
+  },
+  {
+   "es": "Bastardo",
+   "say": "bahs-TAR-doh",
+   "en": "B*stard",
+   "spoken": "",
+   "bleep": true,
+   "sit": "Your friend eats your fries…",
+   "pic": "fries",
+   "spice": 2,
+   "bg": "#ffc6ff"
+  },
+  {
+   "es": "Che palle!",
+   "say": "keh PAHL-leh",
+   "en": "This sucks!",
+   "spoken": "This sucks!",
+   "bleep": false,
+   "sit": "The Wi-Fi dies…",
+   "pic": "wifi",
+   "spice": 2,
+   "bg": "#c5cae9",
+   "note": "(literally: “what balls” 😅)"
+  },
+  {
+   "es": "Porca vacca!",
+   "say": "POR-kah VAHK-kah",
+   "en": "Holy cow!",
+   "spoken": "Holy cow!",
+   "bleep": false,
+   "sit": "Your ice cream falls…",
+   "pic": "icecream",
+   "spice": 1,
+   "bg": "#fcc2d7",
+   "note": "(literally: “pig cow”)"
+  },
+  {
+   "es": "Uffa!",
+   "say": "OOF-fah",
+   "en": "Ugh!",
+   "spoken": "Ugh!",
+   "bleep": false,
+   "sit": "Your alarm goes off…",
+   "pic": "alarm",
+   "spice": 1,
+   "bg": "#91a7ff"
+  },
+  {
+   "es": "Mannaggia!",
+   "say": "mahn-NAHD-jah",
+   "en": "Dang it!",
+   "spoken": "Dang it!",
+   "bleep": false,
+   "sit": "It starts to rain…",
+   "pic": "rain",
+   "spice": 1,
+   "bg": "#d0ebff"
+  }
+ ]
+}

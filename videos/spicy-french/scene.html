@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Spicy – Scene</title>
+<style>
+  @font-face { font-family: "Lucky"; src: url("vendor/luckiest-guy.woff2") format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 700; src: url("vendor/fredoka-700.woff2") format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 600; src: url("vendor/fredoka-600.woff2") format("woff2"); }
+  :root { --ink: #1d2b53; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; font-family: "Fredoka", sans-serif; }
+  #bg, #fx { position: absolute; inset: 0; }
+  #fx { z-index: 1; } #outro { z-index: 3; }
+  .abs { position: absolute; left: 0; right: 0; text-align: center; }
+  .pill { display: inline-flex; align-items: center; gap: 18px; background: #fff; border: 8px solid var(--ink);
+    border-radius: 60px; padding: 14px 40px 8px; box-shadow: 0 10px 0 rgba(29,43,83,.25); }
+  #header { top: 70px; }
+  #header .pill { font-family: "Lucky"; font-size: 64px; color: var(--ink); }
+  #dots { position: absolute; left: 0; right: 0; top: 232px; display: flex; justify-content: center; gap: 22px; }
+  .dot { width: 34px; height: 34px; border-radius: 50%; border: 6px solid var(--ink); background: #fff; }
+  .dot.on { background: #e63946; } .dot.done { background: var(--ink); }
+  #card { position: absolute; left: 90px; top: 320px; width: 900px; height: 800px; }
+  #card .frame { position: absolute; inset: 0; background: #fff; border: 12px solid var(--ink); border-radius: 70px;
+    box-shadow: 0 18px 0 rgba(29,43,83,.25); overflow: hidden; }
+  #pic { position: absolute; inset: 0; width: 100%; height: 100%; }
+  #sit { position: absolute; left: 0; right: 0; bottom: 34px; text-align: center; }
+  #sit .pill { font-weight: 700; font-size: 56px; color: var(--ink); padding: 10px 34px 6px; }
+  #region { position: absolute; left: 34px; top: 30px; }
+  #region .pill { font-family: "Lucky"; font-size: 40px; color: var(--ink); padding: 8px 24px 2px; gap: 12px; border-width: 6px; }
+  #spice { position: absolute; right: 34px; top: 30px; }
+  #spice .pill { font-size: 46px; padding: 6px 20px; gap: 2px; border-width: 6px; }
+  #es { top: 1150px; }
+  #esTxt { display: inline-block; font-family: "Lucky"; font-size: 175px; line-height: 1; color: #e63946; white-space: nowrap;
+    -webkit-text-stroke: 22px #fff; paint-order: stroke fill; text-shadow: 0 14px 0 rgba(29,43,83,.3); }
+  #say { top: 1345px; }
+  #say .pill { font-weight: 600; font-size: 62px; color: var(--ink); }
+  #en { top: 1470px; }
+  #en .lab { display: block; font-family: "Lucky"; font-size: 42px; color: var(--ink); opacity: .65; letter-spacing: 4px; }
+  #en .w { font-family: "Lucky"; font-size: 120px; color: var(--ink); -webkit-text-stroke: 16px #fff; paint-order: stroke fill;
+    text-shadow: 0 10px 0 rgba(29,43,83,.25); white-space: nowrap; }
+  #en .note { display: block; font-weight: 700; font-size: 46px; color: var(--ink); margin-top: 4px; }
+  #beep { position: absolute; left: 690px; top: 1520px; opacity: 0; }
+  #title { top: 1150px; }
+  #title .big { font-family: "Lucky"; font-size: 190px; line-height: .95; -webkit-text-stroke: 22px #fff; paint-order: stroke fill;
+    text-shadow: 0 14px 0 rgba(29,43,83,.3); }
+  #title .sub { font-weight: 700; font-size: 60px; color: var(--ink); margin-top: 16px; line-height: 1.15; }
+  #title .pill { margin-top: 26px; font-family: "Lucky"; font-size: 54px; color: #fff; background: #e63946; }
+  #outro { top: 1150px; z-index: 3; }
+  #outro .big { font-family: "Lucky"; font-size: 120px; color: #e63946; -webkit-text-stroke: 18px #fff; paint-order: stroke fill;
+    text-shadow: 0 12px 0 rgba(29,43,83,.3); line-height: 1; }
+  #outro .sub { font-family: "Lucky"; font-size: 64px; color: var(--ink); margin-top: 14px; }
+  #outro .pill { margin-top: 30px; font-family: "Lucky"; font-size: 58px; color: #fff; background: var(--ink); }
+  #handle { font-family: "Lucky"; font-size: 64px; color: var(--ink); margin-top: 24px; }
+</style>
+</head>
+<body>
+<svg id="bg" width="1080" height="1920"></svg>
+<div id="header" class="abs"><div class="pill">
+  <svg id="flag" width="96" height="66" viewBox="0 0 96 66"></svg>
+  <span id="hdr"></span></div></div>
+<div id="dots"></div>
+<div id="card"><div class="frame"><svg id="pic" viewBox="0 0 400 356"></svg>
+  <div id="region"><div class="pill" id="regionTxt"></div></div>
+  <div id="spice"><div class="pill" id="spiceTxt"></div></div>
+  <div id="sit"><div class="pill" id="sitTxt"></div></div></div></div>
+<div id="es" class="abs"><span id="esTxt"></span></div>
+<div id="say" class="abs"><div class="pill"><svg width="60" height="52" viewBox="0 0 64 56"><path d="M6 20h12l16-14v44L18 36H6z" fill="#1d2b53"/><path id="w1" d="M42 18q8 10 0 20" stroke="#1d2b53" stroke-width="6" fill="none" stroke-linecap="round"/><path id="w2" d="M50 10q14 18 0 36" stroke="#1d2b53" stroke-width="6" fill="none" stroke-linecap="round"/></svg><span id="sayTxt"></span></div></div>
+<div id="en" class="abs"><span class="lab">ENGLISH</span><span class="w" id="enTxt"></span><span class="note" id="noteTxt"></span></div>
+<svg id="beep" width="300" height="190" viewBox="0 0 300 190"></svg>
+<div id="title" class="abs">
+  <div class="big" id="tBig"></div>
+  <div class="sub" id="tSub"></div>
+  <div class="pill">⚠️ NOT FOR KIDS!</div>
+</div>
+<div id="outro" class="abs">
+  <div class="big" id="oBig"></div>
+  <div class="sub" id="oSub"></div>
+  <div class="pill">COMMENT BELOW 👇</div>
+  <div id="handle">@LEARNWITHCOCO</div>
+</div>
+<svg id="fx" width="1080" height="1920"></svg>
+
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const smooth = (a, b, t) => { const k = clamp((t - a) / (b - a)); return k * k * (3 - 2 * k); };
+const backOut = k => { const s = 1.9; k = clamp(k) - 1; return k * k * ((s + 1) * k + s) + 1; };
+const pop = (a, d, t) => (t < a ? 0 : backOut((t - a) / d));
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const R = rng(21);
+const $ = id => document.getElementById(id);
+const INK = '#1d2b53';
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, k) => { const A = hex(a), B = hex(b); return `rgb(${A.map((v, i) => Math.round(lerp(v, B[i], k))).join(',')})`; };
+const REACT = 1.3; // ab hier reagiert Coco und das spanische Wort erscheint
+
+// ---------- Coco mit Gesichtsausdrücken ----------
+function coco({ x = 200, y = 220, s = 1, wingR = 0, wingL = 0, tilt = 0, eyes = 'normal', mouth = 'smile', hop = 0, red = 0, steam = 0, wet = 0, t = 0, flip = 1 }) {
+  let E = '';
+  for (const ex of [-26, 26]) {
+    const sd = Math.sign(ex);
+    if (eyes === 'angry') E += `<ellipse cx="${ex}" cy="-10" rx="9" ry="10" fill="${INK}"/><path d="M${ex - 16 * sd} -34 L${ex + 12 * sd} -22" stroke="${INK}" stroke-width="7" stroke-linecap="round"/>`;
+    else if (eyes === 'shock') E += `<circle cx="${ex}" cy="-14" r="17" fill="#fff" stroke="${INK}" stroke-width="5"/><circle cx="${ex}" cy="-14" r="5" fill="${INK}"/>`;
+    else if (eyes === 'squint') E += `<path d="M${ex - 12} -24 L${ex + 8 * sd * 0 + 10} -14 L${ex - 12} -4" transform="${sd < 0 ? '' : `scale(-1 1) translate(${-2 * ex} 0)`}" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+    else E += `<ellipse cx="${ex}" cy="-14" rx="9" ry="12" fill="${INK}"/><circle cx="${ex + 3}" cy="-18" r="3.5" fill="#fff"/>`;
+  }
+  const M = mouth === 'yell'
+    ? `<path d="M-16 6 L16 6 L0 40 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-14 8 L14 8 L0 22Z" fill="#9d0208"/>`
+    : mouth === 'open' ? `<path d="M-12 8 L12 8 L0 30 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-12 8 L12 8 L0 15Z" fill="#e85d04"/>`
+    : `<path d="M-13 4 L13 4 L0 20 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`;
+  let st = '';
+  if (steam > 0) for (const sd of [-1, 1]) for (let i = 0; i < 3; i++) {
+    const k = ((t * 1.6 + i / 3) % 1);
+    st += `<circle cx="${sd * (60 + k * 30)}" cy="${-70 - k * 70}" r="${10 + k * 14}" fill="#fff" stroke="${INK}" stroke-width="4" opacity="${steam * (1 - k)}"/>`;
+  }
+  let wt = '';
+  if (wet > 0) for (let i = 0; i < 6; i++) { const k = ((t * 0.9 + i / 6) % 1); wt += `<path transform="translate(${-60 + i * 24} ${-40 + k * 120})" d="M0 -10 C6 0 8 4 8 8 a8 8 0 0 1 -16 0 C-8 4 -6 0 0 -10Z" fill="#4dabf7" stroke="${INK}" stroke-width="3" opacity="${wet * (1 - k)}"/>`; }
+  return `<g transform="translate(${x} ${y - hop}) scale(${s * flip} ${s}) rotate(${tilt})">
+    <ellipse cx="0" cy="${88 + hop / Math.max(s, .01)}" rx="62" ry="10" fill="rgba(29,43,83,.15)"/>
+    <path d="M-26 70 l-8 16 h20z M26 70 l8 16 h-20z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+    <g transform="translate(-66 18) rotate(${-wingL})"><ellipse cx="-10" cy="0" rx="26" ry="16" fill="#ffc300" stroke="${INK}" stroke-width="5" transform="rotate(-20)"/></g>
+    <g transform="translate(66 18) rotate(${wingR})"><ellipse cx="10" cy="0" rx="26" ry="16" fill="#ffc300" stroke="${INK}" stroke-width="5" transform="rotate(20)"/></g>
+    <circle r="78" fill="#ffd60a" stroke="${INK}" stroke-width="6"/>
+    <circle r="75" fill="#ff4d4d" opacity="${red * 0.55}"/>
+    <ellipse cx="0" cy="34" rx="44" ry="34" fill="#fff3b0" opacity="${1 - red * 0.4}"/>
+    ${E}
+    <ellipse cx="-46" cy="10" rx="12" ry="7" fill="#ff8fab" opacity=".8"/><ellipse cx="46" cy="10" rx="12" ry="7" fill="#ff8fab" opacity=".8"/>
+    ${M}
+    <g transform="translate(6 -66) rotate(-12)"><ellipse rx="62" ry="22" fill="#ef3340" stroke="${INK}" stroke-width="6"/><path d="M0 -22 q4 -16 12 -14" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+    ${st}${wt}
+  </g>`;
+}
+// Reaktion ab REACT: wütend, rot, Dampf, Zittern
+function mad(u, extra = {}) {
+  const r = smooth(REACT - 0.1, REACT + 0.3, u);
+  return Object.assign({ eyes: r > 0.5 ? 'angry' : extra.eyes || 'normal', mouth: r > 0.5 ? 'yell' : extra.mouth || 'smile', red: r,
+    steam: r, t: u, tilt: r * Math.sin(u * 40) * 3, wingR: r ? -60 + Math.sin(u * 14) * 20 : (extra.wingR || 0), wingL: r ? -60 + Math.sin(u * 14 + 1) * 20 : (extra.wingL || 0) }, r > 0.5 ? {} : extra);
+}
+const star = (x, y, s, rot, c = '#ffd60a') => { let d = ''; for (let i = 0; i < 10; i++) { const r = i % 2 ? 7 : 16, a = i * Math.PI / 5 - Math.PI / 2; d += (i ? 'L' : 'M') + (r * Math.cos(a)).toFixed(1) + ' ' + (r * Math.sin(a)).toFixed(1); }
+  return `<path transform="translate(${x} ${y}) scale(${s}) rotate(${rot})" d="${d}Z" fill="${c}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`; };
+const ground = c => `<path d="M0 290 Q100 262 200 285 T400 280 V356 H0Z" fill="${c}"/>`;
+const grawlix = (x, y, s, u) => `<g transform="translate(${x} ${y}) scale(${s * pop(REACT, 0.3, u)}) rotate(${Math.sin(u * 20) * 4})">
+  <path d="M-62 -34 h124 a20 20 0 0 1 20 20 v34 a20 20 0 0 1 -20 20 h-70 l-30 24 l6 -24 h-30 a20 20 0 0 1 -20 -20 v-34 a20 20 0 0 1 20 -20z" fill="#fff" stroke="${INK}" stroke-width="5"/>
+  <text x="0" y="16" text-anchor="middle" font-family="Lucky" font-size="44" fill="#e63946">#@$%!</text></g>`;
+
+// ---------- Situationen ----------
+const PICS = {
+  wifi(u) {
+    const dead = u > 0.6; let sp = '';
+    for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4 + u * 6; sp += `<circle cx="${270 + Math.cos(a) * 22}" cy="${165 + Math.sin(a) * 22}" r="${3 + i * 0.6}" fill="${INK}" opacity="${0.2 + i * 0.1}"/>`; }
+    return `<rect width="400" height="356" fill="#eef1ff"/>${ground('#c5cae9')}
+      <rect x="180" y="240" width="220" height="18" fill="#9c6644" stroke="${INK}" stroke-width="5"/>
+      <g><rect x="200" y="110" width="140" height="100" rx="10" fill="#343a40" stroke="${INK}" stroke-width="5"/><rect x="210" y="120" width="120" height="80" rx="4" fill="#f8f9fa"/>
+      <path d="M190 210 h160 l14 30 h-188z" fill="#adb5bd" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>${sp}</g>
+      <g transform="translate(320 70) scale(${dead ? pop(0.6, 0.3, u) : 1})">
+        <path d="M-30 0 a42 42 0 0 1 60 0 M-18 12 a26 26 0 0 1 36 0" stroke="${dead ? '#adb5bd' : INK}" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="0" cy="26" r="6" fill="${dead ? '#adb5bd' : INK}"/>
+        ${dead ? `<circle cx="22" cy="20" r="16" fill="#e5383b" stroke="${INK}" stroke-width="4"/><path d="M15 13 l14 14 M29 13 l-14 14" stroke="#fff" stroke-width="5" stroke-linecap="round"/>` : ''}</g>
+      ${coco(Object.assign({ x: 100, y: 210, s: 0.85 }, mad(u, { eyes: dead ? 'shock' : 'normal' })))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  icecream(u) {
+    const f = smooth(0.45, 0.85, u), fell = u > 0.85;
+    const sx = 262, sy = lerp(118, 292, f * f);
+    return `<rect width="400" height="356" fill="#fff0f6"/>${ground('#fcc2d7')}
+      ${fell ? `<ellipse cx="${sx}" cy="300" rx="44" ry="12" fill="#f783ac" stroke="${INK}" stroke-width="4"/><circle cx="${sx - 20}" cy="296" r="6" fill="#f783ac" stroke="${INK}" stroke-width="3"/><circle cx="${sx + 30}" cy="298" r="5" fill="#f783ac" stroke="${INK}" stroke-width="3"/>`
+             : `<g transform="translate(${sx} ${sy}) rotate(${f * 200})"><circle r="26" fill="#f783ac" stroke="${INK}" stroke-width="5"/><circle cx="-8" cy="-8" r="6" fill="#fff" opacity=".6"/></g>`}
+      ${coco(Object.assign({ x: 150, y: 205, s: 0.9, wingR: -40 }, mad(u, { eyes: u > 0.6 ? 'shock' : 'normal', mouth: u > 0.6 ? 'open' : 'smile', wingR: -40 })))}
+      <g transform="translate(255 ${170})"><path d="M-18 -10 L18 -10 L0 40Z" fill="#e9a23b" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><path d="M-10 0 l16 14 M6 -6 l-14 22" stroke="#b5651d" stroke-width="3"/></g>
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  alarm(u) {
+    const ring = u < REACT + 0.6, jig = ring ? Math.sin(u * 60) * 8 : 0;
+    let st = ''; for (let i = 0; i < 6; i++) st += `<circle cx="${(i * 71) % 400}" cy="${30 + (i * 37) % 120}" r="2.5" fill="#fff"/>`;
+    return `<rect width="400" height="356" fill="#22305a"/>${st}<circle cx="340" cy="60" r="28" fill="#ffe066"/><circle cx="352" cy="52" r="24" fill="#22305a"/>${ground('#364fc7')}
+      <rect x="230" y="220" width="130" height="80" rx="8" fill="#9c6644" stroke="${INK}" stroke-width="5"/>
+      <g transform="translate(295 ${180 + (ring ? Math.abs(Math.sin(u * 30)) * -8 : 0)}) rotate(${jig})">
+        <circle cx="-26" cy="-36" r="14" fill="#ffd60a" stroke="${INK}" stroke-width="4"/><circle cx="26" cy="-36" r="14" fill="#ffd60a" stroke="${INK}" stroke-width="4"/>
+        <circle r="38" fill="#e63946" stroke="${INK}" stroke-width="5"/><circle r="28" fill="#fff" stroke="${INK}" stroke-width="3"/>
+        <path d="M0 0 V-18 M0 0 L12 6" stroke="${INK}" stroke-width="4" stroke-linecap="round"/></g>
+      ${ring ? `<path d="M240 140 l-14 -10 M244 120 l-18 -2 M350 140 l14 -10 M346 120 l18 -2" stroke="#ffe066" stroke-width="5" stroke-linecap="round"/>` : ''}
+      ${coco(Object.assign({ x: 120, y: 215, s: 0.9 }, mad(u, { eyes: 'squint', mouth: 'open' })))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  rain(u) {
+    const r = smooth(0.2, 0.8, u); let dr = '';
+    for (let i = 0; i < 40; i++) { const x = (i * 53) % 420 - 10, y = ((i * 97) % 300 + u * 420) % 300 + 50; dr += `<path d="M${x} ${y} l-6 18" stroke="#4dabf7" stroke-width="4" stroke-linecap="round" opacity="${r}"/>`; }
+    const cl = (x, y) => `<g transform="translate(${x} ${y})"><ellipse rx="70" ry="30" fill="#868e96" stroke="${INK}" stroke-width="4"/><ellipse cx="34" cy="-22" rx="38" ry="28" fill="#868e96"/><ellipse cx="-30" cy="-16" rx="32" ry="24" fill="#868e96"/></g>`;
+    return `<rect width="400" height="356" fill="${mix('#d0ebff', '#adb5bd', r)}"/>${ground('#74c0fc')}
+      <ellipse cx="200" cy="300" rx="${60 + 50 * r}" ry="12" fill="#4dabf7" opacity="${r}"/>
+      ${cl(110, 50)}${cl(300, 40)}${dr}
+      ${coco(Object.assign({ x: 200, y: 205, s: 0.9, wet: u > 0.6 ? 1 : 0, t: u }, mad(u, {}), { wet: u > 0.6 ? 1 : 0 }))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  toe(u) {
+    const walk = smooth(0, 0.9, u), hit = u > 0.9;
+    const cx = lerp(60, 175, walk);
+    let stars = ''; if (hit) for (let i = 0; i < 4; i++) { const a = u * 5 + i * 1.57; stars += star(cx + Math.cos(a) * 80, 110 + Math.sin(a) * 20, 0.8, u * 90); }
+    return `<rect width="400" height="356" fill="#fff1e6"/>${ground('#ffd6a5')}
+      <g><rect x="250" y="120" width="140" height="22" rx="6" fill="#9c6644" stroke="${INK}" stroke-width="5"/><rect x="262" y="140" width="22" height="150" fill="#7f5539" stroke="${INK}" stroke-width="5"/></g>
+      ${hit ? `<path d="M250 260 l-16 -10 M252 276 l-20 0 M250 292 l-16 10" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>` : ''}
+      ${coco(Object.assign({ x: cx, y: 210, s: 0.9, hop: hit ? Math.abs(Math.sin(u * 9)) * 26 : Math.abs(Math.sin(u * 10)) * 8 }, hit ? mad(u, { eyes: 'squint', mouth: 'open' }) : {}))}
+      ${stars}${grawlix(210, 74, 0.75, u)}`;
+  },
+  phone(u) {
+    const f = smooth(0.25, 0.85, u); const py = lerp(150, 285, f * f), rot = f * 160;
+    const broke = u > 0.85;
+    return `<rect width="400" height="356" fill="#ffe5e5"/>${ground('#ffadad')}
+      <g transform="translate(290 ${py}) rotate(${broke ? 90 : rot})"><rect x="-26" y="-46" width="52" height="92" rx="10" fill="#343a40" stroke="${INK}" stroke-width="5"/>
+      <rect x="-20" y="-38" width="40" height="72" rx="4" fill="${broke ? '#495057' : '#74c0fc'}"/>
+      ${broke ? `<path d="M-20 -30 L2 -6 L-10 8 L14 30 M2 -6 L18 -20 M-10 8 L-20 20" stroke="#fff" stroke-width="3" fill="none"/>` : ''}</g>
+      ${broke ? star(290, 260, 1.2, u * 60, '#fff') : ''}
+      ${coco(Object.assign({ x: 140, y: 210, s: 0.95, eyes: broke ? 'shock' : 'normal', mouth: broke ? 'open' : 'smile', wingR: f > 0 ? -20 : -50 }, mad(u, { eyes: broke ? 'shock' : 'normal', mouth: broke ? 'open' : 'smile', wingR: -30 })))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  bill(u) {
+    const unroll = smooth(0.2, 1.2, u);
+    let lines = ''; for (let i = 0; i < 9; i++) if (i / 9 < unroll) lines += `<rect x="252" y="${40 + i * 24}" width="${50 + (i * 37) % 40}" height="7" rx="3" fill="#adb5bd"/>`;
+    return `<rect width="400" height="356" fill="#fffde7"/>${ground('#fdffb6')}
+      <path d="M240 20 h120 v${20 + 250 * unroll} l-10 8 l-10 -8 l-10 8 l-10 -8 l-10 8 l-10 -8 l-10 8 l-10 -8 l-10 8 l-10 -8 l-10 8 l-10 -8 z" fill="#fff" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>
+      ${lines}${unroll > 0.95 ? `<text x="300" y="${255}" text-anchor="middle" font-family="Lucky" font-size="40" fill="#e63946" transform="rotate(${Math.sin(u * 20) * 3} 300 245)">€999</text>` : ''}
+      ${coco(Object.assign({ x: 130, y: 210, s: 0.95 }, mad(u, { eyes: u > 0.8 ? 'shock' : 'normal', mouth: u > 0.8 ? 'open' : 'smile' })))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  bus(u) {
+    const bx = lerp(250, 470, smooth(0, 1.6, u));
+    const run = 1 - smooth(1.0, 1.3, u);
+    const cx = lerp(40, 150, smooth(0, 1.1, u));
+    return `<rect width="400" height="356" fill="#eefcea"/>${ground('#caffbf')}
+      <g transform="translate(${bx} 200)"><rect x="-90" y="-80" width="180" height="120" rx="18" fill="#ffb703" stroke="${INK}" stroke-width="6"/>
+      ${[-60, -15, 30].map(x => `<rect x="${x}" y="-62" width="34" height="34" rx="6" fill="#bde0fe" stroke="${INK}" stroke-width="4"/>`).join('')}
+      <circle cx="-50" cy="44" r="20" fill="${INK}"/><circle cx="50" cy="44" r="20" fill="${INK}"/><circle cx="-50" cy="44" r="7" fill="#adb5bd"/><circle cx="50" cy="44" r="7" fill="#adb5bd"/>
+      <path d="M-110 -40 h-40 M-110 -10 h-30 M-110 20 h-44" stroke="${INK}" stroke-width="5" stroke-linecap="round" opacity=".6"/></g>
+      ${coco(Object.assign({ x: cx, y: 210, s: 0.85, hop: Math.abs(Math.sin(u * 12)) * 14 * run, tilt: 10 * run, wingR: -70 * run, wingL: -70 * run }, mad(u, {})))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  toast(u) {
+    const up = pop(0.7, 0.4, u);
+    let sm = ''; for (let i = 0; i < 5; i++) { const k = ((u * 0.7 + i / 5) % 1); if (u > 0.75) sm += `<circle cx="${290 + Math.sin(u * 3 + i) * 14}" cy="${150 - k * 140}" r="${14 + k * 22}" fill="#495057" opacity="${0.6 * (1 - k)}"/>`; }
+    return `<rect width="400" height="356" fill="#e7fbff"/>${ground('#9bf6ff')}
+      <rect x="200" y="240" width="200" height="20" fill="#9c6644" stroke="${INK}" stroke-width="5"/>
+      <g transform="translate(290 ${200 - up * 60})"><rect x="-40" y="-40" width="80" height="70" rx="10" fill="#212529" stroke="${INK}" stroke-width="5"/><rect x="-30" y="-30" width="60" height="10" rx="4" fill="#000" opacity=".5"/></g>
+      <g transform="translate(290 200)"><rect x="-70" y="-40" width="140" height="80" rx="22" fill="#ced4da" stroke="${INK}" stroke-width="6"/><rect x="-46" y="-46" width="92" height="10" rx="4" fill="${INK}"/><rect x="58" y="-10" width="22" height="10" rx="4" fill="${INK}"/></g>
+      ${sm}
+      ${coco(Object.assign({ x: 110, y: 210, s: 0.9 }, mad(u, { eyes: u > 0.8 ? 'shock' : 'normal', mouth: u > 0.8 ? 'open' : 'smile' })))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  line(u) {
+    const j = smooth(0.3, 1.0, u);
+    const jx = lerp(330, 190, j), jy = 240 - Math.sin(j * Math.PI) * 90;
+    const blob = (x, y, c, sun) => `<g transform="translate(${x} ${y})"><ellipse cx="0" cy="48" rx="34" ry="7" fill="rgba(29,43,83,.15)"/><path d="M-34 46 Q-38 -40 0 -46 Q38 -40 34 46Z" fill="${c}" stroke="${INK}" stroke-width="5"/>
+      ${sun ? `<rect x="-26" y="-20" width="22" height="14" rx="4" fill="${INK}"/><rect x="4" y="-20" width="22" height="14" rx="4" fill="${INK}"/><path d="M-4 -14 h8" stroke="${INK}" stroke-width="4"/><path d="M-10 6 q10 8 20 0" stroke="${INK}" stroke-width="4" fill="none"/>`
+      : `<circle cx="-12" cy="-14" r="5" fill="${INK}"/><circle cx="12" cy="-14" r="5" fill="${INK}"/>`}</g>`;
+    return `<rect width="400" height="356" fill="#eef4ff"/>${ground('#a0c4ff')}
+      <rect x="10" y="60" width="90" height="200" rx="10" fill="#fff" stroke="${INK}" stroke-width="5"/><text x="55" y="110" text-anchor="middle" font-family="Lucky" font-size="26" fill="${INK}">CAFÉ</text>
+      ${coco(Object.assign({ x: 270, y: 215, s: 0.75 }, mad(u, { eyes: u > 0.9 ? 'shock' : 'normal' })))}
+      ${blob(355, 232, '#adb5bd')}
+      ${blob(jx, jy, '#9d4edd', true)}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+  splash(u) {
+    const cx_ = lerp(-80, 480, smooth(0.1, 1.1, u));
+    const sp = smooth(0.5, 0.9, u);
+    let dr = ''; for (let i = 0; i < 12; i++) { const a = -Math.PI * (0.15 + 0.7 * i / 11); const r = sp * (80 + (i % 3) * 30); if (u > 0.5 && u < 1.4) dr += `<circle cx="${200 + Math.cos(a) * r}" cy="${290 + Math.sin(a) * r * 1.4}" r="${7 + (i % 3) * 3}" fill="#4dabf7" stroke="${INK}" stroke-width="2.5" opacity="${1 - smooth(1.1, 1.4, u)}"/>`; }
+    return `<rect width="400" height="356" fill="#f1edff"/>${ground('#bdb2ff')}
+      <ellipse cx="200" cy="300" rx="110" ry="18" fill="#4dabf7" stroke="${INK}" stroke-width="4"/>
+      ${coco(Object.assign({ x: 200, y: 190, s: 0.85, wet: u > 0.8 ? 1 : 0, t: u }, mad(u, { eyes: u > 0.8 ? 'shock' : 'normal' }), { wet: u > 0.8 ? 1 : 0 }))}
+      <g transform="translate(${cx_} 270)"><rect x="-80" y="-50" width="160" height="56" rx="18" fill="#e63946" stroke="${INK}" stroke-width="6"/><path d="M-50 -50 L-30 -86 H34 L56 -50Z" fill="#e63946" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M-20 -80 H28 L44 -52 H-36Z" fill="#bde0fe"/><circle cx="-46" cy="10" r="20" fill="${INK}"/><circle cx="46" cy="10" r="20" fill="${INK}"/><circle cx="-46" cy="10" r="7" fill="#adb5bd"/><circle cx="46" cy="10" r="7" fill="#adb5bd"/></g>
+      ${dr}${grawlix(210, 74, 0.75, u)}`;
+  },
+  fries(u) {
+    let fr = ''; const eaten = Math.floor(smooth(0.2, 1.4, u) * 5);
+    for (let i = 0; i < 6 - eaten; i++) fr += `<rect x="${-30 + i * 11}" y="${-40 - (i % 2) * 10}" width="9" height="50" rx="3" fill="#ffd166" stroke="${INK}" stroke-width="3"/>`;
+    const grab = (u * 4) % 1, gx = lerp(310, 210, Math.sin(grab * Math.PI));
+    return `<rect width="400" height="356" fill="#fff0ff"/>${ground('#ffc6ff')}
+      <rect x="0" y="250" width="400" height="20" fill="#9c6644" stroke="${INK}" stroke-width="5"/>
+      <g transform="translate(205 235)">${fr}<path d="M-38 -14 L38 -14 L30 20 L-30 20Z" fill="#e63946" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><text x="0" y="12" text-anchor="middle" font-family="Lucky" font-size="20" fill="#ffd166">M</text></g>
+      <g transform="translate(330 175)">
+        <path d="M-50 -30 L-42 -86 L-12 -58Z M50 -30 L42 -86 L12 -58Z" fill="#f4a261" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/>
+        <circle r="60" fill="#f4a261" stroke="${INK}" stroke-width="6"/>
+        <path d="M-30 -10 q8 -8 16 0 M14 -10 q8 -8 16 0" stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <ellipse cx="0" cy="22" rx="${10 + 6 * Math.abs(Math.sin(u * 14))}" ry="${6 + 6 * Math.abs(Math.sin(u * 14))}" fill="#e5383b" stroke="${INK}" stroke-width="4"/>
+        <path d="M-30 14 h-30 M30 14 h30" stroke="${INK}" stroke-width="3"/></g>
+      <g transform="translate(${gx} 230)"><ellipse rx="18" ry="14" fill="#f4a261" stroke="${INK}" stroke-width="4"/></g>
+      ${coco(Object.assign({ x: 85, y: 200, s: 0.85 }, mad(u, { eyes: u > 0.8 ? 'shock' : 'normal' })))}
+      ${grawlix(210, 74, 0.75, u)}`;
+  },
+};
+const CHILI = '🌶️';
+const REGION = { spain: ['<svg width="54" height="36" viewBox="0 0 60 40"><rect width="60" height="40" rx="6" fill="#c60b1e"/><rect y="10" width="60" height="20" fill="#ffc400"/><rect width="60" height="40" rx="6" fill="none" stroke="#1d2b53" stroke-width="4"/></svg>', 'SPAIN'],
+  latam: ['🌎', 'LATIN AMERICA'], everywhere: ['🌍', 'EVERYWHERE'] };
+
+// ---------- Hintergrund ----------
+const SHAPES = Array.from({ length: 22 }, (_, i) => ({ x: R() * 1080, y: R() * 1920, r: 16 + R() * 26, sp: 20 + R() * 40, rot: R() * 360, o: 0.25 + R() * 0.2 }));
+function drawBg(t, color) {
+  let s = `<rect width="1080" height="1920" fill="${color}"/>`;
+  for (let i = 0; i < 9; i++) s += `<circle cx="${(i * 260 + t * 15) % 1400 - 160}" cy="${(i * 517) % 1920}" r="220" fill="#fff" opacity=".12"/>`;
+  for (const q of SHAPES) { const y = (q.y - t * q.sp + 19200) % 2000 - 40; s += `<g opacity="${q.o}">${star(q.x, y, q.r / 16, q.rot + t * 30, '#fff')}</g>`; }
+  $('bg').innerHTML = s;
+}
+function beepSvg(k) {
+  let d = ''; for (let i = 0; i < 16; i++) { const r = i % 2 ? 62 : 90, a = i * Math.PI / 8; d += (i ? 'L' : 'M') + (150 + r * 1.5 * Math.cos(a)).toFixed(1) + ' ' + (95 + r * Math.sin(a)).toFixed(1); }
+  return `<g transform="translate(150 95) scale(${k}) rotate(-8) translate(-150 -95)"><path d="${d}Z" fill="#ffd60a" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>
+    <text x="150" y="114" text-anchor="middle" font-family="Lucky" font-size="58" fill="${INK}">BEEP!</text></g>`;
+}
+
+let TL;
+const show = (id, v) => { $(id).style.display = v ? '' : 'none'; };
+window.render = function (t) {
+  const W = TL.words, n = W.length, i0 = TL.intro, per = TL.per;
+  const idx = Math.floor((t - i0) / per);
+  const inWords = t >= i0 && idx < n, isOutro = t >= i0 + n * per;
+  let col = '#ffd6a5';
+  if (inWords) { const u = t - i0 - idx * per; col = idx > 0 && u < 0.4 ? mix(W[idx - 1].bg, W[idx].bg, u / 0.4) : W[idx].bg; }
+  if (isOutro) col = mix(W[n - 1].bg, '#ffd6a5', smooth(i0 + n * per, i0 + n * per + 0.4, t));
+  drawBg(t, col);
+
+  $('dots').innerHTML = W.map((_, j) => `<div class="dot ${inWords && j === idx ? 'on' : (j < idx || isOutro ? 'done' : '')}" style="transform:scale(${inWords && j === idx ? 1.25 : 1})"></div>`).join('');
+  show('dots', inWords);
+  ['es', 'say', 'en', 'beep', 'region', 'spice', 'sit'].forEach(id => show(id, inWords));
+  show('title', !inWords && !isOutro); show('outro', isOutro);
+
+  if (!inWords && !isOutro) { // Intro
+    const k = pop(0.15, 0.5, t), out = smooth(i0 - 0.35, i0, t);
+    $('title').style.transform = `scale(${k * (1 - out)}) rotate(${Math.sin(t * 3) * 2}deg)`;
+    $('pic').innerHTML = `<rect width="400" height="356" fill="#fff1e6"/>${ground('#ffd6a5')}
+      <text x="70" y="95" font-size="54" transform="rotate(${-15 + Math.sin(t * 4) * 8} 70 80)">🌶️</text><text x="300" y="120" font-size="44" transform="rotate(${15 + Math.sin(t * 5) * 8} 320 100)">🌶️</text>
+      ${coco({ x: 200, y: 200, s: 1.15 * pop(0, 0.5, t), eyes: 'shock', mouth: 'open', wingR: -95, wingL: -95, hop: Math.abs(Math.sin(t * 5)) * 8, red: 0.3 })}
+      ${grawlix(300, 230, 0.9, t + REACT)}`;
+    $('card').style.transform = `translateX(${-1100 * out}px) scale(${pop(0, 0.5, t)})`;
+  }
+  if (inWords) {
+    const w = W[idx], u = t - i0 - idx * per;
+    const enter = idx === 0 && u < 0.5 ? 1 - backOut(u / 0.5) : (u < 0.45 ? 1 - backOut(u / 0.45) : 0);
+    const exit = smooth(per - 0.3, per, u), dx = enter * 1100 - exit * 1100;
+    const shake = u > REACT && u < REACT + 0.5 ? Math.sin(u * 60) * 12 * (1 - (u - REACT) / 0.5) : 0;
+    $('card').style.transform = `translateX(${dx + shake}px) rotate(${enter * 6}deg)`;
+    $('pic').innerHTML = PICS[w.pic](u);
+    $('sitTxt').textContent = w.sit;
+    $('sit').style.transform = `scale(${pop(0.15, 0.35, u)})`;
+    const [ico, lab] = REGION[w.region] || ['', ''];
+    $('regionTxt').innerHTML = `${ico}<span>${lab}</span>`;
+    $('region').style.transform = `scale(${pop(REACT + 0.4, 0.3, u)})`;
+    show('region', !!w.region);
+    $('spiceTxt').textContent = CHILI.repeat(w.spice);
+    $('spice').style.transform = `scale(${pop(REACT + 0.55, 0.3, u)})`;
+    // spanisches Wort "knallt" rein
+    const sk = u < REACT ? 0 : 1 + 1.4 * Math.max(0, 1 - (u - REACT) / 0.18) ** 2;
+    const fs = Math.min(175, 175 * 980 / (w.es.length * 100));
+    $('esTxt').style.fontSize = fs + 'px';
+    $('esTxt').textContent = w.es.toUpperCase();
+    $('es').style.transform = `translateX(${dx}px) scale(${sk}) rotate(${u > REACT ? -4 + Math.sin(u * 30) * 2 * Math.max(0, 1 - (u - REACT)) : 0}deg)`;
+    $('es').style.opacity = u > REACT ? 1 : 0;
+    $('sayTxt').textContent = w.say;
+    $('say').style.transform = `translateX(${dx}px) scale(${pop(REACT + 0.35, 0.3, u)})`;
+    const talk = u > REACT && u < REACT + 1.0;
+    $('w1').style.opacity = talk ? (Math.sin(u * 20) > 0 ? 1 : .3) : .3; $('w2').style.opacity = talk ? (Math.sin(u * 20 + 1.5) > 0 ? 1 : .3) : .3;
+    $('enTxt').textContent = w.en; $('noteTxt').textContent = w.note || '';
+    $('en').style.transform = `translateX(${dx}px) scale(${pop(2.6, 0.3, u)}) rotate(-2deg)`;
+    const bk = w.bleep && u > 2.7 && u < 3.5 ? pop(2.7, 0.2, u) : 0;
+    $('beep').style.opacity = bk ? 1 : 0;
+    $('beep').innerHTML = beepSvg(bk);
+  }
+  if (isOutro) {
+    const u = t - (i0 + n * per);
+    $('outro').style.transform = `scale(${pop(0.1, 0.5, u)})`;
+    $('handle').style.opacity = u > 0.9 ? 1 : 0;
+    $('card').style.transform = `scale(${pop(0, 0.5, u)})`;
+    $('pic').innerHTML = `<rect width="400" height="356" fill="#fff1e6"/>${ground('#ffd6a5')}${star(70, 80, 1.2, u * 60)}${star(330, 90, 1, -u * 60)}
+      ${coco({ x: 200, y: 200, s: 1.15, eyes: 'normal', mouth: 'open', wingR: -70 + Math.sin(u * 10) * 25, wingL: -10, hop: Math.abs(Math.sin(u * 5)) * 14, red: 0.15 })}
+      <text x="300" y="${110 + Math.sin(u * 4) * 6}" font-size="56">😏</text>`;
+    let s = ''; for (let i = 0; i < 22; i++) { const r = rng(i + 7); const x = r() * 1080, sp = 300 + r() * 500; const y = -60 + (u - r() * 0.8) * sp; if (y > -60) s += `<text x="${x}" y="${y}" font-size="48" transform="rotate(${u * 200 + i * 40} ${x} ${y})">🌶️</text>`; }
+    $('bg').insertAdjacentHTML('beforeend', s);
+  }
+  $('fx').innerHTML = '';
+};
+window.ready = (async () => {
+  TL = await (await fetch('timeline.json')).json();
+  const M = TL.meta;
+  $('hdr').textContent = M.header;
+  const F = M.flag;
+  $('flag').innerHTML = `<defs><clipPath id="fc"><rect x="3" y="3" width="90" height="60" rx="10"/></clipPath></defs><g clip-path="url(#fc)">` +
+    (F[0] === 'v' ? `<rect x="3" y="3" width="30" height="60" fill="${F[1]}"/><rect x="33" y="3" width="30" height="60" fill="${F[2]}"/><rect x="63" y="3" width="30" height="60" fill="${F[3]}"/>`
+                  : `<rect x="3" y="3" width="90" height="16" fill="${F[1]}"/><rect x="3" y="19" width="90" height="28" fill="${F[2]}"/><rect x="3" y="47" width="90" height="16" fill="${F[3]}"/>`) +
+    `</g><rect x="3" y="3" width="90" height="60" rx="10" fill="none" stroke="#1d2b53" stroke-width="6"/>`;
+  $('tBig').innerHTML = M.title.map(([t, c]) => `<span style="color:${c}">${t}</span>`).join('<br>');
+  $('tSub').textContent = M.sub;
+  $('oBig').innerHTML = M.outro[0]; $('oSub').textContent = M.outro[1];
+  Object.assign(REGION, M.regions || {});
+  await Promise.all([document.fonts.load('100px Lucky', 'ÑÁÓ¡¿'), document.fonts.load('700 100px Fredoka', 'áó'), document.fonts.load('600 60px Fredoka')]);
+  await document.fonts.ready;
+  window.render(0); return TL;
+})();
+</script>
+</body>
+</html>

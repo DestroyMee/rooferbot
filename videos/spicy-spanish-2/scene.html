@@ -380,7 +380,9 @@ window.ready = (async () => {
   $('hdr').textContent = M.header;
   const F = M.flag;
   $('flag').innerHTML = `<defs><clipPath id="fc"><rect x="3" y="3" width="90" height="60" rx="10"/></clipPath></defs><g clip-path="url(#fc)">` +
-    (F[0] === 'v' ? `<rect x="3" y="3" width="30" height="60" fill="${F[1]}"/><rect x="33" y="3" width="30" height="60" fill="${F[2]}"/><rect x="63" y="3" width="30" height="60" fill="${F[3]}"/>`
+    (F[0] === 'mx' ? `<rect x="3" y="3" width="30" height="60" fill="#006847"/><rect x="33" y="3" width="30" height="60" fill="#ffffff"/><rect x="63" y="3" width="30" height="60" fill="#ce1126"/><g transform="translate(48 33) scale(1.25)"><path d="M-9 6 Q0 13 9 6" stroke="#2e7d32" stroke-width="2.4" fill="none"/><path d="M-3 7 v-5 M3 7 v-4 M0 7 v-7" stroke="#2e7d32" stroke-width="2.2" stroke-linecap="round"/><path d="M-8 -2 Q-4 -9 0 -4 Q4 -9 8 -2 Q4 -1 2 2 L-2 2 Q-4 -1 -8 -2Z" fill="#8d5524"/><circle cx="2" cy="-7" r="2.6" fill="#8d5524"/><path d="M4 -7 l3 1 l-3 1z" fill="#f2b705"/><path d="M-3 4 q3 -3 6 0" stroke="#5a8f29" stroke-width="1.6" fill="none"/></g>` :
+     F[0] === 'br' ? `<rect x="3" y="3" width="90" height="60" fill="#009c3b"/><path d="M48 9 L86 33 L48 57 L10 33Z" fill="#ffdf00"/><circle cx="48" cy="33" r="13" fill="#002776"/><path d="M36 30 q12 -4 24 4" stroke="#fff" stroke-width="2.5" fill="none"/>` :
+     F[0] === 'v' ? `<rect x="3" y="3" width="30" height="60" fill="${F[1]}"/><rect x="33" y="3" width="30" height="60" fill="${F[2]}"/><rect x="63" y="3" width="30" height="60" fill="${F[3]}"/>`
                   : `<rect x="3" y="3" width="90" height="16" fill="${F[1]}"/><rect x="3" y="19" width="90" height="28" fill="${F[2]}"/><rect x="3" y="47" width="90" height="16" fill="${F[3]}"/>`) +
     `</g><rect x="3" y="3" width="90" height="60" rx="10" fill="none" stroke="#1d2b53" stroke-width="6"/>`;
   $('tBig').innerHTML = M.title.map(([t, c]) => `<span style="color:${c}">${t}</span>`).join('<br>');

@@ -5,3 +5,6 @@ videos/*/out/*
 !videos/*/out/french-story.mp4
 !videos/*/out/*-stimme.mp4
 !videos/*/out/spanish-spicy.mp4
+!videos/*/out/spanish-basics.mp4
+!videos/*/out/italian-basics.mp4
+!videos/*/out/french-numbers.mp4

@@ -25,6 +25,8 @@ ROLES = {
     "narrator": dict(voice="af_heart", lang="en-us", speed=1.05, pitch=1.0),
     "es":       dict(voice="em_alex",  lang="es",    speed=0.95, pitch=1.0),
     "sit":      dict(voice="af_heart", lang="en-us", speed=1.25, pitch=1.0),
+    "es_f":     dict(voice="ef_dora",  lang="es",    speed=0.95, pitch=1.0),
+    "it":       dict(voice="if_sara",  lang="it",    speed=0.95, pitch=1.0),
 }
 
 _k = None
@@ -105,6 +107,21 @@ def cues_spanish_spicy(tl):
     return c
 
 
+def cues_basics(tl):
+    """Vokabel-Videos aus videos/_basics (Zielsprache aus meta.voice.role)."""
+    V = tl["meta"]["voice"]; L = V["role"]
+    c = [dict(t=0.25, limit=tl["intro"] - 0.1, role="en", text=V["intro"])]
+    for k, w in enumerate(tl["words"]):
+        s = tl["intro"] + k * tl["per"]
+        c += [dict(t=s + 0.3, limit=s + 1.65, role=L, text=w["fr"]),
+              dict(t=s + 1.7, limit=s + 2.65, role="en", text=w["en"].replace(" / ", " or ") + "."),
+              dict(t=s + 2.7, limit=s + 3.95, role=L, text=w["fr"] + "!")]
+    o = tl["intro"] + len(tl["words"]) * tl["per"]
+    c += [dict(t=o + 0.15, limit=o + 1.2, role=L, text=V["outro_native"]),
+          dict(t=o + 1.25, limit=tl["duration"] - 0.1, role="en", text=V["outro_en"])]
+    return c
+
+
 BUILDERS = {"french-basics": cues_french_basics, "french-story": cues_french_story, "spanish-spicy": cues_spanish_spicy}
 
 
@@ -115,7 +132,8 @@ def main(name):
     N = int(tl["duration"] * SR)
     voice = np.zeros(N)
     prev_end = 0.0; warn = 0
-    for cue in BUILDERS[name](tl):
+    builder = BUILDERS.get(name) or (cues_basics if "meta" in tl else None)
+    for cue in builder(tl):
         a = synth(cue["text"], cue["role"], cache)
         start = max(cue["t"], prev_end + 0.1)
         end = start + len(a) / SR

@@ -1,0 +1,19 @@
+{
+  "fps": 30, "intro": 3.5, "per": 4.0, "outro": 3.5, "duration": 47.0,
+  "meta": { "header": "ITALIAN FOR BEGINNERS", "flag": ["v", "#009246", "#ffffff", "#ce2b37"],
+    "title": [["ITA", "#009246"], ["L", "#fff"], ["IAN", "#ce2b37"]], "sub": "FOR BEGINNERS", "pill": "10 words in 45 seconds",
+    "outro": ["MOLTO BENE!", "= VERY GOOD!", "FOLLOW FOR MORE"],
+    "voice": { "role": "it", "intro": "Italian for beginners! Ten words. Let's go!", "outro_native": "Molto bene!", "outro_en": "Very good! Follow for more!" } },
+  "words": [
+    { "fr": "Ciao",         "say": "CHOW",                 "en": "Hi / Bye",  "pic": "sun",    "bg": "#ffe08a" },
+    { "fr": "Grazie",       "say": "GRAHT-tsee-eh",        "en": "Thank you", "pic": "gift",   "bg": "#ffc2d1" },
+    { "fr": "Sì",           "say": "SEE",                  "en": "Yes",       "pic": "yes",    "bg": "#b9f0c4" },
+    { "fr": "No",           "say": "NOH",                  "en": "No",        "pic": "no",     "bg": "#ffb4a8" },
+    { "fr": "Per favore",   "say": "pehr fah-VOH-reh",     "en": "Please",    "pic": "please", "bg": "#d9c8ff" },
+    { "fr": "Arrivederci",  "say": "ah-ree-veh-DEHR-chee", "en": "Goodbye",   "pic": "bye",    "bg": "#a8dcff" },
+    { "fr": "il gatto",     "say": "eel GAHT-toh",         "en": "the cat",   "pic": "cat",    "bg": "#ffd6a5" },
+    { "fr": "il cane",      "say": "eel KAH-neh",          "en": "the dog",   "pic": "dog",    "bg": "#cdeac0" },
+    { "fr": "la mela",      "say": "lah MEH-lah",          "en": "the apple", "pic": "apple",  "bg": "#fff3b0" },
+    { "fr": "l'acqua",      "say": "LAHK-kwah",            "en": "water",     "pic": "water",  "bg": "#bde0fe" }
+  ]
+}

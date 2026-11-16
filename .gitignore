@@ -10,3 +10,4 @@ videos/*/out/*
 !videos/*/out/french-numbers.mp4
 !videos/*/out/spicy-*.mp4
 !videos/*/out/french-basics-long.mp4
+!videos/*/out/false-friends-*.mp4

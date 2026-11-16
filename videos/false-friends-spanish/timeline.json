@@ -1,0 +1,18 @@
+{
+ "fps": 30, "intro": 3.5, "per": 5.0, "outro": 4.0, "duration": 67.5,
+ "meta": { "flag": ["h", "#c60b1e", "#ffc400", "#c60b1e"], "lang": "SPANISH" },
+ "words": [
+  { "w": "embarazada", "say": "em-bah-rah-SAH-dah", "trap": "embarrassed", "trapE": "😳", "real": "pregnant",     "realE": "🤰", "bg": "#ffc2d1" },
+  { "w": "constipado", "say": "kon-stee-PAH-doh",   "trap": "constipated", "trapE": "🚽", "real": "having a cold", "realE": "🤧", "bg": "#b9f0c4" },
+  { "w": "éxito",      "say": "EK-see-toh",         "trap": "exit",        "trapE": "🚪", "real": "success",       "realE": "🏆", "bg": "#ffe08a" },
+  { "w": "sopa",       "say": "SOH-pah",            "trap": "soap",        "trapE": "🧼", "real": "soup",          "realE": "🍲", "bg": "#a8dcff" },
+  { "w": "ropa",       "say": "ROH-pah",            "trap": "rope",        "trapE": "🪢", "real": "clothes",       "realE": "👕", "bg": "#d9c8ff" },
+  { "w": "librería",   "say": "lee-breh-REE-ah",    "trap": "library",     "trapE": "🏛️", "real": "bookstore",     "realE": "📚", "bg": "#ffd6a5" },
+  { "w": "largo",      "say": "LAR-goh",            "trap": "large",       "trapE": "🐘", "real": "long",          "realE": "📏", "bg": "#cdeac0" },
+  { "w": "bigote",     "say": "bee-GOH-teh",        "trap": "bigot",       "trapE": "😠", "real": "mustache",      "realE": "🥸", "bg": "#ffb4a8" },
+  { "w": "once",       "say": "OHN-seh",            "trap": "once",        "trapE": "1️⃣", "real": "eleven",        "realE": "🕚", "bg": "#fff3b0" },
+  { "w": "pie",        "say": "PYEH",               "trap": "pie",         "trapE": "🥧", "real": "foot",          "realE": "🦶", "bg": "#ffc6ff" },
+  { "w": "red",        "say": "REHD",               "trap": "red",         "trapE": "🔴", "real": "net",           "realE": "🥅", "bg": "#bde0fe" },
+  { "w": "dime",       "say": "DEE-meh",            "trap": "dime",        "trapE": "🪙", "real": "tell me",       "realE": "🗣️", "bg": "#caffbf" }
+ ]
+}

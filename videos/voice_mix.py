@@ -126,6 +126,21 @@ def cues_basics(tl):
     return c
 
 
+def cues_false_friends(tl):
+    L = tl["meta"].get("role", "es")
+    lang = tl["meta"]["lang"].capitalize()
+    c = [dict(t=0.3, limit=tl["intro"] - 0.1, role="en", text=f"{lang} words that trick English speakers!")]
+    for k, w in enumerate(tl["words"]):
+        s = tl["intro"] + k * tl["per"]
+        c += [dict(t=s + 0.2, limit=s + 0.95, role=L, text=w["w"]),
+              dict(t=s + 1.0, limit=s + 2.0, role="sit", text=f"Not {w['trap']}…"),
+              dict(t=s + 2.55, limit=s + 3.9, role="en", text=f"It means: {w['real']}!"),
+              dict(t=s + 4.0, limit=s + tl["per"] - 0.25, role=L, text=w["w"])]
+    o = tl["intro"] + len(tl["words"]) * tl["per"]
+    c.append(dict(t=o + 0.3, limit=tl["duration"] - 0.1, role="en", text="Which one fooled you? Comment below!"))
+    return c
+
+
 BUILDERS = {"french-basics": cues_french_basics, "french-story": cues_french_story, "spanish-spicy": cues_spanish_spicy}
 
 
@@ -136,7 +151,7 @@ def main(name):
     N = int(tl["duration"] * SR)
     voice = np.zeros(N)
     prev_end = 0.0; warn = 0
-    builder = BUILDERS.get(name) or (cues_spanish_spicy if name.startswith("spicy") else cues_basics if "meta" in tl else None)
+    builder = BUILDERS.get(name) or (cues_false_friends if name.startswith("false-friends") else cues_spanish_spicy if name.startswith("spicy") else cues_basics if "meta" in tl else None)
     for cue in builder(tl):
         a = synth(cue["text"], cue["role"], cache)
         start = max(cue["t"], prev_end + 0.1)

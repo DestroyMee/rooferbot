@@ -1,19 +1,165 @@
 {
-  "fps": 30, "intro": 3.5, "per": 4.0, "outro": 3.5, "duration": 47.0,
-  "meta": { "header": "FRENCH NUMBERS 1-10", "flag": ["v", "#2b59c3", "#ffffff", "#ef3340"],
-    "title": [["FRE", "#2b59c3"], ["N", "#fff"], ["CH", "#ef3340"]], "sub": "NUMBERS 1-10", "pill": "Count with Coco!",
-    "outro": ["TRÈS BIEN!", "= VERY GOOD!", "FOLLOW FOR PART 3"],
-    "voice": { "role": "fr", "intro": "French numbers! Count with me!", "outro_native": "Très bien !", "outro_en": "Very good! Follow for part three!" } },
-  "words": [
-    { "fr": "un",     "say": "UHN",     "en": "one",   "n": 1,  "pic": "count", "bg": "#ffe08a" },
-    { "fr": "deux",   "say": "DUH",     "en": "two",   "n": 2,  "pic": "count", "bg": "#ffc2d1" },
-    { "fr": "trois",  "say": "TWAH",    "en": "three", "n": 3,  "pic": "count", "bg": "#b9f0c4" },
-    { "fr": "quatre", "say": "KAT-ruh", "en": "four",  "n": 4,  "pic": "count", "bg": "#ffb4a8" },
-    { "fr": "cinq",   "say": "SANK",    "en": "five",  "n": 5,  "pic": "count", "bg": "#d9c8ff" },
-    { "fr": "six",    "say": "SEES",    "en": "six",   "n": 6,  "pic": "count", "bg": "#a8dcff" },
-    { "fr": "sept",   "say": "SET",     "en": "seven", "n": 7,  "pic": "count", "bg": "#ffd6a5" },
-    { "fr": "huit",   "say": "WEET",    "en": "eight", "n": 8,  "pic": "count", "bg": "#cdeac0" },
-    { "fr": "neuf",   "say": "NUHF",    "en": "nine",  "n": 9,  "pic": "count", "bg": "#fff3b0" },
-    { "fr": "dix",    "say": "DEES",    "en": "ten",   "n": 10, "pic": "count", "bg": "#bde0fe" }
-  ]
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "FRENCH NUMBERS 1-15",
+  "flag": [
+   "v",
+   "#2b59c3",
+   "#ffffff",
+   "#ef3340"
+  ],
+  "title": [
+   [
+    "FRE",
+    "#2b59c3"
+   ],
+   [
+    "N",
+    "#fff"
+   ],
+   [
+    "CH",
+    "#ef3340"
+   ]
+  ],
+  "sub": "NUMBERS 1-15",
+  "pill": "Count with Coco!",
+  "outro": [
+   "TRÈS BIEN!",
+   "= VERY GOOD!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "fr",
+   "intro": "French numbers! Count with me!",
+   "outro_native": "Très bien !",
+   "outro_en": "Very good! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "un",
+   "say": "UHN",
+   "en": "one",
+   "n": 1,
+   "pic": "count",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "deux",
+   "say": "DUH",
+   "en": "two",
+   "n": 2,
+   "pic": "count",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "trois",
+   "say": "TWAH",
+   "en": "three",
+   "n": 3,
+   "pic": "count",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "quatre",
+   "say": "KAT-ruh",
+   "en": "four",
+   "n": 4,
+   "pic": "count",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "cinq",
+   "say": "SANK",
+   "en": "five",
+   "n": 5,
+   "pic": "count",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "six",
+   "say": "SEES",
+   "en": "six",
+   "n": 6,
+   "pic": "count",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "sept",
+   "say": "SET",
+   "en": "seven",
+   "n": 7,
+   "pic": "count",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "huit",
+   "say": "WEET",
+   "en": "eight",
+   "n": 8,
+   "pic": "count",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "neuf",
+   "say": "NUHF",
+   "en": "nine",
+   "n": 9,
+   "pic": "count",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "dix",
+   "say": "DEES",
+   "en": "ten",
+   "n": 10,
+   "pic": "count",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "onze",
+   "say": "OHNZ",
+   "en": "eleven",
+   "n": 11,
+   "pic": "count",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "douze",
+   "say": "DOOZ",
+   "en": "twelve",
+   "n": 12,
+   "pic": "count",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "treize",
+   "say": "TREHZ",
+   "en": "thirteen",
+   "n": 13,
+   "pic": "count",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "quatorze",
+   "say": "kah-TORZ",
+   "en": "fourteen",
+   "n": 14,
+   "pic": "count",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "quinze",
+   "say": "KANZ",
+   "en": "fifteen",
+   "n": 15,
+   "pic": "count",
+   "bg": "#d9c8ff"
+  }
+ ]
 }

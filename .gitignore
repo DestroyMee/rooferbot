@@ -9,3 +9,4 @@ videos/*/out/*
 !videos/*/out/italian-basics.mp4
 !videos/*/out/french-numbers.mp4
 !videos/*/out/spicy-*.mp4
+!videos/*/out/french-basics-long.mp4

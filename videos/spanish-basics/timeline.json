@@ -1,19 +1,150 @@
 {
-  "fps": 30, "intro": 3.5, "per": 4.0, "outro": 3.5, "duration": 47.0,
-  "meta": { "header": "SPANISH FOR BEGINNERS", "flag": ["h", "#c60b1e", "#ffc400", "#c60b1e"],
-    "title": [["SPA", "#c60b1e"], ["N", "#ffc400"], ["ISH", "#c60b1e"]], "sub": "FOR BEGINNERS", "pill": "10 words in 45 seconds",
-    "outro": ["¡MUY BIEN!", "= VERY GOOD!", "FOLLOW FOR MORE"],
-    "voice": { "role": "es_f", "intro": "Spanish for beginners! Ten words. Let's go!", "outro_native": "¡Muy bien!", "outro_en": "Very good! Follow for more!" } },
-  "words": [
-    { "fr": "Hola",        "say": "OH-lah",          "en": "Hello",     "pic": "sun",    "bg": "#ffe08a" },
-    { "fr": "Gracias",     "say": "GRAH-see-ahs",    "en": "Thank you", "pic": "gift",   "bg": "#ffc2d1" },
-    { "fr": "Sí",          "say": "SEE",             "en": "Yes",       "pic": "yes",    "bg": "#b9f0c4" },
-    { "fr": "No",          "say": "NOH",             "en": "No",        "pic": "no",     "bg": "#ffb4a8" },
-    { "fr": "Por favor",   "say": "por fah-VOR",     "en": "Please",    "pic": "please", "bg": "#d9c8ff" },
-    { "fr": "Adiós",       "say": "ah-DYOHS",        "en": "Goodbye",   "pic": "bye",    "bg": "#a8dcff" },
-    { "fr": "el gato",     "say": "el GAH-toh",      "en": "the cat",   "pic": "cat",    "bg": "#ffd6a5" },
-    { "fr": "el perro",    "say": "el PEH-rroh",     "en": "the dog",   "pic": "dog",    "bg": "#cdeac0" },
-    { "fr": "la manzana",  "say": "lah mahn-SAH-nah","en": "the apple", "pic": "apple",  "bg": "#fff3b0" },
-    { "fr": "el agua",     "say": "el AH-gwah",      "en": "water",     "pic": "water",  "bg": "#bde0fe" }
-  ]
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "SPANISH FOR BEGINNERS",
+  "flag": [
+   "h",
+   "#c60b1e",
+   "#ffc400",
+   "#c60b1e"
+  ],
+  "title": [
+   [
+    "SPA",
+    "#c60b1e"
+   ],
+   [
+    "N",
+    "#ffc400"
+   ],
+   [
+    "ISH",
+    "#c60b1e"
+   ]
+  ],
+  "sub": "FOR BEGINNERS",
+  "pill": "15 words in 60 seconds",
+  "outro": [
+   "¡MUY BIEN!",
+   "= VERY GOOD!",
+   "FOLLOW FOR MORE"
+  ],
+  "voice": {
+   "role": "es_f",
+   "intro": "Spanish for beginners! Fifteen words. Let's go!",
+   "outro_native": "¡Muy bien!",
+   "outro_en": "Very good! Follow for more!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Hola",
+   "say": "OH-lah",
+   "en": "Hello",
+   "pic": "sun",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "Gracias",
+   "say": "GRAH-see-ahs",
+   "en": "Thank you",
+   "pic": "gift",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "Sí",
+   "say": "SEE",
+   "en": "Yes",
+   "pic": "yes",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "No",
+   "say": "NOH",
+   "en": "No",
+   "pic": "no",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "Por favor",
+   "say": "por fah-VOR",
+   "en": "Please",
+   "pic": "please",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "Adiós",
+   "say": "ah-DYOHS",
+   "en": "Goodbye",
+   "pic": "bye",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "el gato",
+   "say": "el GAH-toh",
+   "en": "the cat",
+   "pic": "cat",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "el perro",
+   "say": "el PEH-rroh",
+   "en": "the dog",
+   "pic": "dog",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "la manzana",
+   "say": "lah mahn-SAH-nah",
+   "en": "the apple",
+   "pic": "apple",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "el agua",
+   "say": "el AH-gwah",
+   "en": "water",
+   "pic": "water",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "Buenas noches",
+   "say": "BWEH-nahs NOH-chehs",
+   "en": "Good night",
+   "pic": "night",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "Te quiero",
+   "say": "teh KYEH-roh",
+   "en": "I love you",
+   "pic": "love",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "Lo siento",
+   "say": "loh SYEN-toh",
+   "en": "I'm sorry",
+   "pic": "sorry",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "un amigo",
+   "say": "oon ah-MEE-goh",
+   "en": "a friend",
+   "pic": "friend",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "la casa",
+   "say": "lah KAH-sah",
+   "en": "the house",
+   "pic": "house",
+   "bg": "#d3f9d8"
+  }
+ ]
 }

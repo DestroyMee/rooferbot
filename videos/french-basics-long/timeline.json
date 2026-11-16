@@ -1,0 +1,150 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "FRENCH FOR BEGINNERS",
+  "flag": [
+   "v",
+   "#2b59c3",
+   "#ffffff",
+   "#ef3340"
+  ],
+  "title": [
+   [
+    "FRE",
+    "#2b59c3"
+   ],
+   [
+    "N",
+    "#fff"
+   ],
+   [
+    "CH",
+    "#ef3340"
+   ]
+  ],
+  "sub": "FOR BEGINNERS",
+  "pill": "15 words in 60 seconds",
+  "outro": [
+   "TRÈS BIEN!",
+   "= VERY GOOD!",
+   "FOLLOW FOR MORE"
+  ],
+  "voice": {
+   "role": "fr",
+   "intro": "French for beginners! Fifteen words. Let's go!",
+   "outro_native": "Très bien !",
+   "outro_en": "Very good! Follow for more!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Bonjour",
+   "say": "bohn-ZHOOR",
+   "en": "Hello",
+   "pic": "sun",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "Merci",
+   "say": "mair-SEE",
+   "en": "Thank you",
+   "pic": "gift",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "Oui",
+   "say": "WEE",
+   "en": "Yes",
+   "pic": "yes",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "Non",
+   "say": "NOHN",
+   "en": "No",
+   "pic": "no",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "S'il vous plaît",
+   "say": "seel voo PLEH",
+   "en": "Please",
+   "pic": "please",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "Au revoir",
+   "say": "oh ruh-VWAHR",
+   "en": "Goodbye",
+   "pic": "bye",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "le chat",
+   "say": "luh SHAH",
+   "en": "the cat",
+   "pic": "cat",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "le chien",
+   "say": "luh shee-AN",
+   "en": "the dog",
+   "pic": "dog",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "la pomme",
+   "say": "lah POM",
+   "en": "the apple",
+   "pic": "apple",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "l'eau",
+   "say": "LOH",
+   "en": "water",
+   "pic": "water",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "Bonne nuit",
+   "say": "bun NWEE",
+   "en": "Good night",
+   "pic": "night",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "Je t'aime",
+   "say": "zhuh TEM",
+   "en": "I love you",
+   "pic": "love",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "Pardon",
+   "say": "par-DOHN",
+   "en": "Sorry",
+   "pic": "sorry",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "un ami",
+   "say": "uhn ah-MEE",
+   "en": "a friend",
+   "pic": "friend",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "la maison",
+   "say": "lah meh-ZOHN",
+   "en": "the house",
+   "pic": "house",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

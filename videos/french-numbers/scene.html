@@ -119,15 +119,52 @@ const face = (x, y, s, u, ph = 0, open = false) => `<g transform="translate(${x}
 
 // ---------- Bilder pro Wort (u = Sekunden seit Kartenstart) ----------
 const PICS = {
+  night(u) {
+    let st = ''; for (let i = 0; i < 14; i++) st += star((i * 89) % 400, 25 + (i * 53) % 150, 0.35 + 0.15 * Math.sin(u * 4 + i), 0, '#ffe066');
+    let z = ''; for (let i = 0; i < 3; i++) { const k = ((u * 0.5 + i / 3) % 1); z += `<text x="${250 + k * 50 + i * 6}" y="${150 - k * 90}" font-family="Lucky" font-size="${26 + k * 22}" fill="#fff" opacity="${1 - k}">Z</text>`; }
+    return `<rect width="400" height="356" fill="#1b2a4a"/>${st}<circle cx="330" cy="70" r="40" fill="#ffe066"/><circle cx="348" cy="58" r="36" fill="#1b2a4a"/>
+      <rect x="60" y="250" width="290" height="60" rx="14" fill="#7048e8" stroke="${INK}" stroke-width="5"/><rect x="40" y="200" width="30" height="110" rx="8" fill="#9c6644" stroke="${INK}" stroke-width="5"/>
+      ${coco({ x: 170, y: 200, s: 0.9, blink: true, tilt: -8 + Math.sin(u * 1.5) * 3, hop: Math.sin(u * 2) * 3 })}
+      <path d="M70 240 Q200 215 345 240 L350 300 L60 300Z" fill="#91a7ff" stroke="${INK}" stroke-width="5"/>${z}`;
+  },
+  love(u) {
+    const b = 1 + 0.1 * Math.abs(Math.sin(u * 5));
+    let hs = ''; for (let i = 0; i < 6; i++) { const k = ((u * 0.5 + i / 6) % 1); hs += `<g opacity="${1 - k}">${heart(40 + i * 64, 300 - k * 280, 0.8 + 0.4 * k)}</g>`; }
+    return `<rect width="400" height="356" fill="#ffe3ec"/>${hs}
+      <g transform="translate(318 52) scale(${b * 2.4})">${heart(0, 0, 1, '#ff5a5f')}</g>
+      ${ground('#ffc2d1')}${coco({ x: 200, y: 205, s: 0.85, eyes: 'big', wingR: -60, wingL: -60, mouth: 'open', hop: Math.abs(Math.sin(u * 4)) * 6 })}`;
+  },
+  sorry(u) {
+    return `<rect width="400" height="356" fill="#f1f3f5"/>${ground('#dee2e6')}
+      <g transform="translate(300 280)"><path d="M-40 0 l14 -26 l16 22z" fill="#74c0fc" stroke="${INK}" stroke-width="4"/><path d="M0 4 l20 -30 l18 28z" fill="#74c0fc" stroke="${INK}" stroke-width="4"/><path d="M-14 8 l10 -14 l12 14z" fill="#a5d8ff" stroke="${INK}" stroke-width="4"/></g>
+      ${coco({ x: 160, y: 205, s: 0.9, eyes: 'big', tilt: -10 + Math.sin(u * 2) * 3, wingL: -110, wingR: 10 })}
+      <path transform="translate(${215} ${130 + ((u * 40) % 30)})" d="M0 -12 C8 0 10 4 10 8 a10 10 0 0 1 -20 0 C-10 4 -8 0 0 -12Z" fill="#74c0fc" stroke="${INK}" stroke-width="3"/>`;
+  },
+  friend(u) {
+    return `<rect width="400" height="356" fill="#e6fcf5"/>${ground('#96f2d7')}
+      <g transform="translate(200 ${70 - Math.abs(Math.sin(u * 4)) * 8}) scale(${1 + 0.1 * Math.sin(u * 6)})">${heart(0, 0, 1.6)}</g>
+      ${coco({ x: 135, y: 205, s: 0.85, wingR: -40 + Math.sin(u * 5) * 10, mouth: 'open', hop: Math.abs(Math.sin(u * 4)) * 8, tilt: 6 })}
+      <g style="filter: hue-rotate(170deg)">${coco({ x: 270, y: 222, s: 0.7, wingL: -40 + Math.sin(u * 5 + 1) * 10, mouth: 'open', hop: Math.abs(Math.sin(u * 4 + 1.5)) * 8, tilt: -6 })}</g>`;
+  },
+  house(u) {
+    let sm = ''; for (let i = 0; i < 4; i++) { const k = ((u * 0.5 + i / 4) % 1); sm += `<circle cx="${285 + Math.sin(u * 2 + i) * 8}" cy="${70 - k * 60}" r="${10 + k * 14}" fill="#fff" opacity="${0.9 * (1 - k)}" stroke="${INK}" stroke-width="2"/>`; }
+    return `<rect width="400" height="356" fill="#e7f5ff"/>${ground('#b2f2bb')}
+      <rect x="272" y="70" width="26" height="50" fill="#c92a2a" stroke="${INK}" stroke-width="5"/>${sm}
+      <rect x="170" y="150" width="190" height="140" fill="#fff4e6" stroke="${INK}" stroke-width="6"/>
+      <path d="M150 158 L265 70 L380 158Z" fill="#e8590c" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>
+      <rect x="245" y="215" width="44" height="75" rx="6" fill="#9c6644" stroke="${INK}" stroke-width="5"/><circle cx="280" cy="255" r="4" fill="#ffd60a"/>
+      <rect x="190" y="180" width="40" height="40" rx="4" fill="#a5d8ff" stroke="${INK}" stroke-width="5"/><rect x="305" y="180" width="40" height="40" rx="4" fill="#a5d8ff" stroke="${INK}" stroke-width="5"/>
+      ${coco({ x: 95, y: 215, s: 0.75, wingR: -60 + Math.sin(u * 10) * 25, mouth: 'open', blink: ((u + 0.4) % 2.6) > 2.45 })}`;
+  },
   count(u, w) {
     const n = w.n, cols = ['#ff5a5f', '#ffd60a', '#4dabf7', '#51cf66', '#cc5de8', '#ff922b'];
-    const perRow = n <= 5 ? n : Math.ceil(n / 2), rows = n <= 5 ? 1 : 2;
+    const rows = n <= 5 ? 1 : n <= 10 ? 2 : 3, perRow = rows === 3 ? 5 : Math.ceil(n / rows), bs = rows === 3 ? 1.05 : 1.35;
     let s = `<rect width="400" height="356" fill="#f8f9ff"/>${ground('#d0ebff')}`;
     for (let i = 0; i < n; i++) {
       const r = Math.floor(i / perRow), c = i % perRow, cnt = r === rows - 1 ? n - r * perRow : perRow;
-      const x = 200 + (c - (cnt - 1) / 2) * 76, y = (rows === 1 ? 150 : 95 + r * 125) + Math.sin(u * 3 + i) * 5;
+      const x = (rows === 3 ? 180 : 200) + (c - (cnt - 1) / 2) * (rows === 3 ? 64 : 76), y = (rows === 1 ? 150 : rows === 2 ? 95 + r * 125 : 62 + r * 92) + Math.sin(u * 3 + i) * 5;
       const k = pop(0.15 + i * 0.09, 0.3, u);
-      s += `<g transform="translate(${x} ${y}) scale(${k * 1.35})"><path d="M0 26 q-6 30 4 46" stroke="${INK}" stroke-width="3" fill="none"/>
+      s += `<g transform="translate(${x} ${y}) scale(${k * bs})"><path d="M0 26 q-6 30 4 46" stroke="${INK}" stroke-width="3" fill="none"/>
         <ellipse rx="25" ry="30" fill="${cols[i % 6]}" stroke="${INK}" stroke-width="4"/><ellipse cx="-9" cy="-12" rx="6" ry="10" fill="#fff" opacity=".6"/>
         <path d="M-5 29 h10 l-5 6z" fill="${cols[i % 6]}" stroke="${INK}" stroke-width="3"/>
         <text y="12" text-anchor="middle" font-family="Lucky" font-size="30" fill="#fff" stroke="${INK}" stroke-width="5" paint-order="stroke">${i + 1}</text></g>`;

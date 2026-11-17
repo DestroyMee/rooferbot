@@ -1,0 +1,165 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "FRENCH · PART 2",
+  "flag": [
+   "v",
+   "#2b59c3",
+   "#ffffff",
+   "#ef3340"
+  ],
+  "title": [
+   [
+    "FRE",
+    "#2b59c3"
+   ],
+   [
+    "N",
+    "#fff"
+   ],
+   [
+    "CH",
+    "#ef3340"
+   ]
+  ],
+  "sub": "FOR BEGINNERS · PART 2",
+  "pill": "15 NEW words in 60 seconds",
+  "outro": [
+   "TRÈS BIEN!",
+   "= VERY GOOD!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "fr",
+   "intro": "French for beginners, part two! Fifteen new words!",
+   "outro_native": "Très bien !",
+   "outro_en": "Very good! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Bonsoir",
+   "say": "bon-SWAHR",
+   "en": "Good evening",
+   "emo": "🌆",
+   "pic": "emo",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "Ça va ?",
+   "say": "sah VAH",
+   "en": "How are you?",
+   "emo": "🙂",
+   "pic": "emo",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "le pain",
+   "say": "luh PAN",
+   "en": "bread",
+   "emo": "🍞",
+   "pic": "emo",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "le café",
+   "say": "luh kah-FAY",
+   "en": "coffee",
+   "emo": "☕",
+   "pic": "emo",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "le lait",
+   "say": "luh LEH",
+   "en": "milk",
+   "emo": "🥛",
+   "pic": "emo",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "l'œuf",
+   "say": "LUHF",
+   "en": "egg",
+   "emo": "🥚",
+   "pic": "emo",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "la banane",
+   "say": "lah bah-NAN",
+   "en": "banana",
+   "emo": "🍌",
+   "pic": "emo",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "la voiture",
+   "say": "lah vwah-TOOR",
+   "en": "car",
+   "emo": "🚗",
+   "pic": "emo",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "le livre",
+   "say": "luh LEEVR",
+   "en": "book",
+   "emo": "📖",
+   "pic": "emo",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "l'école",
+   "say": "lay-KOHL",
+   "en": "school",
+   "emo": "🏫",
+   "pic": "emo",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "la pluie",
+   "say": "lah PLWEE",
+   "en": "rain",
+   "emo": "🌧️",
+   "pic": "emo",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "chaud",
+   "say": "SHOH",
+   "en": "hot",
+   "emo": "🥵",
+   "pic": "emo",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "froid",
+   "say": "FRWAH",
+   "en": "cold",
+   "emo": "🥶",
+   "pic": "emo",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "content",
+   "say": "kohn-TAHN",
+   "en": "happy",
+   "emo": "😊",
+   "pic": "emo",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "délicieux",
+   "say": "day-lee-SYUH",
+   "en": "delicious",
+   "emo": "😋",
+   "pic": "emo",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

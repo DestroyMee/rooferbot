@@ -1,0 +1,177 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "JAPANESE · PART 2",
+  "flag": [
+   "jp"
+  ],
+  "title": [
+   [
+    "JAPA",
+    "#bc002d"
+   ],
+   [
+    "N",
+    "#fff"
+   ],
+   [
+    "ESE",
+    "#bc002d"
+   ]
+  ],
+  "sub": "FOR BEGINNERS · PART 2",
+  "pill": "15 NEW words in 60 seconds",
+  "outro": [
+   "すごい!",
+   "= AMAZING!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "ja",
+   "intro": "Japanese for beginners, part two! Fifteen new words!",
+   "outro_native": "スゴイ!",
+   "outro_en": "Amazing! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "おはよう",
+   "say": "o-ha-yoh",
+   "kana": "オハヨー",
+   "en": "Good morning",
+   "emo": "☀️",
+   "pic": "emo",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "げんき?",
+   "say": "gen-ki?",
+   "kana": "ゲンキ?",
+   "en": "How are you?",
+   "emo": "🙂",
+   "pic": "emo",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "パン",
+   "say": "pan",
+   "kana": "パン",
+   "en": "bread",
+   "emo": "🍞",
+   "pic": "emo",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "コーヒー",
+   "say": "koh-hee",
+   "kana": "コーヒー",
+   "en": "coffee",
+   "emo": "☕",
+   "pic": "emo",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "ぎゅうにゅう",
+   "say": "gyuu-nyuu",
+   "kana": "ギューニュー",
+   "en": "milk",
+   "emo": "🥛",
+   "pic": "emo",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "たまご",
+   "say": "ta-ma-go",
+   "kana": "タマゴ",
+   "en": "egg",
+   "emo": "🥚",
+   "pic": "emo",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "バナナ",
+   "say": "ba-na-na",
+   "kana": "バナナ",
+   "en": "banana",
+   "emo": "🍌",
+   "pic": "emo",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "くるま",
+   "say": "ku-ru-ma",
+   "kana": "クルマ",
+   "en": "car",
+   "emo": "🚗",
+   "pic": "emo",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "ほん",
+   "say": "hon",
+   "kana": "ホン",
+   "en": "book",
+   "emo": "📖",
+   "pic": "emo",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "がっこう",
+   "say": "gak-koh",
+   "kana": "ガッコー",
+   "en": "school",
+   "emo": "🏫",
+   "pic": "emo",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "あめ",
+   "say": "a-me",
+   "kana": "アメ",
+   "en": "rain",
+   "emo": "🌧️",
+   "pic": "emo",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "あつい",
+   "say": "a-tsu-i",
+   "kana": "アツイ",
+   "en": "hot",
+   "emo": "🥵",
+   "pic": "emo",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "さむい",
+   "say": "sa-mu-i",
+   "kana": "サムイ",
+   "en": "cold",
+   "emo": "🥶",
+   "pic": "emo",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "うれしい",
+   "say": "u-re-shii",
+   "kana": "ウレシー",
+   "en": "happy",
+   "emo": "😊",
+   "pic": "emo",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "おいしい",
+   "say": "oi-shii",
+   "kana": "オイシー",
+   "en": "delicious",
+   "emo": "😋",
+   "pic": "emo",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

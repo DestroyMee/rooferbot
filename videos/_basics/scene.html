@@ -119,6 +119,14 @@ const face = (x, y, s, u, ph = 0, open = false) => `<g transform="translate(${x}
 
 // ---------- Bilder pro Wort (u = Sekunden seit Kartenstart) ----------
 const PICS = {
+  emo(u, w) {
+    const k = pop(0.15, 0.45, u), b = Math.abs(Math.sin(u * 3.2)) * 14;
+    let sp = ''; for (let i = 0; i < 5; i++) { const a = u * 1.4 + i * 1.26; sp += star(270 + Math.cos(a) * 105, 150 + Math.sin(a) * 85, 0.55 + 0.25 * Math.sin(u * 5 + i), u * 60 + i * 30); }
+    return `<rect width="400" height="356" fill="#fffdf5"/>${ground(w.gc || '#ffe8a3')}${sp}
+      <g transform="translate(272 ${150 - b}) scale(${k}) rotate(${Math.sin(u * 2.4) * 6})"><text y="48" text-anchor="middle" font-size="150">${w.emo}</text></g>
+      <ellipse cx="272" cy="292" rx="${60 - b}" ry="10" fill="rgba(29,43,83,.15)"/>
+      ${coco({ x: 105, y: 210, s: 0.8, eyes: 'big', mouth: 'open', wingR: -55 + Math.sin(u * 6) * 15, blink: false, hop: Math.abs(Math.sin(u * 4)) * 6, tilt: 6 })}`;
+  },
   night(u) {
     let st = ''; for (let i = 0; i < 14; i++) st += star((i * 89) % 400, 25 + (i * 53) % 150, 0.35 + 0.15 * Math.sin(u * 4 + i), 0, '#ffe066');
     let z = ''; for (let i = 0; i < 3; i++) { const k = ((u * 0.5 + i / 3) % 1); z += `<text x="${250 + k * 50 + i * 6}" y="${150 - k * 90}" font-family="Lucky" font-size="${26 + k * 22}" fill="#fff" opacity="${1 - k}">Z</text>`; }

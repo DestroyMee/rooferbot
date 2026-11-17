@@ -1,0 +1,18 @@
+{
+ "fps": 30, "intro": 3.5, "per": 5.0, "outro": 4.0, "duration": 67.5,
+ "meta": { "flag": ["kr"] },
+ "words": [
+  { "en": "cell phone",         "ee": "📱", "ko": "핸드폰",     "rom": "haen-deu-pon",   "lit": "hand phone",      "le": "🤚", "bg": "#ffc2d1" },
+  { "en": "laptop",             "ee": "💻", "ko": "노트북",     "rom": "no-teu-buk",     "lit": "notebook",        "le": "📓", "bg": "#a8dcff" },
+  { "en": "selfie",             "ee": "🤳", "ko": "셀카",       "rom": "sel-ka",         "lit": "self camera",     "le": "📷", "bg": "#ffe08a" },
+  { "en": "window shopping",    "ee": "🛍️", "ko": "아이쇼핑",   "rom": "a-i-syo-ping",   "lit": "eye shopping",    "le": "👀", "bg": "#d9c8ff" },
+  { "en": "you can do it!",     "ee": "💪", "ko": "화이팅",     "rom": "hwa-i-ting",     "lit": "fighting!",       "le": "🥊", "bg": "#b9f0c4" },
+  { "en": "bottoms up!",        "ee": "🍻", "ko": "원샷",       "rom": "won-syat",       "lit": "one shot",        "le": "☝️", "bg": "#ffd6a5" },
+  { "en": "comedian",           "ee": "🎤", "ko": "개그맨",     "rom": "gae-geu-maen",   "lit": "gag man",         "le": "😂", "bg": "#fff3b0" },
+  { "en": "convertible",        "ee": "🚗", "ko": "오픈카",     "rom": "o-peun-ka",      "lit": "open car",        "le": "🌬️", "bg": "#bde0fe" },
+  { "en": "soda / Sprite",      "ee": "🥤", "ko": "사이다",     "rom": "sa-i-da",        "lit": "cider",           "le": "🍏", "bg": "#c3fae8" },
+  { "en": "free extra",         "ee": "🎁", "ko": "서비스",     "rom": "seo-bi-seu",     "lit": "service",         "le": "🛎️", "bg": "#ffb4a8" },
+  { "en": "part-time job",      "ee": "💼", "ko": "아르바이트", "rom": "a-reu-ba-i-teu", "lit": "Arbeit (German!)", "le": "🇩🇪", "bg": "#bac8ff" },
+  { "en": "hugs & cuddles",     "ee": "🤗", "ko": "스킨십",     "rom": "seu-kin-sip",    "lit": "skinship",        "le": "🫶", "bg": "#ffc9c9" }
+ ]
+}

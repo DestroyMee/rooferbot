@@ -13,7 +13,7 @@ const { chromium } = require('playwright');
 const dir = path.dirname(new URL(import.meta.url).pathname);
 const out = path.join(dir, 'out');
 fs.mkdirSync(out, { recursive: true });
-const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2' };
+const types = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.woff2': 'font/woff2', '.css': 'text/css', '.woff': 'font/woff' };
 const server = http.createServer((req, res) => {
   const f = path.join(dir, decodeURIComponent(req.url.split('?')[0]));
   if (!f.startsWith(dir) || !fs.existsSync(f)) { res.writeHead(404); return res.end(); }

@@ -344,7 +344,8 @@ window.render = function (t) {
       const k = pop(0.25 + j * 0.045, 0.3, u);
       return `<span style="transform:translateY(${(1 - k) * 60}px) scale(${k})">${ch === ' ' ? '&nbsp;' : ch}</span>`;
     }).join('');
-    const fs = Math.min(170, 170 * 980 / (letters.length * 92));
+    const em = letters.reduce((a, ch) => a + (/[\u3000-\u9fff\uff00-\uffef]/.test(ch) ? 1.0 : 0.54), 0);
+    const fs = Math.min(170, 980 / em);
     $('fr').style.fontSize = fs + 'px';
     $('words').style.transform = `translateX(${dx}px)`;
     // Aussprache
@@ -355,7 +356,7 @@ window.render = function (t) {
     $('wave1').style.opacity = talk ? (Math.sin(u * 20) > 0 ? 1 : 0.3) : 0.3;
     $('wave2').style.opacity = talk ? (Math.sin(u * 20 + 1.5) > 0 ? 1 : 0.3) : 0.3;
     // Englisch
-    $('enTxt').textContent = w.en;
+    $('enTxt').textContent = w.en; $('enTxt').style.fontSize = Math.min(140, 140 * 11 / Math.max(11, w.en.length)) + 'px';
     $('en').style.transform = `translateX(${dx}px) scale(${pop(1.7, 0.35, u)}) rotate(-2deg)`;
     // Nachsprechen
     const rk = u > 2.6 ? pop(2.6, 0.3, u) * (1 + 0.06 * Math.sin(u * 12)) : 0;
@@ -379,7 +380,8 @@ window.ready = (async () => {
   $('hdr').textContent = M.header;
   const F = M.flag; // ["v"|"h", farbe1, farbe2, farbe3]
   $('flag').innerHTML = `<defs><clipPath id="fc"><rect x="3" y="3" width="90" height="60" rx="10"/></clipPath></defs><g clip-path="url(#fc)">` +
-    (F[0] === 'v' ? `<rect x="3" y="3" width="30" height="60" fill="${F[1]}"/><rect x="33" y="3" width="30" height="60" fill="${F[2]}"/><rect x="63" y="3" width="30" height="60" fill="${F[3]}"/>`
+    (F[0] === 'jp' ? `<rect x="3" y="3" width="90" height="60" fill="#ffffff"/><circle cx="48" cy="33" r="17" fill="#bc002d"/>` :
+     F[0] === 'v' ? `<rect x="3" y="3" width="30" height="60" fill="${F[1]}"/><rect x="33" y="3" width="30" height="60" fill="${F[2]}"/><rect x="63" y="3" width="30" height="60" fill="${F[3]}"/>`
                   : `<rect x="3" y="3" width="90" height="16" fill="${F[1]}"/><rect x="3" y="19" width="90" height="28" fill="${F[2]}"/><rect x="3" y="47" width="90" height="16" fill="${F[3]}"/>`) +
     `</g><rect x="3" y="3" width="90" height="60" rx="10" fill="none" stroke="#1d2b53" stroke-width="6"/>`;
   $('tBig').innerHTML = M.title.map(([t, c]) => `<span style="color:${c}${c === '#fff' ? ';-webkit-text-stroke:22px #1d2b53' : ''}">${t}</span>`).join('');

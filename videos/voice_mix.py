@@ -29,6 +29,7 @@ ROLES = {
     "it":       dict(voice="if_sara",  lang="it",    speed=0.95, pitch=1.0),
     "it_m":     dict(voice="im_nicola", lang="it",   speed=0.95, pitch=1.0),
     "pt":       dict(voice="pm_alex",  lang="pt-br", speed=0.95, pitch=1.0),
+    "ja":       dict(voice="jf_alpha", lang="ja",    speed=0.9,  pitch=1.0, kana=True),  # Text = Katakana-Aussprache
 }
 
 _k = None
@@ -48,7 +49,11 @@ def synth(text, role, cache):
     key = hashlib.md5(json.dumps([text, r]).encode()).hexdigest()[:16]
     f = os.path.join(cache, key + ".wav")
     if not os.path.exists(f):
-        a, sr = kokoro().create(text, voice=r["voice"], speed=r["speed"], lang=r["lang"])
+        if r.get("kana"):
+            sys.path.insert(0, os.path.join(HERE, "_tools")); from ja_g2p import phonemize
+            a, sr = kokoro().create(phonemize(text), voice=r["voice"], speed=r["speed"], lang=r["lang"], is_phonemes=True)
+        else:
+            a, sr = kokoro().create(text, voice=r["voice"], speed=r["speed"], lang=r["lang"])
         a = np.asarray(a, dtype=np.float64)
         # Stille vorn/hinten abschneiden
         idx = np.where(np.abs(a) > 0.01)[0]
@@ -117,9 +122,10 @@ def cues_basics(tl):
     c = [dict(t=0.25, limit=tl["intro"] - 0.1, role="en", text=V["intro"])]
     for k, w in enumerate(tl["words"]):
         s = tl["intro"] + k * tl["per"]
-        c += [dict(t=s + 0.3, limit=s + 1.65, role=L, text=w["fr"]),
+        nat = w.get("kana") or w["fr"]
+        c += [dict(t=s + 0.3, limit=s + 1.65, role=L, text=nat),
               dict(t=s + 1.7, limit=s + 2.65, role="en", text=w["en"].replace(" / ", " or ") + "."),
-              dict(t=s + 2.7, limit=s + 3.95, role=L, text=w["fr"] + "!")]
+              dict(t=s + 2.7, limit=s + 3.95, role=L, text=nat if nat.endswith("!") else nat + "!")]
     o = tl["intro"] + len(tl["words"]) * tl["per"]
     c += [dict(t=o + 0.15, limit=o + 1.2, role=L, text=V["outro_native"]),
           dict(t=o + 1.25, limit=tl["duration"] - 0.1, role="en", text=V["outro_en"])]

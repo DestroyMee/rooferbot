@@ -12,3 +12,4 @@ videos/*/out/*
 !videos/*/out/french-basics-long.mp4
 !videos/*/out/false-friends-*.mp4
 videos/clips/**/_*.png
+!videos/*/out/japanese-*.mp4

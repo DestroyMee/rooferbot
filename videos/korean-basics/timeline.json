@@ -1,0 +1,148 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "KOREAN FOR BEGINNERS",
+  "flag": [
+   "kr"
+  ],
+  "title": [
+   [
+    "KOR",
+    "#cd2e3a"
+   ],
+   [
+    "E",
+    "#fff"
+   ],
+   [
+    "AN",
+    "#0047a0"
+   ]
+  ],
+  "sub": "FOR BEGINNERS",
+  "pill": "15 words in 60 seconds",
+  "outro": [
+   "최고!",
+   "= THE BEST!",
+   "FOLLOW FOR MORE"
+  ],
+  "voice": {
+   "role": "ko",
+   "intro": "Korean for beginners! Fifteen words. Let's go!",
+   "outro_native": "최고!",
+   "outro_en": "The best! Follow for more!"
+  }
+ },
+ "words": [
+  {
+   "fr": "안녕하세요",
+   "say": "an-nyeong-ha-se-yo",
+   "en": "Hello",
+   "pic": "sun",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "감사합니다",
+   "say": "gam-sa-ham-ni-da",
+   "en": "Thank you",
+   "pic": "gift",
+   "bg": "#ffc2d1",
+   "kana": "감사함니다"
+  },
+  {
+   "fr": "네",
+   "say": "ne",
+   "en": "Yes",
+   "pic": "yes",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "아니요",
+   "say": "a-ni-yo",
+   "en": "No",
+   "pic": "no",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "주세요",
+   "say": "ju-se-yo",
+   "en": "Please (give me)",
+   "pic": "please",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "안녕히 가세요",
+   "say": "an-nyeong-hi ga-se-yo",
+   "en": "Goodbye",
+   "pic": "bye",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "고양이",
+   "say": "go-yang-i",
+   "en": "cat",
+   "pic": "cat",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "강아지",
+   "say": "gang-a-ji",
+   "en": "puppy",
+   "pic": "dog",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "사과",
+   "say": "sa-gwa",
+   "en": "apple",
+   "pic": "apple",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "물",
+   "say": "mul",
+   "en": "water",
+   "pic": "water",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "잘 자요",
+   "say": "jal ja-yo",
+   "en": "Good night",
+   "pic": "night",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "사랑해요",
+   "say": "sa-rang-hae-yo",
+   "en": "I love you",
+   "pic": "love",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "미안해요",
+   "say": "mi-an-hae-yo",
+   "en": "Sorry",
+   "pic": "sorry",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "친구",
+   "say": "chin-gu",
+   "en": "friend",
+   "pic": "friend",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "집",
+   "say": "jip",
+   "en": "house",
+   "pic": "house",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

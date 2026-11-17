@@ -15,3 +15,4 @@ videos/clips/**/_*.png
 !videos/*/out/japanese-*.mp4
 !videos/*/out/dutch-*.mp4
 !videos/*/out/konglish*.mp4
+!videos/*/out/korean-*.mp4

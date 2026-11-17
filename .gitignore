@@ -13,3 +13,4 @@ videos/*/out/*
 !videos/*/out/false-friends-*.mp4
 videos/clips/**/_*.png
 !videos/*/out/japanese-*.mp4
+!videos/*/out/dutch-*.mp4

@@ -1,0 +1,18 @@
+{
+ "fps": 30, "intro": 3.5, "per": 5.0, "outro": 4.0, "duration": 67.5,
+ "meta": { "flag": ["h", "#ae1c28", "#ffffff", "#21468b"] },
+ "words": [
+  { "w": "schildpad",  "say": "SKHILT-paht",   "a": "shield",  "ae": "🛡️", "b": "toad",     "be": "🐸", "real": "turtle",          "re": "🐢", "bg": "#b9f0c4" },
+  { "w": "luipaard",   "say": "LOW-paart",     "a": "lazy",    "ae": "😴", "b": "horse",    "be": "🐴", "real": "leopard",         "re": "🐆", "bg": "#ffe08a" },
+  { "w": "zeehond",    "say": "ZAY-hont",      "a": "sea",     "ae": "🌊", "b": "dog",      "be": "🐶", "real": "seal",            "re": "🦭", "bg": "#a8dcff" },
+  { "w": "wasbeer",    "say": "WAHS-bair",     "a": "wash",    "ae": "🧼", "b": "bear",     "be": "🐻", "real": "raccoon",         "re": "🦝", "bg": "#d9c8ff" },
+  { "w": "nijlpaard",  "say": "NAIL-paart",    "a": "Nile",    "ae": "🏞️", "b": "horse",    "be": "🐴", "real": "hippo",           "re": "🦛", "bg": "#ffd6a5" },
+  { "w": "handschoen", "say": "HAHNT-skhoon",  "a": "hand",    "ae": "✋", "b": "shoe",     "be": "👟", "real": "glove",           "re": "🧤", "bg": "#ffc2d1" },
+  { "w": "ziekenhuis", "say": "ZEE-kuh-house", "a": "sick",    "ae": "🤒", "b": "house",    "be": "🏠", "real": "hospital",        "re": "🏥", "bg": "#cdeac0" },
+  { "w": "stinkdier",  "say": "STINK-deer",    "a": "stink",   "ae": "🤢", "b": "animal",   "be": "🐾", "real": "skunk",           "re": "🦨", "bg": "#fff3b0" },
+  { "w": "vleermuis",  "say": "FLAIR-mouse",   "a": "flutter", "ae": "🪽", "b": "mouse",    "be": "🐭", "real": "bat",             "re": "🦇", "bg": "#bac8ff" },
+  { "w": "gloeilamp",  "say": "GLOO-ee-lahmp", "a": "glow",    "ae": "✨", "b": "lamp",     "be": "🪔", "real": "light bulb",      "re": "💡", "bg": "#ffe3ec" },
+  { "w": "koelkast",   "say": "KOOL-kahst",    "a": "cool",    "ae": "❄️", "b": "cupboard", "be": "🗄️", "real": "fridge",          "re": "🧊", "bg": "#bde0fe" },
+  { "w": "vliegtuig",  "say": "FLEEKH-towkh",  "a": "fly",     "ae": "🕊️", "b": "gear",     "be": "🧰", "real": "airplane",        "re": "✈️", "bg": "#c3fae8" }
+ ]
+}

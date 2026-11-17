@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Literal Dutch – Scene</title>
+<style>
+  @font-face { font-family: "Lucky"; src: url("vendor/luckiest-guy.woff2") format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 700; src: url("vendor/fredoka-700.woff2") format("woff2"); }
+  @font-face { font-family: "Fredoka"; font-weight: 600; src: url("vendor/fredoka-600.woff2") format("woff2"); }
+  :root { --ink: #1d2b53; }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; font-family: "Fredoka", sans-serif; }
+  #bg { position: absolute; inset: 0; }
+  .abs { position: absolute; left: 0; right: 0; text-align: center; }
+  .pill { display: inline-flex; align-items: center; gap: 18px; background: #fff; border: 8px solid var(--ink);
+    border-radius: 60px; padding: 14px 40px 8px; box-shadow: 0 10px 0 rgba(29,43,83,.25); }
+  #header { top: 70px; } #header .pill { font-family: "Lucky"; font-size: 64px; color: var(--ink); }
+  #dots { position: absolute; left: 0; right: 0; top: 232px; display: flex; justify-content: center; gap: 20px; }
+  .dot { width: 32px; height: 32px; border-radius: 50%; border: 6px solid var(--ink); background: #fff; }
+  .dot.on { background: #e63946; } .dot.done { background: var(--ink); }
+  #word { top: 320px; }
+  #wTxt { display: inline-block; font-family: "Lucky"; line-height: 1; color: #e63946; white-space: nowrap;
+    -webkit-text-stroke: 22px #fff; paint-order: stroke fill; text-shadow: 0 14px 0 rgba(29,43,83,.3); }
+  #say { top: 515px; } #say .pill { font-weight: 600; font-size: 58px; color: var(--ink); }
+  .box { position: absolute; left: 80px; right: 80px; height: 230px; border: 10px solid var(--ink); border-radius: 50px;
+    box-shadow: 0 14px 0 rgba(29,43,83,.25); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .box .lab { font-family: "Lucky"; font-size: 46px; letter-spacing: 3px; color: var(--ink); opacity: .7; }
+  .box .t { font-weight: 700; font-size: 92px; color: var(--ink); line-height: 1.05; white-space: nowrap; display: flex; align-items: center; gap: 22px; }
+  .box .t .e { font-size: 100px; }
+  #lit { position: absolute; left: 0; right: 0; top: 628px; text-align: center; font-family: "Lucky"; font-size: 44px; letter-spacing: 3px; color: var(--ink); opacity: .75; }
+  .tile { position: absolute; width: 380px; height: 250px; background: #fff; border: 10px solid var(--ink); border-radius: 46px; box-shadow: 0 12px 0 rgba(29,43,83,.25);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .tile .e { font-size: 120px; line-height: 1.1; } .tile .t { font-family: "Lucky"; font-size: 62px; color: var(--ink); line-height: 1; margin-top: 6px; white-space: nowrap; }
+  #tA { left: 60px; top: 700px; } #tB { right: 60px; top: 700px; }
+  .op { position: absolute; font-family: "Lucky"; font-size: 140px; color: #fff; -webkit-text-stroke: 18px var(--ink); paint-order: stroke fill; text-align: center; width: 120px; }
+  #plus { left: 480px; top: 750px; } #eq { left: 480px; top: 950px; }
+  .tile.big { left: 220px; top: 1090px; width: 640px; height: 270px; background: #b2f2bb; flex-direction: row; gap: 30px; }
+  .tile.big .e { font-size: 150px; } .tile.big .t { font-size: 84px; margin: 0; }
+  #coco { position: absolute; left: 0; top: 1410px; width: 1080px; height: 300px; }
+  #title { top: 1150px; }
+  #title .big { font-family: "Lucky"; font-size: 132px; line-height: .95; -webkit-text-stroke: 20px #fff; paint-order: stroke fill; text-shadow: 0 14px 0 rgba(29,43,83,.3); }
+  #title .sub { font-weight: 700; font-size: 58px; color: var(--ink); margin-top: 18px; }
+  #title .pill { margin-top: 24px; font-family: "Lucky"; font-size: 52px; color: #fff; background: #e63946; }
+  #intro { position: absolute; left: 0; top: 300px; width: 1080px; height: 820px; }
+  #outro { top: 1150px; }
+  #outro .big { font-family: "Lucky"; font-size: 120px; color: #e63946; -webkit-text-stroke: 18px #fff; paint-order: stroke fill; text-shadow: 0 12px 0 rgba(29,43,83,.3); line-height: 1; }
+  #outro .pill { margin-top: 30px; font-family: "Lucky"; font-size: 58px; color: #fff; background: var(--ink); }
+  #handle { font-family: "Lucky"; font-size: 64px; color: var(--ink); margin-top: 24px; }
+</style>
+</head>
+<body>
+<svg id="bg" width="1080" height="1920"></svg>
+<div id="header" class="abs"><div class="pill"><svg id="flag" width="96" height="66" viewBox="0 0 96 66"></svg><span id="hdr"></span></div></div>
+<div id="dots"></div>
+<div id="word" class="abs"><span id="wTxt"></span></div>
+<div id="say" class="abs"><div class="pill"><svg width="56" height="50" viewBox="0 0 64 56"><path d="M6 20h12l16-14v44L18 36H6z" fill="#1d2b53"/><path d="M42 18q8 10 0 20" stroke="#1d2b53" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M50 10q14 18 0 36" stroke="#1d2b53" stroke-width="6" fill="none" stroke-linecap="round"/></svg><span id="sayTxt"></span></div></div>
+<div id="lit"><span class="lab">LITERALLY…</span></div>
+<div id="tA" class="tile"><span class="e" id="aE"></span><span class="t" id="aT"></span></div>
+<div id="plus" class="op">+</div>
+<div id="tB" class="tile"><span class="e" id="bE"></span><span class="t" id="bT"></span></div>
+<div id="eq" class="op">=</div>
+<div id="res" class="tile big"><span class="e" id="rE"></span><span class="t" id="rT"></span></div>
+<svg id="intro" viewBox="0 0 400 304"></svg>
+<svg id="coco" viewBox="0 0 400 111"></svg>
+<div id="title" class="abs"><div class="big"><span style="color:#ff7a00">DUTCH IS JUST</span><br><span style="color:#21468b">ENGLISH…</span></div>
+  <div class="sub">…with extra steps 😂</div><div class="pill">🇳🇱 LITERAL TRANSLATIONS</div></div>
+<div id="outro" class="abs"><div class="big">WHICH ONE MADE<br>YOU LAUGH? 😂</div><div class="pill">COMMENT BELOW 👇</div><div id="handle">@LEARNWITHCOCO</div></div>
+
+<script>
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, k) => a + (b - a) * k;
+const smooth = (a, b, t) => { const k = clamp((t - a) / (b - a)); return k * k * (3 - 2 * k); };
+const backOut = k => { const s = 1.9; k = clamp(k) - 1; return k * k * ((s + 1) * k + s) + 1; };
+const pop = (a, d, t) => (t < a ? 0 : backOut((t - a) / d));
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const R = rng(5);
+const $ = id => document.getElementById(id);
+const INK = '#1d2b53';
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, k) => { const A = hex(a), B = hex(b); return `rgb(${A.map((v, i) => Math.round(lerp(v, B[i], k))).join(',')})`; };
+const star = (x, y, s, rot, c = '#ffd60a') => { let d = ''; for (let i = 0; i < 10; i++) { const r = i % 2 ? 7 : 16, a = i * Math.PI / 5 - Math.PI / 2; d += (i ? 'L' : 'M') + (r * Math.cos(a)).toFixed(1) + ' ' + (r * Math.sin(a)).toFixed(1); }
+  return `<path transform="translate(${x} ${y}) scale(${s}) rotate(${rot})" d="${d}Z" fill="${c}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`; };
+function coco({ x = 200, y = 220, s = 1, wingR = 0, wingL = 0, tilt = 0, eyes = 'normal', mouth = 'smile', hop = 0, red = 0, steam = 0, wet = 0, t = 0, flip = 1 }) {
+  let E = '';
+  for (const ex of [-26, 26]) {
+    const sd = Math.sign(ex);
+    if (eyes === 'angry') E += `<ellipse cx="${ex}" cy="-10" rx="9" ry="10" fill="${INK}"/><path d="M${ex - 16 * sd} -34 L${ex + 12 * sd} -22" stroke="${INK}" stroke-width="7" stroke-linecap="round"/>`;
+    else if (eyes === 'shock') E += `<circle cx="${ex}" cy="-14" r="17" fill="#fff" stroke="${INK}" stroke-width="5"/><circle cx="${ex}" cy="-14" r="5" fill="${INK}"/>`;
+    else if (eyes === 'squint') E += `<path d="M${ex - 12} -24 L${ex + 8 * sd * 0 + 10} -14 L${ex - 12} -4" transform="${sd < 0 ? '' : `scale(-1 1) translate(${-2 * ex} 0)`}" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+    else E += `<ellipse cx="${ex}" cy="-14" rx="9" ry="12" fill="${INK}"/><circle cx="${ex + 3}" cy="-18" r="3.5" fill="#fff"/>`;
+  }
+  const M = mouth === 'yell'
+    ? `<path d="M-16 6 L16 6 L0 40 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-14 8 L14 8 L0 22Z" fill="#9d0208"/>`
+    : mouth === 'open' ? `<path d="M-12 8 L12 8 L0 30 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-12 8 L12 8 L0 15Z" fill="#e85d04"/>`
+    : `<path d="M-13 4 L13 4 L0 20 Z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`;
+  let st = '';
+  if (steam > 0) for (const sd of [-1, 1]) for (let i = 0; i < 3; i++) {
+    const k = ((t * 1.6 + i / 3) % 1);
+    st += `<circle cx="${sd * (60 + k * 30)}" cy="${-70 - k * 70}" r="${10 + k * 14}" fill="#fff" stroke="${INK}" stroke-width="4" opacity="${steam * (1 - k)}"/>`;
+  }
+  let wt = '';
+  if (wet > 0) for (let i = 0; i < 6; i++) { const k = ((t * 0.9 + i / 6) % 1); wt += `<path transform="translate(${-60 + i * 24} ${-40 + k * 120})" d="M0 -10 C6 0 8 4 8 8 a8 8 0 0 1 -16 0 C-8 4 -6 0 0 -10Z" fill="#4dabf7" stroke="${INK}" stroke-width="3" opacity="${wet * (1 - k)}"/>`; }
+  return `<g transform="translate(${x} ${y - hop}) scale(${s * flip} ${s}) rotate(${tilt})">
+    <ellipse cx="0" cy="${88 + hop / Math.max(s, .01)}" rx="62" ry="10" fill="rgba(29,43,83,.15)"/>
+    <path d="M-26 70 l-8 16 h20z M26 70 l8 16 h-20z" fill="#ff9f1c" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
+    <g transform="translate(-66 18) rotate(${-wingL})"><ellipse cx="-10" cy="0" rx="26" ry="16" fill="#ffc300" stroke="${INK}" stroke-width="5" transform="rotate(-20)"/></g>
+    <g transform="translate(66 18) rotate(${wingR})"><ellipse cx="10" cy="0" rx="26" ry="16" fill="#ffc300" stroke="${INK}" stroke-width="5" transform="rotate(20)"/></g>
+    <circle r="78" fill="#ffd60a" stroke="${INK}" stroke-width="6"/>
+    <circle r="75" fill="#ff4d4d" opacity="${red * 0.55}"/>
+    <ellipse cx="0" cy="34" rx="44" ry="34" fill="#fff3b0" opacity="${1 - red * 0.4}"/>
+    ${E}
+    <ellipse cx="-46" cy="10" rx="12" ry="7" fill="#ff8fab" opacity=".8"/><ellipse cx="46" cy="10" rx="12" ry="7" fill="#ff8fab" opacity=".8"/>
+    ${M}
+    <g transform="translate(6 -66) rotate(-12)"><ellipse rx="62" ry="22" fill="#ef3340" stroke="${INK}" stroke-width="6"/><path d="M0 -22 q4 -16 12 -14" stroke="${INK}" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+    ${st}${wt}
+  </g>`;
+}
+const T_A = 1.0, T_B = 1.6, T_R = 2.5;
+const SHAPES = Array.from({ length: 22 }, () => ({ x: R() * 1080, y: R() * 1920, r: 16 + R() * 26, sp: 20 + R() * 40, rot: R() * 360, o: 0.25 + R() * 0.2 }));
+function drawBg(t, color) {
+  let s = `<rect width="1080" height="1920" fill="${color}"/>`;
+  for (let i = 0; i < 9; i++) s += `<circle cx="${(i * 260 + t * 15) % 1400 - 160}" cy="${(i * 517) % 1920}" r="220" fill="#fff" opacity=".12"/>`;
+  for (const q of SHAPES) { const y = (q.y - t * q.sp + 19200) % 2000 - 40; s += `<g opacity="${q.o}">${star(q.x, y, q.r / 16, q.rot + t * 30, '#fff')}</g>`; }
+  $('bg').innerHTML = s;
+}
+const qmark = (x, y, s, u) => `<text x="${x}" y="${y}" font-family="Lucky" font-size="${46 * s}" fill="#fff" stroke="${INK}" stroke-width="6" paint-order="stroke" transform="rotate(${Math.sin(u * 6) * 10} ${x} ${y})">?</text>`;
+let TL;
+const show = (id, v) => { $(id).style.display = v ? '' : 'none'; };
+window.render = function (t) {
+  const W = TL.words, n = W.length, i0 = TL.intro, per = TL.per;
+  const idx = Math.floor((t - i0) / per), inW = t >= i0 && idx < n, isOut = t >= i0 + n * per;
+  let col = '#ffe08a';
+  if (inW) { const u = t - i0 - idx * per; col = idx > 0 && u < 0.4 ? mix(W[idx - 1].bg, W[idx].bg, u / 0.4) : W[idx].bg; }
+  if (isOut) col = mix(W[n - 1].bg, '#ffe08a', smooth(i0 + n * per, i0 + n * per + 0.4, t));
+  drawBg(t, col);
+  $('dots').innerHTML = W.map((_, j) => `<div class="dot ${inW && j === idx ? 'on' : (j < idx || isOut ? 'done' : '')}" style="transform:scale(${inW && j === idx ? 1.25 : 1})"></div>`).join('');
+  ['dots', 'word', 'say', 'lit', 'tA', 'plus', 'tB', 'eq', 'res', 'coco'].forEach(id => show(id, inW));
+  show('title', !inW && !isOut); show('intro', !inW && !isOut); show('outro', isOut);
+  if (!inW && !isOut) {
+    const out = smooth(i0 - 0.35, i0, t);
+    $('title').style.transform = `scale(${pop(0.15, 0.5, t) * (1 - out)}) rotate(${Math.sin(t * 3) * 2}deg)`;
+    $('intro').innerHTML = `<g transform="scale(${pop(0, 0.5, t) * (1 - out)})" style="transform-origin:200px 152px">
+      <rect x="10" y="10" width="380" height="284" rx="34" fill="#fff" stroke="${INK}" stroke-width="6"/>
+      ${coco({ x: 200, y: 160, s: 1.1, eyes: 'shock', mouth: 'open', wingR: -95, wingL: -95, hop: Math.abs(Math.sin(t * 5)) * 8, t })}
+      ${qmark(80, 100, 1.4, t)}${qmark(300, 90, 1.2, t + 1)}${qmark(320, 200, 1, t + 2)}</g>`;
+  }
+  if (inW) {
+    const w = W[idx], u = t - i0 - idx * per;
+    const ex = smooth(per - 0.3, per, u), slide = -ex * 1100;
+    const fs = Math.min(170, 170 * 960 / (w.w.length * 100));
+    $('wTxt').textContent = w.w.toUpperCase(); $('wTxt').style.fontSize = fs + 'px';
+    $('word').style.transform = `translateX(${slide}px) scale(${pop(0.1, 0.35, u)}) rotate(-3deg)`;
+    $('sayTxt').textContent = w.say;
+    $('say').style.transform = `translateX(${slide}px) scale(${pop(0.45, 0.3, u)})`;
+    const tile = (id, t0, rot) => { $(id).style.transform = `translateX(${slide}px) scale(${pop(t0, 0.35, u)}) rotate(${rot}deg)`; };
+    $('aE').textContent = w.ae; $('aT').textContent = w.a.toUpperCase(); tile('tA', T_A, -3);
+    $('bE').textContent = w.be; $('bT').textContent = w.b.toUpperCase(); tile('tB', T_B, 3);
+    $('plus').style.transform = `translateX(${slide}px) scale(${pop(T_B - 0.1, 0.3, u)})`;
+    $('eq').style.transform = `translateX(${slide}px) scale(${pop(T_R - 0.1, 0.3, u)})`;
+    $('lit').style.transform = `translateX(${slide}px)`; $('lit').style.opacity = u > T_A - 0.1 ? 0.75 : 0;
+    $('rE').textContent = w.re; $('rT').textContent = w.real.toUpperCase();
+    $('rT').style.fontSize = Math.min(84, 84 * 8 / Math.max(8, w.real.length)) + 'px';
+    const wob = u > T_R ? Math.sin((u - T_R) * 14) * 3 * Math.exp(-(u - T_R) * 2) : 0;
+    $('res').style.transform = `translateX(${slide}px) scale(${pop(T_R, 0.45, u)}) rotate(${wob}deg)`;
+    let c;
+    if (u < T_R) c = coco({ x: 120, y: 55, s: 0.6, eyes: u > T_B ? 'shock' : 'normal', mouth: u > T_B ? 'open' : 'smile', wingR: -60 + Math.sin(u * 3) * 6, tilt: Math.sin(u * 2) * 4, t: u });
+    else c = coco({ x: 120, y: 55, s: 0.6, eyes: 'squint', mouth: 'open', wingR: -70 + Math.sin(u * 14) * 25, wingL: -70 + Math.sin(u * 14 + 1) * 25, hop: Math.abs(Math.sin(u * 9)) * 8, red: 0.25, tilt: Math.sin(u * 18) * 5, t: u });
+    const bub = u > T_R + 0.2 ? `<g transform="translate(270 45) scale(${pop(T_R + 0.2, 0.3, u)})"><rect x="-92" y="-32" width="184" height="64" rx="22" fill="#fff" stroke="${INK}" stroke-width="5"/>
+      <path d="M-60 30 l-26 18 l8 -22z" fill="#fff" stroke="${INK}" stroke-width="5"/><text y="14" text-anchor="middle" font-family="Lucky" font-size="40" fill="#ff7a00">HAHAHA</text></g>` : '';
+    $('coco').innerHTML = `<g transform="translate(${slide * 0.37} 0)">${c}${bub}</g>`;
+  }
+  if (isOut) {
+    const u = t - (i0 + n * per);
+    $('outro').style.transform = `scale(${pop(0.1, 0.5, u)})`;
+    $('handle').style.opacity = u > 0.9 ? 1 : 0;
+    show('intro', true);
+    $('intro').innerHTML = `<g transform="scale(${pop(0, 0.5, u)})" style="transform-origin:200px 152px"><rect x="10" y="10" width="380" height="284" rx="34" fill="#fff" stroke="${INK}" stroke-width="6"/>
+      ${coco({ x: 200, y: 160, s: 1.1, eyes: 'squint', mouth: 'open', wingR: -70 + Math.sin(u * 12) * 20, wingL: -70 + Math.sin(u * 12 + 1) * 20, hop: Math.abs(Math.sin(u * 8)) * 16, red: 0.2, t: u })}
+      <text x="300" y="90" font-size="60">😂</text><text x="60" y="110" font-size="48">🤭</text></g>`;
+  }
+};
+window.ready = (async () => {
+  TL = await (await fetch('timeline.json')).json();
+  const M = TL.meta, F = M.flag;
+  $('hdr').textContent = 'LITERAL DUTCH';
+  $('flag').innerHTML = `<defs><clipPath id="fc"><rect x="3" y="3" width="90" height="60" rx="10"/></clipPath></defs><g clip-path="url(#fc)">` +
+    (F[0] === 'v' ? `<rect x="3" y="3" width="30" height="60" fill="${F[1]}"/><rect x="33" y="3" width="30" height="60" fill="${F[2]}"/><rect x="63" y="3" width="30" height="60" fill="${F[3]}"/>`
+                  : `<rect x="3" y="3" width="90" height="16" fill="${F[1]}"/><rect x="3" y="19" width="90" height="28" fill="${F[2]}"/><rect x="3" y="47" width="90" height="16" fill="${F[3]}"/>`) +
+    `</g><rect x="3" y="3" width="90" height="60" rx="10" fill="none" stroke="#1d2b53" stroke-width="6"/>`;
+  await Promise.all([document.fonts.load('100px Lucky', 'ÉÍ'), document.fonts.load('700 100px Fredoka', 'éí'), document.fonts.load('600 60px Fredoka')]);
+  await document.fonts.ready;
+  window.render(0); return TL;
+})();
+</script>
+</body>
+</html>

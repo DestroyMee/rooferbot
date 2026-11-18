@@ -17,3 +17,4 @@ videos/clips/**/_*.png
 !videos/*/out/konglish*.mp4
 !videos/*/out/korean-*.mp4
 !videos/*/out/*-part2*.mp4
+videos/hooks/_*.png

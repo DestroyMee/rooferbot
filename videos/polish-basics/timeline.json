@@ -1,0 +1,147 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "POLISH FOR BEGINNERS",
+  "flag": [
+   "pl"
+  ],
+  "title": [
+   [
+    "POL",
+    "#dc143c"
+   ],
+   [
+    "I",
+    "#fff"
+   ],
+   [
+    "SH",
+    "#dc143c"
+   ]
+  ],
+  "sub": "FOR BEGINNERS",
+  "pill": "15 words in 60 seconds",
+  "outro": [
+   "BRAWO!",
+   "= WELL DONE!",
+   "FOLLOW FOR PART 2"
+  ],
+  "voice": {
+   "role": "pl",
+   "intro": "Polish for beginners! Fifteen words. Let's go!",
+   "outro_native": "Brawo!",
+   "outro_en": "Well done! Follow for part two!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Dzień dobry",
+   "say": "jen DOH-bri",
+   "en": "Hello",
+   "pic": "sun",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "Dziękuję",
+   "say": "jen-KOO-yeh",
+   "en": "Thank you",
+   "pic": "gift",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "Tak",
+   "say": "tahk",
+   "en": "Yes",
+   "pic": "yes",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "Nie",
+   "say": "nyeh",
+   "en": "No",
+   "pic": "no",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "Proszę",
+   "say": "PROH-sheh",
+   "en": "Please",
+   "pic": "please",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "Do widzenia",
+   "say": "doh vee-DZEN-yah",
+   "en": "Goodbye",
+   "pic": "bye",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "kot",
+   "say": "kot",
+   "en": "cat",
+   "pic": "cat",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "pies",
+   "say": "pyes",
+   "en": "dog",
+   "pic": "dog",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "jabłko",
+   "say": "YAHP-koh",
+   "en": "apple",
+   "pic": "apple",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "woda",
+   "say": "VOH-dah",
+   "en": "water",
+   "pic": "water",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "Dobranoc",
+   "say": "doh-BRAH-nots",
+   "en": "Good night",
+   "pic": "night",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "Kocham cię",
+   "say": "KOH-hahm chyeh",
+   "en": "I love you",
+   "pic": "love",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "Przepraszam",
+   "say": "psheh-PRAH-shahm",
+   "en": "Sorry",
+   "pic": "sorry",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "przyjaciel",
+   "say": "pshi-YAH-chel",
+   "en": "friend",
+   "pic": "friend",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "dom",
+   "say": "dom",
+   "en": "house",
+   "pic": "house",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

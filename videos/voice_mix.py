@@ -31,6 +31,7 @@ ROLES = {
     "pt":       dict(voice="pm_alex",  lang="pt-br", speed=0.95, pitch=1.0),
     "ja":       dict(voice="jf_alpha", lang="ja",    speed=0.9,  pitch=1.0, kana=True),  # Text = Katakana-Aussprache
     "ko":       dict(voice="mimic3-kss", lang="ko", speed=1.0, pitch=1.0, korean=True),  # eigene Stimme, siehe _tools/ko_tts.py
+    "pl":       dict(voice="piper-gosia", lang="pl", speed=0.95, pitch=1.0, piper="PL_TTS_DIR"),  # Piper-Stimme, siehe _tools/vits_tts.py
 }
 
 _k = None
@@ -50,7 +51,10 @@ def synth(text, role, cache):
     key = hashlib.md5(json.dumps([text, r]).encode()).hexdigest()[:16]
     f = os.path.join(cache, key + ".wav")
     if not os.path.exists(f):
-        if r.get("korean"):
+        if r.get("piper"):
+            sys.path.insert(0, os.path.join(HERE, "_tools")); import vits_tts
+            a, sr = vits_tts.synth(os.environ[r["piper"]], r["lang"], text, length_scale=1.0 / r["speed"])
+        elif r.get("korean"):
             sys.path.insert(0, os.path.join(HERE, "_tools")); import ko_tts
             a, sr = ko_tts.synth(text, length_scale=1.0 / r["speed"])
         elif r.get("kana"):

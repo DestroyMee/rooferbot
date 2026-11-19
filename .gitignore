@@ -18,3 +18,4 @@ videos/clips/**/_*.png
 !videos/*/out/korean-*.mp4
 !videos/*/out/*-part2*.mp4
 videos/hooks/_*.png
+!videos/*/out/polish-*.mp4

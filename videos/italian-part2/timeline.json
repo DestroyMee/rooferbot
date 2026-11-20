@@ -1,0 +1,165 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "ITALIAN · PART 2",
+  "flag": [
+   "v",
+   "#009246",
+   "#ffffff",
+   "#ce2b37"
+  ],
+  "title": [
+   [
+    "ITA",
+    "#009246"
+   ],
+   [
+    "L",
+    "#fff"
+   ],
+   [
+    "IAN",
+    "#ce2b37"
+   ]
+  ],
+  "sub": "FOR BEGINNERS · PART 2",
+  "pill": "15 NEW words in 60 seconds",
+  "outro": [
+   "MOLTO BENE!",
+   "= VERY GOOD!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "it",
+   "intro": "Italian for beginners, part two! Fifteen new words!",
+   "outro_native": "Molto bene!",
+   "outro_en": "Very good! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Buongiorno",
+   "say": "bwon-JOR-noh",
+   "en": "Good morning",
+   "emo": "☀️",
+   "pic": "emo",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "Come stai?",
+   "say": "KOH-meh STAI",
+   "en": "How are you?",
+   "emo": "🙂",
+   "pic": "emo",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "il pane",
+   "say": "eel PAH-neh",
+   "en": "bread",
+   "emo": "🍞",
+   "pic": "emo",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "il caffè",
+   "say": "eel kahf-FEH",
+   "en": "coffee",
+   "emo": "☕",
+   "pic": "emo",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "il latte",
+   "say": "eel LAHT-teh",
+   "en": "milk",
+   "emo": "🥛",
+   "pic": "emo",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "l'uovo",
+   "say": "LWOH-voh",
+   "en": "egg",
+   "emo": "🥚",
+   "pic": "emo",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "la banana",
+   "say": "lah bah-NAH-nah",
+   "en": "banana",
+   "emo": "🍌",
+   "pic": "emo",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "la macchina",
+   "say": "lah MAHK-kee-nah",
+   "en": "car",
+   "emo": "🚗",
+   "pic": "emo",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "il libro",
+   "say": "eel LEE-broh",
+   "en": "book",
+   "emo": "📖",
+   "pic": "emo",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "la scuola",
+   "say": "lah SKWOH-lah",
+   "en": "school",
+   "emo": "🏫",
+   "pic": "emo",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "la pioggia",
+   "say": "lah PYOD-jah",
+   "en": "rain",
+   "emo": "🌧️",
+   "pic": "emo",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "caldo",
+   "say": "KAHL-doh",
+   "en": "hot",
+   "emo": "🥵",
+   "pic": "emo",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "freddo",
+   "say": "FRED-doh",
+   "en": "cold",
+   "emo": "🥶",
+   "pic": "emo",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "felice",
+   "say": "feh-LEE-cheh",
+   "en": "happy",
+   "emo": "😊",
+   "pic": "emo",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "buonissimo",
+   "say": "bwoh-NEES-see-moh",
+   "en": "delicious",
+   "emo": "😋",
+   "pic": "emo",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

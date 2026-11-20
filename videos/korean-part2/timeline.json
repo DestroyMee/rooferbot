@@ -1,0 +1,162 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "KOREAN · PART 2",
+  "flag": [
+   "kr"
+  ],
+  "title": [
+   [
+    "KOR",
+    "#cd2e3a"
+   ],
+   [
+    "E",
+    "#fff"
+   ],
+   [
+    "AN",
+    "#0047a0"
+   ]
+  ],
+  "sub": "FOR BEGINNERS · PART 2",
+  "pill": "15 NEW words in 60 seconds",
+  "outro": [
+   "최고!",
+   "= THE BEST!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "ko",
+   "intro": "Korean for beginners, part two! Fifteen new words!",
+   "outro_native": "최고!",
+   "outro_en": "The best! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "좋은 아침",
+   "say": "jo-eun a-chim",
+   "en": "Good morning",
+   "emo": "☀️",
+   "pic": "emo",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "잘 지내요?",
+   "say": "jal ji-nae-yo",
+   "en": "How are you?",
+   "emo": "🙂",
+   "pic": "emo",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "빵",
+   "say": "ppang",
+   "en": "bread",
+   "emo": "🍞",
+   "pic": "emo",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "커피",
+   "say": "keo-pi",
+   "en": "coffee",
+   "emo": "☕",
+   "pic": "emo",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "우유",
+   "say": "u-yu",
+   "en": "milk",
+   "emo": "🥛",
+   "pic": "emo",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "계란",
+   "say": "gye-ran",
+   "en": "egg",
+   "emo": "🥚",
+   "pic": "emo",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "바나나",
+   "say": "ba-na-na",
+   "en": "banana",
+   "emo": "🍌",
+   "pic": "emo",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "자동차",
+   "say": "ja-dong-cha",
+   "en": "car",
+   "emo": "🚗",
+   "pic": "emo",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "책",
+   "say": "chaek",
+   "en": "book",
+   "emo": "📖",
+   "pic": "emo",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "학교",
+   "say": "hak-gyo",
+   "en": "school",
+   "emo": "🏫",
+   "pic": "emo",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "비",
+   "say": "bi",
+   "en": "rain",
+   "emo": "🌧️",
+   "pic": "emo",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "더워요",
+   "say": "deo-wo-yo",
+   "en": "hot",
+   "emo": "🥵",
+   "pic": "emo",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "추워요",
+   "say": "chu-wo-yo",
+   "en": "cold",
+   "emo": "🥶",
+   "pic": "emo",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "행복해요",
+   "say": "haeng-bok-hae-yo",
+   "en": "happy",
+   "emo": "😊",
+   "pic": "emo",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "맛있어요",
+   "say": "ma-si-sseo-yo",
+   "en": "delicious",
+   "emo": "😋",
+   "pic": "emo",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

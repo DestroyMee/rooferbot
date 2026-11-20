@@ -1,0 +1,165 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "SPANISH · PART 2",
+  "flag": [
+   "h",
+   "#c60b1e",
+   "#ffc400",
+   "#c60b1e"
+  ],
+  "title": [
+   [
+    "SPA",
+    "#c60b1e"
+   ],
+   [
+    "N",
+    "#ffc400"
+   ],
+   [
+    "ISH",
+    "#c60b1e"
+   ]
+  ],
+  "sub": "FOR BEGINNERS · PART 2",
+  "pill": "15 NEW words in 60 seconds",
+  "outro": [
+   "¡MUY BIEN!",
+   "= VERY GOOD!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "es_f",
+   "intro": "Spanish for beginners, part two! Fifteen new words!",
+   "outro_native": "¡Muy bien!",
+   "outro_en": "Very good! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Buenos días",
+   "say": "BWEH-nohs DEE-ahs",
+   "en": "Good morning",
+   "emo": "☀️",
+   "pic": "emo",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "¿Qué tal?",
+   "say": "keh TAHL",
+   "en": "How are you?",
+   "emo": "🙂",
+   "pic": "emo",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "el pan",
+   "say": "el PAHN",
+   "en": "bread",
+   "emo": "🍞",
+   "pic": "emo",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "el café",
+   "say": "el kah-FEH",
+   "en": "coffee",
+   "emo": "☕",
+   "pic": "emo",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "la leche",
+   "say": "lah LEH-cheh",
+   "en": "milk",
+   "emo": "🥛",
+   "pic": "emo",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "el huevo",
+   "say": "el WEH-voh",
+   "en": "egg",
+   "emo": "🥚",
+   "pic": "emo",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "el plátano",
+   "say": "el PLAH-tah-noh",
+   "en": "banana",
+   "emo": "🍌",
+   "pic": "emo",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "el coche",
+   "say": "el KOH-cheh",
+   "en": "car",
+   "emo": "🚗",
+   "pic": "emo",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "el libro",
+   "say": "el LEE-broh",
+   "en": "book",
+   "emo": "📖",
+   "pic": "emo",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "la escuela",
+   "say": "lah es-KWEH-lah",
+   "en": "school",
+   "emo": "🏫",
+   "pic": "emo",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "la lluvia",
+   "say": "lah YOO-vyah",
+   "en": "rain",
+   "emo": "🌧️",
+   "pic": "emo",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "caliente",
+   "say": "kah-LYEN-teh",
+   "en": "hot",
+   "emo": "🥵",
+   "pic": "emo",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "frío",
+   "say": "FREE-oh",
+   "en": "cold",
+   "emo": "🥶",
+   "pic": "emo",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "feliz",
+   "say": "feh-LEES",
+   "en": "happy",
+   "emo": "😊",
+   "pic": "emo",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "delicioso",
+   "say": "deh-lee-SYOH-soh",
+   "en": "delicious",
+   "emo": "😋",
+   "pic": "emo",
+   "bg": "#d3f9d8"
+  }
+ ]
+}

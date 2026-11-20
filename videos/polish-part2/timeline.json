@@ -1,0 +1,162 @@
+{
+ "fps": 30,
+ "intro": 3.5,
+ "per": 4.0,
+ "outro": 3.5,
+ "duration": 67.0,
+ "meta": {
+  "header": "POLISH · PART 2",
+  "flag": [
+   "pl"
+  ],
+  "title": [
+   [
+    "POL",
+    "#dc143c"
+   ],
+   [
+    "I",
+    "#fff"
+   ],
+   [
+    "SH",
+    "#dc143c"
+   ]
+  ],
+  "sub": "FOR BEGINNERS · PART 2",
+  "pill": "15 NEW words in 60 seconds",
+  "outro": [
+   "BRAWO!",
+   "= WELL DONE!",
+   "FOLLOW FOR PART 3"
+  ],
+  "voice": {
+   "role": "pl",
+   "intro": "Polish for beginners, part two! Fifteen new words!",
+   "outro_native": "Brawo!",
+   "outro_en": "Well done! Follow for part three!"
+  }
+ },
+ "words": [
+  {
+   "fr": "Dobry wieczór",
+   "say": "DOH-bri VYEH-choor",
+   "en": "Good evening",
+   "emo": "🌆",
+   "pic": "emo",
+   "bg": "#ffe08a"
+  },
+  {
+   "fr": "Jak się masz?",
+   "say": "yahk sheh MAHSH",
+   "en": "How are you?",
+   "emo": "🙂",
+   "pic": "emo",
+   "bg": "#ffc2d1"
+  },
+  {
+   "fr": "chleb",
+   "say": "hlep",
+   "en": "bread",
+   "emo": "🍞",
+   "pic": "emo",
+   "bg": "#b9f0c4"
+  },
+  {
+   "fr": "kawa",
+   "say": "KAH-vah",
+   "en": "coffee",
+   "emo": "☕",
+   "pic": "emo",
+   "bg": "#ffb4a8"
+  },
+  {
+   "fr": "mleko",
+   "say": "MLEH-koh",
+   "en": "milk",
+   "emo": "🥛",
+   "pic": "emo",
+   "bg": "#d9c8ff"
+  },
+  {
+   "fr": "jajko",
+   "say": "YIGH-koh",
+   "en": "egg",
+   "emo": "🥚",
+   "pic": "emo",
+   "bg": "#a8dcff"
+  },
+  {
+   "fr": "banan",
+   "say": "BAH-nahn",
+   "en": "banana",
+   "emo": "🍌",
+   "pic": "emo",
+   "bg": "#ffd6a5"
+  },
+  {
+   "fr": "samochód",
+   "say": "sah-MOH-hoot",
+   "en": "car",
+   "emo": "🚗",
+   "pic": "emo",
+   "bg": "#cdeac0"
+  },
+  {
+   "fr": "książka",
+   "say": "KSHOHN-shkah",
+   "en": "book",
+   "emo": "📖",
+   "pic": "emo",
+   "bg": "#fff3b0"
+  },
+  {
+   "fr": "szkoła",
+   "say": "SHKOH-wah",
+   "en": "school",
+   "emo": "🏫",
+   "pic": "emo",
+   "bg": "#bde0fe"
+  },
+  {
+   "fr": "deszcz",
+   "say": "deshch",
+   "en": "rain",
+   "emo": "🌧️",
+   "pic": "emo",
+   "bg": "#bac8ff"
+  },
+  {
+   "fr": "gorąco",
+   "say": "goh-RON-tsoh",
+   "en": "hot",
+   "emo": "🥵",
+   "pic": "emo",
+   "bg": "#ffc9c9"
+  },
+  {
+   "fr": "zimno",
+   "say": "ZHEEM-noh",
+   "en": "cold",
+   "emo": "🥶",
+   "pic": "emo",
+   "bg": "#dee2e6"
+  },
+  {
+   "fr": "szczęśliwy",
+   "say": "shchen-SHLEE-vi",
+   "en": "happy",
+   "emo": "😊",
+   "pic": "emo",
+   "bg": "#c3fae8"
+  },
+  {
+   "fr": "pyszne",
+   "say": "PISH-neh",
+   "en": "delicious",
+   "emo": "😋",
+   "pic": "emo",
+   "bg": "#d3f9d8"
+  }
+ ]
+}
